@@ -1,14 +1,16 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-export default function sayHello(name, title) {
-  let greeting = 'Hello';
+// Helpers for debugging
+window.React = React;
+window.Perf = require('react-addons-perf');
 
-  if (title) {
-    greeting = greeting.concat(` ${title}`);
-  }
-
-  if (name) {
-    greeting = greeting.concat(` ${name}`);
-  }
-
-  return greeting;
-}
+/**
+ * Render the main app component. You can read more about the react-router here:
+ * https://github.com/rackt/react-router/blob/master/docs/guides/overview.md
+ */
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);

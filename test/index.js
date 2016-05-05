@@ -1,3 +1,4 @@
+require('app-module-path').addPath(`${__dirname}'./../`);
 import Minimist from 'minimist';
 import Mocha from 'mocha';
 import Glob from 'glob';
@@ -38,7 +39,7 @@ const mocha = new Mocha({
 });
 
 Glob(
-  `src/**/${argv.component ? argv.component : 'Button'}.spec.js`,
+  `src/**/${argv.component ? argv.component : '*'}.{spec,test}.js`,
   {},
   (err, files) => {
     files.forEach((file) => mocha.addFile(file));

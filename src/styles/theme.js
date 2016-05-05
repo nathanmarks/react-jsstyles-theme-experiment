@@ -1,16 +1,13 @@
 import merge from 'lodash.merge';
 import hashObject from '../utils/hashObject';
 import { createPalette } from './colors';
-import transitions from './transitions';
+import { transitions, typography } from './themeVariables';
 
-export function createMuiTheme(
-  palette = createPalette(),
-  ...more
-) {
+export function createMuiTheme(palette = createPalette(), ...more) {
   const properties = merge({
     palette,
     transitions,
-    fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
+    typography,
   }, ...more);
 
   if (!properties.hasOwnProperty('id')) {

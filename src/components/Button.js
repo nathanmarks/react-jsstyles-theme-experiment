@@ -3,7 +3,7 @@ import { createStyleSheet } from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
 const styleSheet = createStyleSheet('button', (theme) => {
-  const { palette, transitions } = theme;
+  const { palette, transitions, typography } = theme;
 
   return {
     base: {
@@ -18,7 +18,7 @@ const styleSheet = createStyleSheet('button', (theme) => {
       borderRadius: 2,
       fontWeight: 500,
       fontSize: 14,
-      fontFamily: theme.fontFamily,
+      fontFamily: typography.fontFamily,
       textTransform: 'uppercase',
       cursor: 'pointer',
       transition: transitions.easeOut()

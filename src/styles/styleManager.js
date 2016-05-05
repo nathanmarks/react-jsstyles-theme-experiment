@@ -16,7 +16,7 @@ export function createStyleManager({
 
 const styleManager = {
   /**
-   * Attaches a styleSheet object to your mum.
+   * Attaches a styleSheet object
    */
   attach(styleSheet) {
     const counter = this.sheetMap.get(styleSheet) || 0;

@@ -3,13 +3,17 @@ import { createStyleSheet } from '../styles/styleSheet';
 import { createMuiTheme } from './theme';
 import { createStyleManager } from './styleManager';
 
-const styleSheet = createStyleSheet('theme', ({ palette }) => ({
-  body: {
-    background: palette.background,
-    fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
-    color: palette.text.primary
-  }
-}), { global: true, named: false });
+const styleSheet = createStyleSheet('theme', (theme) => {
+  const { palette, typography } = theme;
+
+  return {
+    body: {
+      background: palette.background,
+      fontFamily: typography.fontFamily,
+      color: palette.text.primary
+    }
+  };
+}, { global: true, named: false });
 
 const themeProvider = (
   theme = createMuiTheme(),

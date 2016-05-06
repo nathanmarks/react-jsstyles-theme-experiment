@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 export default {
 
   easeOutFunction: 'cubic-bezier(0.23, 1, 0.32, 1)',

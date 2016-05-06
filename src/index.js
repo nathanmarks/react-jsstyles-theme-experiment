@@ -7,8 +7,7 @@ window.React = React;
 window.Perf = require('react-addons-perf');
 
 /**
- * Render the main app component. You can read more about the react-router here:
- * https://github.com/rackt/react-router/blob/master/docs/guides/overview.md
+ * Render the main app component.
  */
 ReactDOM.render(
   <App />,

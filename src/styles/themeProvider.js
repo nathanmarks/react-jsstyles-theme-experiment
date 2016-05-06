@@ -5,7 +5,6 @@ import { createStyleManager } from './styleManager';
 
 const styleSheet = createStyleSheet('theme', (theme) => {
   const { palette, typography } = theme;
-
   return {
     body: {
       background: palette.background,
@@ -20,6 +19,9 @@ const themeProvider = (
   styleManager = createStyleManager({ theme })
 ) => (ComposedComponent) => {
   return class ThemeProvider extends Component {
+    static theme = theme;
+    static styleManager = styleManager;
+
     static childContextTypes = {
       styleManager: PropTypes.object.isRequired,
       theme: PropTypes.object.isRequired
@@ -27,8 +29,8 @@ const themeProvider = (
 
     getChildContext() {
       return {
-        theme: theme || createMuiTheme(),
-        styleManager: styleManager || createStyleManager({ theme }),
+        theme: theme,
+        styleManager: styleManager,
       };
     }
 

@@ -71,7 +71,15 @@ export default class Button extends Component {
   }
 
   render() {
-    const { accent, children, className, primary, ...other } = this.props;
+    const {
+      accent,
+      children,
+      className,
+      primary,
+      type, // eslint-disable-line no-unused-vars
+      ...other
+    } = this.props;
+
     const { classes } = styleSheet;
 
     const classNames = ClassNames({

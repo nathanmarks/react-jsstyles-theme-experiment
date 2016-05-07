@@ -12,13 +12,7 @@ describe('styles/styleSheet', () => {
     });
   });
 
-  // describe('adding styles', () => {
-  //   it('should return an object with classes', () => {
-  //     const styles = styleSheet.addStyles()
-  //   });
-  // });
+  describe.only('concurrency', () => {
 
-  // describe('tracking stylesheets', () => {});
-
-  // describe('writing styles to the dom', () => {});
+  });
 });

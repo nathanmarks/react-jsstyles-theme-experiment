@@ -11,8 +11,4 @@ describe('styles/styleSheet', () => {
       assert.ok(styleSheet);
     });
   });
-
-  describe.only('concurrency', () => {
-
-  });
 });

@@ -7,7 +7,7 @@ import { createMuiTheme } from 'src/styles/theme';
 import themeProvider from 'src/styles/themeProvider';
 import HelloWorld from './fixtures/HelloWorld';
 
-describe('server side concurrency', () => {
+describe('concurrency', () => {
   const themeA = themeProvider()(HelloWorld);
   const customTheme = createMuiTheme(createPalette({
     primary: deepOrange,
@@ -15,7 +15,7 @@ describe('server side concurrency', () => {
   }));
   const themeB = themeProvider(customTheme)(HelloWorld);
 
-  it('test', () => {
+  it('should render the unique theme classes', () => {
     const testA = ReactDOM.renderToString(
       React.createElement(themeA)
     );

@@ -2,9 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { createStyleSheet } from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
-export const styleSheet = createStyleSheet('button', (theme) => {
+const styleSheet = createStyleSheet('button', (theme) => {
   const { palette, transitions, typography } = theme;
-
   return {
     base: {
       display: 'inline-flex',
@@ -63,7 +62,7 @@ export default class Button extends Component {
   };
 
   componentWillMount() {
-    this.context.styleManager.attach(styleSheet);
+    this.styleSheet = this.context.styleManager.attach(styleSheet);
   }
 
   componentWillUnmount() {
@@ -80,7 +79,7 @@ export default class Button extends Component {
       ...other
     } = this.props;
 
-    const { classes } = styleSheet;
+    const { classes } = this.styleSheet;
 
     const classNames = ClassNames({
       [classes.base]: true,

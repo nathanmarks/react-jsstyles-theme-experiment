@@ -36,7 +36,7 @@ export default class HelloWorld extends Component {
   };
 
   componentWillMount() {
-    this.context.styleManager.attach(styleSheet);
+    this.styleSheet = this.context.styleManager.attach(styleSheet);
   }
 
   componentWillUnmount() {
@@ -50,7 +50,7 @@ export default class HelloWorld extends Component {
       ...other
     } = this.props;
 
-    const { classes } = styleSheet;
+    const { classes } = this.styleSheet;
     const classNames = ClassNames(classes.base, className);
 
     return (

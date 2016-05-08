@@ -2,6 +2,8 @@ node_modules
 npm-debug.log
 build
 coverage
+webpack-assets.json
+webpack-stats.json
 
 # OS files
 .DS_STORE

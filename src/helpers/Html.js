@@ -22,7 +22,7 @@ export default class Html extends Component {
     const content = ReactDOM.renderToString(
       React.createElement(app)
     );
-    const sheets = app.styleManager.jss.sheets.registry;
+    const sheets = app.styleManager.getSheets();
 
     return (
       <html lang="en-us">

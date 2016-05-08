@@ -9,15 +9,14 @@ export function createStyleSheet(name, createStyles, options = {}) {
 
 function getRuleDefinitions(theme) {
   const styles = this.createStyles(theme);
-
-  this.classes = {};
-  this.ruleDefinitions = {};
+  const classes = {};
+  const ruleDefinitions = {};
 
   Object.keys(styles).forEach((key) => {
     const selector = this.options.global ? key : `${this.name}__${key}--${theme.id}`;
-    this.classes[key] = selector;
-    this.ruleDefinitions[this.options.named ? `.${selector}` : selector] = styles[key];
+    classes[key] = selector;
+    ruleDefinitions[this.options.named ? `.${selector}` : selector] = styles[key];
   });
 
-  return this.ruleDefinitions;
+  return { ruleDefinitions, classes };
 }

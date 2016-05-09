@@ -28,14 +28,17 @@ export function createStyleManager({
   styleManager.attach = partial(attach, jss, theme, sheetMap);
   styleManager.detach = partial(detach, sheetMap);
   styleManager.getSheets = partial(getSheets, jss);
+  styleManager.getClasses = partial(getClasses, sheetMap);
   return styleManager;
 }
 
-function getSheets(jss) {
+export function getSheets(jss) {
   return jss.sheets.registry;
 }
 
-// function getClasses(sty)
+export function getClasses(sheetMap, styleSheet) {
+  return sheetMap.get(styleSheet).sheet.classes;
+}
 
 /**
  * Attaches a styleSheet object
@@ -46,7 +49,7 @@ function getSheets(jss) {
  * @param  {Object}  styleSheet - The styleSheet object to be attached
  * @return {Object}             - An object @TODO has classes etc
  */
-function attach(jss, theme, sheetMap, styleSheet) {
+export function attach(jss, theme, sheetMap, styleSheet) {
   let mapping = sheetMap.get(styleSheet);
 
   if (!mapping) {
@@ -74,7 +77,7 @@ function attach(jss, theme, sheetMap, styleSheet) {
  * @param  {WeakMap} sheetMap   - Tracks the sheets in play and the # of instances
  * @param  {Object}  styleSheet - The styleSheet object to be attached
  */
-function detach(sheetMap, styleSheet) {
+export function detach(sheetMap, styleSheet) {
   const mapping = sheetMap.get(styleSheet);
   const counter = mapping.counter - 1;
 
@@ -95,7 +98,7 @@ function detach(sheetMap, styleSheet) {
  * @param  {Object}  styleSheet - The styleSheet object to be attached
  * @return {Object}             - The JSS sheet
  */
-function createJssSheet(jss, theme, styleSheet) {
+export function createJssSheet(jss, theme, styleSheet) {
   const { ruleDefinitions, classes } = styleSheet.getRuleDefinitions(theme);
 
   const hash = hashObject(ruleDefinitions);

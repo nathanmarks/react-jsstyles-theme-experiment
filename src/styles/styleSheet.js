@@ -3,11 +3,11 @@ export function createStyleSheet(name, createStyles, options = {}) {
   styleSheet.name = name;
   styleSheet.createStyles = createStyles;
   styleSheet.options = Object.assign({ global: false, named: true }, options);
-  styleSheet.getRuleDefinitions = getRuleDefinitions;
+  styleSheet.getRules = getRules;
   return styleSheet;
 }
 
-function getRuleDefinitions(theme) {
+function getRules(theme) {
   const styles = this.createStyles(theme);
   const classes = {};
   const ruleDefinitions = {};

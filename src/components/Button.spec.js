@@ -16,12 +16,13 @@ describe('<Button />', () => {
     const wrapper = shallowWithContext(
       <Button type="raised" primary={true}>Hello World</Button>
     );
+    const classes = styleManager.getClasses(styleSheet);
     assert.ok(
-      wrapper.hasClass(styleManager.getClasses(styleSheet).raised),
+      wrapper.hasClass(classes.raised),
       'should have the raised class'
     );
     assert.ok(
-      wrapper.hasClass(styleManager.getClasses(styleSheet).raisedPrimary),
+      wrapper.hasClass(classes.raisedPrimary),
       'should have the raised primary class'
     );
   });

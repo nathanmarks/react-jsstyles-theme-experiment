@@ -2,7 +2,7 @@ import { create as createJss } from 'jss';
 import nested from 'jss-nested';
 import camelCase from 'jss-camel-case';
 import defaultUnit from 'jss-default-unit';
-import partial from 'lodash.partial';
+import find from 'lodash.find';
 import hashObject from '../utils/hashObject';
 
 const canUseDOM = !!(
@@ -22,13 +22,13 @@ const canUseDOM = !!(
 export function createStyleManager({
   jss = createJss().use(nested(), camelCase(), defaultUnit()),
   theme = {},
-  sheetMap = new WeakMap()
+  sheetMap = []
 } = {}) {
   const styleManager = {};
-  styleManager.attach = partial(attach, jss, theme, sheetMap);
-  styleManager.detach = partial(detach, sheetMap);
-  styleManager.getSheets = partial(getSheets, jss);
-  styleManager.getClasses = partial(getClasses, sheetMap);
+  styleManager.attach = (styleSheet) => attach(jss, theme, sheetMap, styleSheet);
+  styleManager.detach = (styleSheet) => detach(sheetMap, styleSheet);
+  styleManager.getSheets = () => getSheets(jss);
+  styleManager.getClasses = (styleSheet) => getClasses(sheetMap, styleSheet);
   return styleManager;
 }
 
@@ -37,7 +37,7 @@ export function getSheets(jss) {
 }
 
 export function getClasses(sheetMap, styleSheet) {
-  return sheetMap.get(styleSheet).sheet.classes;
+  return find(sheetMap, { styleSheet }).sheet.classes;
 }
 
 /**
@@ -50,14 +50,15 @@ export function getClasses(sheetMap, styleSheet) {
  * @return {Object}             - An object @TODO has classes etc
  */
 export function attach(jss, theme, sheetMap, styleSheet) {
-  let mapping = sheetMap.get(styleSheet);
+  let mapping = find(sheetMap, { styleSheet });
 
   if (!mapping) {
     mapping = {
+      styleSheet,
       sheet: createJssSheet(jss, theme, styleSheet),
       counter: 0
     };
-    sheetMap.set(styleSheet, mapping);
+    sheetMap.push(mapping);
   }
 
   if (mapping.counter === 0) {
@@ -78,14 +79,17 @@ export function attach(jss, theme, sheetMap, styleSheet) {
  * @param  {Object}  styleSheet - The styleSheet object to be attached
  */
 export function detach(sheetMap, styleSheet) {
-  const mapping = sheetMap.get(styleSheet);
+  const mapping = find(sheetMap, { styleSheet });
   const counter = mapping.counter - 1;
 
   if (counter) {
     mapping.counter = counter;
   } else {
     mapping.sheet.detach();
-    sheetMap.delete(styleSheet);
+    const sheetIndex = sheetMap.indexOf(mapping);
+    if (sheetIndex !== -1) {
+      sheetMap.splice(sheetIndex, 1);
+    }
   }
 }
 
@@ -99,7 +103,7 @@ export function detach(sheetMap, styleSheet) {
  * @return {Object}             - The JSS sheet
  */
 export function createJssSheet(jss, theme, styleSheet) {
-  const { ruleDefinitions, classes } = styleSheet.getRuleDefinitions(theme);
+  const { ruleDefinitions, classes } = styleSheet.getRules(theme);
 
   const hash = hashObject(ruleDefinitions);
   const options = { meta: hash, named: false };

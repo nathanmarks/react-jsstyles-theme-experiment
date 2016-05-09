@@ -1,3 +1,4 @@
+/* global webpackIsomorphicTools */
 import express from 'express';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -6,7 +7,6 @@ import favicon from 'serve-favicon';
 import path from 'path';
 import config from './config';
 import Html from './helpers/Html';
-import createApp from './createApp';
 
 const app = new express();
 const server = new http.Server(app);
@@ -22,7 +22,7 @@ app.use((req, res) => {
   }
 
   res.send('<!doctype html>\n' + ReactDOM.renderToString(
-    <Html assets={webpackIsomorphicTools.assets()} app={createApp()} /> //eslint-disable-line
+    <Html assets={webpackIsomorphicTools.assets()} />
   ));
 });
 

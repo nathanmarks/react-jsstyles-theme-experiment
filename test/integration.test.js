@@ -4,23 +4,21 @@ import ReactDOM from 'react-dom/server';
 import { assert } from 'chai';
 import { createPalette, deepOrange, lightBlue } from 'src/styles/colors';
 import { createMuiTheme } from 'src/styles/theme';
-import themeProvider from 'src/styles/themeProvider';
+import ThemeProvider from 'src/styles/ThemeProvider';
 import HelloWorld from './fixtures/HelloWorld';
 
 describe('concurrency', () => {
-  const themeA = themeProvider()(HelloWorld);
   const customTheme = createMuiTheme(createPalette({
     primary: deepOrange,
     accent: lightBlue
   }));
-  const themeB = themeProvider(customTheme)(HelloWorld);
 
   it('should render the unique theme classes', () => {
     const testA = ReactDOM.renderToString(
-      React.createElement(themeA)
+      <ThemeProvider><HelloWorld /></ThemeProvider>
     );
     const testB = ReactDOM.renderToString(
-      React.createElement(themeB)
+      <ThemeProvider theme={customTheme}><HelloWorld /></ThemeProvider>
     );
     assert.strictEqual(
       testA,

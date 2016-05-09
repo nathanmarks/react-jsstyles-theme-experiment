@@ -1,6 +1,9 @@
 /* eslint-disable react/no-danger */
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom/server';
+import { createMuiTheme } from '../styles/theme';
+import { createStyleManager } from '../styles/styleManager';
+import App from '../App';
 
 /**
  * Wrapper component containing HTML metadata and boilerplate tags.
@@ -13,16 +16,17 @@ import ReactDOM from 'react-dom/server';
  */
 export default class Html extends Component {
   static propTypes = {
-    app: PropTypes.func,
     assets: PropTypes.object
   };
 
   render() {
-    const { assets, app } = this.props;
+    const { assets } = this.props;
+    const theme = createMuiTheme();
+    const styleManager = createStyleManager({ theme });
     const content = ReactDOM.renderToString(
-      React.createElement(app)
+      <App theme={theme} styleManager={styleManager} />
     );
-    const sheets = app.styleManager.getSheets();
+    const sheets = styleManager.getSheets();
 
     return (
       <html lang="en-us">

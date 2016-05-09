@@ -17,11 +17,11 @@ describe('<Button />', () => {
       <Button type="raised" primary={true}>Hello World</Button>
     );
     assert.ok(
-      wrapper.hasClass(styleSheet.classes.raised),
+      wrapper.hasClass(styleManager.getClasses(styleSheet).raised),
       'should have the raised class'
     );
     assert.ok(
-      wrapper.hasClass(styleSheet.classes.raisedPrimary),
+      wrapper.hasClass(styleManager.getClasses(styleSheet).raisedPrimary),
       'should have the raised primary class'
     );
   });

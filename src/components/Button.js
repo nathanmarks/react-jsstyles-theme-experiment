@@ -6,7 +6,7 @@ export const styleSheet = createStyleSheet('button', (theme) => {
   const { palette, transitions, typography } = theme;
 
   const base = {
-    ...typography.button,
+    extend: typography.button,
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -23,9 +23,6 @@ export const styleSheet = createStyleSheet('button', (theme) => {
   const raised = {
     extend: base,
     boxShadow: palette.zDepthShadows[0],
-    '&:focus': {
-      boxShadow: palette.zDepthShadows[1]
-    },
     '&:active': {
       boxShadow: palette.zDepthShadows[2]
     }

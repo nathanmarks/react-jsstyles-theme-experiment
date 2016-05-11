@@ -46,7 +46,7 @@ export function getClasses(sheetMap, styleSheet) {
  *
  * @param  {Object}  jss        - JSS Instance
  * @param  {Object}  theme      - Theme object
- * @param  {WeakMap} sheetMap   - Tracks the sheets in play and the # of instances
+ * @param  {Array}   sheetMap   - Tracks the sheets in play and the # of instances
  * @param  {Object}  styleSheet - The styleSheet object to be attached
  * @return {Object}             - An object @TODO has classes etc
  */
@@ -76,7 +76,7 @@ export function attach(jss, theme, sheetMap, styleSheet) {
 /**
  * Detaches a styleSheet
  *
- * @param  {WeakMap} sheetMap   - Tracks the sheets in play and the # of instances
+ * @param  {Array}   sheetMap   - Tracks the sheets in play and the # of instances
  * @param  {Object}  styleSheet - The styleSheet object to be attached
  */
 export function detach(sheetMap, styleSheet) {
@@ -96,7 +96,7 @@ export function detach(sheetMap, styleSheet) {
 
 /**
  * Creates a JSS sheet object from a theme
- * and styleSheet using the given JSS instance.
+ * and styleSheet using the provided JSS instance.
  *
  * @param  {Object}  jss        - JSS Instance
  * @param  {Object}  theme      - Theme object

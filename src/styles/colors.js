@@ -372,8 +372,8 @@ export const grey = {
   700: '#616161',
   800: '#424242',
   900: '#212121',
-  A100: '#ffffff',
-  A200: '#000000',
+  A100: '#d5d5d5',
+  A200: '#aaaaaa',
   A400: '#303030',
   A700: '#616161',
   contrastDefaultColor: 'dark'

@@ -23,6 +23,9 @@ export const styleSheet = createStyleSheet('button', (theme) => {
   const raised = {
     extend: base,
     boxShadow: palette.zDepthShadows[0],
+    '&:focus': {
+      boxShadow: palette.zDepthShadows[1]
+    },
     '&:active': {
       boxShadow: palette.zDepthShadows[2]
     }
@@ -34,7 +37,7 @@ export const styleSheet = createStyleSheet('button', (theme) => {
       color: palette.contrastText[palette.grey.contrastDefaultColor],
       backgroundColor: palette.grey[300],
       '&:hover, &:active': {
-        backgroundColor: palette.grey[500]
+        backgroundColor: palette.grey.A100
       }
     },
     raisedPrimary: {

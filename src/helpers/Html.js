@@ -19,15 +19,7 @@ export default class Html extends Component {
     assets: PropTypes.object
   };
 
-  render() {
-    const { assets } = this.props;
-    const theme = createMuiTheme();
-    const styleManager = createStyleManager({ theme });
-    const content = ReactDOM.renderToString(
-      <App theme={theme} styleManager={styleManager} />
-    );
-    const sheets = styleManager.getSheets();
-
+  renderPage(assets, body, head) {
     return (
       <html lang="en-us">
         <head>
@@ -38,20 +30,46 @@ export default class Html extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet" type="text/css" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-          {sheets.map((sheet, index) => (
-            <style
-              key={index}
-              data-meta={sheet.options.meta}
-              dangerouslySetInnerHTML={{ __html: sheet.toString() }}
-              type="text/css"
-            />
-          ))}
+          {head}
         </head>
         <body>
-          <div id="app" dangerouslySetInnerHTML={{ __html: content }} />
+          {body}
           <script src={assets.javascript.main} charSet="UTF-8" />
         </body>
       </html>
     );
+  }
+
+  render() {
+    const { assets } = this.props;
+
+    const ssr = false;
+
+    let head;
+    let body;
+
+    if (ssr) {
+      const theme = createMuiTheme();
+      const styleManager = createStyleManager({ theme });
+      const content = ReactDOM.renderToString(
+        <App theme={theme} styleManager={styleManager} />
+      );
+      const sheets = styleManager.getSheets();
+
+      head = sheets.map((sheet, index) => (
+        <style
+          key={index}
+          data-meta={sheet.options.meta}
+          dangerouslySetInnerHTML={{ __html: sheet.toString() }}
+          type="text/css"
+        />
+      ));
+
+      body = <div id="app" dangerouslySetInnerHTML={{ __html: content }} />;
+
+      return this.renderPage(assets, body, head);
+    }
+
+    return this.renderPage(assets, <div id="app" />);
   }
 }

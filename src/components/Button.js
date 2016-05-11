@@ -31,10 +31,10 @@ export const styleSheet = createStyleSheet('button', (theme) => {
   return {
     raisedDefault: {
       extend: raised,
-      color: palette.contrastText[palette.primary.contrastDefaultColor],
-      backgroundColor: palette.primary[500],
+      color: palette.contrastText[palette.grey.contrastDefaultColor],
+      backgroundColor: palette.grey[300],
       '&:hover, &:active': {
-        backgroundColor: palette.primary[700]
+        backgroundColor: palette.grey[500]
       }
     },
     raisedPrimary: {

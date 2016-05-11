@@ -7,6 +7,7 @@ export const createPalette = ({
 } = {}) => ({
   primary,
   accent,
+  grey,
   text: dark ? lightText : darkText,
   contrastText: {
     light: white,

@@ -5,13 +5,6 @@ import ClassNames from 'classnames';
 export const styleSheet = createStyleSheet('button', (theme) => {
   const { palette, transitions, typography } = theme;
 
-  const raised = {
-    boxShadow: palette.zDepthShadows[0],
-    '&:active': {
-      boxShadow: palette.zDepthShadows[2]
-    }
-  };
-
   return {
     base: {
       extend: typography.button,
@@ -27,8 +20,13 @@ export const styleSheet = createStyleSheet('button', (theme) => {
       cursor: 'pointer',
       transition: transitions.easeOut()
     },
+    raised: {
+      boxShadow: palette.zDepthShadows[0],
+      '&:active': {
+        boxShadow: palette.zDepthShadows[2]
+      }
+    },
     raisedDefault: {
-      extend: raised,
       color: palette.contrastText[palette.grey.contrastDefaultColor],
       backgroundColor: palette.grey[300],
       '&:hover, &:active': {
@@ -36,7 +34,6 @@ export const styleSheet = createStyleSheet('button', (theme) => {
       }
     },
     raisedPrimary: {
-      extend: raised,
       color: palette.contrastText[palette.primary.contrastDefaultColor],
       backgroundColor: palette.primary[500],
       '&:hover, &:active': {
@@ -44,7 +41,6 @@ export const styleSheet = createStyleSheet('button', (theme) => {
       }
     },
     raisedAccent: {
-      extend: raised,
       color: palette.contrastText[palette.accent.contrastDefaultColor],
       backgroundColor: palette.accent.A200,
       '&:hover, &:active': {
@@ -94,6 +90,7 @@ export default class Button extends Component {
 
     const classNames = ClassNames({
       [classes.base]: true,
+      [classes.raised]: raised,
       [classes.raisedDefault]: raised && !primary && !accent,
       [classes.raisedPrimary]: raised && primary,
       [classes.raisedAccent]: raised && accent

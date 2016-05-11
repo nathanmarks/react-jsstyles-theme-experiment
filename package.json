@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
-    "start-dev": "node ./bin/server.js",
-    "watch-client": "node webpack.dev-server.js",
+    "dev": "npm run dev:universal",
+    "dev:universal": "concurrently --kill-others \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:server": "node ./bin/server.js",
+    "dev:client": "node webpack.dev-server.js",
     "build": "npm run test && cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress --colors -p",
     "test": "cross-env NODE_ENV=test babel-node test/index.js",
     "test:coverage": "cross-env NODE_ENV=test babel-node ./node_modules/istanbul/lib/cli.js cover test/index.js",

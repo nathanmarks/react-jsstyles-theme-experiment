@@ -3,7 +3,7 @@ import { createStyleSheet } from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('button', (theme) => {
-  const { palette, transitions, typography } = theme;
+  const { palette, shadows, transitions, typography } = theme;
 
   return {
     base: {
@@ -21,9 +21,9 @@ export const styleSheet = createStyleSheet('button', (theme) => {
       transition: transitions.easeOut()
     },
     raised: {
-      boxShadow: palette.zDepthShadows[0],
+      boxShadow: shadows[2],
       '&:active': {
-        boxShadow: palette.zDepthShadows[2]
+        boxShadow: shadows[8]
       }
     },
     raisedDefault: {

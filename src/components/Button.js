@@ -4,38 +4,50 @@ import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('button', (theme) => {
   const { palette, transitions, typography } = theme;
+
+  const base = {
+    ...typography.button,
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: 88,
+    height: 36,
+    padding: '0px 16px',
+    outline: 'none',
+    border: 10,
+    borderRadius: 2,
+    cursor: 'pointer',
+    transition: transitions.easeOut()
+  };
+
+  const raised = {
+    extend: base,
+    boxShadow: palette.zDepthShadows[0],
+    '&:active': {
+      boxShadow: palette.zDepthShadows[2]
+    }
+  };
+
   return {
-    base: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minWidth: 88,
-      height: 36,
-      padding: '0px 16px',
-      outline: 'none',
-      border: 10,
-      borderRadius: 2,
-      fontWeight: 500,
-      fontSize: 14,
-      fontFamily: typography.fontFamily,
-      textTransform: 'uppercase',
-      cursor: 'pointer',
-      transition: transitions.easeOut()
-    },
-    raised: {
-      color: '#fff',
-      boxShadow: palette.zDepthShadows[0],
-      '&:active': {
-        boxShadow: palette.zDepthShadows[2]
+    raisedDefault: {
+      extend: raised,
+      color: palette.contrastText[palette.primary.contrastDefaultColor],
+      backgroundColor: palette.primary[500],
+      '&:hover, &:active': {
+        backgroundColor: palette.primary[700]
       }
     },
     raisedPrimary: {
+      extend: raised,
+      color: palette.contrastText[palette.primary.contrastDefaultColor],
       backgroundColor: palette.primary[500],
       '&:hover, &:active': {
         backgroundColor: palette.primary[700]
       }
     },
     raisedAccent: {
+      extend: raised,
+      color: palette.contrastText[palette.accent.contrastDefaultColor],
       backgroundColor: palette.accent.A200,
       '&:hover, &:active': {
         backgroundColor: palette.accent.A400
@@ -80,12 +92,12 @@ export default class Button extends Component {
     } = this.props;
 
     const { classes } = this.styleSheet;
+    const raised = type === 'raised';
 
     const classNames = ClassNames({
-      [classes.base]: true,
-      [classes.raised]: true,
-      [classes.raisedPrimary]: primary,
-      [classes.raisedAccent]: accent
+      [classes.raisedDefault]: raised && !primary && !accent,
+      [classes.raisedPrimary]: raised && primary,
+      [classes.raisedAccent]: raised && accent
     }, className);
 
     return (

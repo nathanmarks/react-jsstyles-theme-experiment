@@ -1,4 +1,5 @@
 import { create as createJss } from 'jss';
+import extend from 'jss-extend';
 import nested from 'jss-nested';
 import camelCase from 'jss-camel-case';
 import defaultUnit from 'jss-default-unit';
@@ -20,7 +21,7 @@ const canUseDOM = !!(
  * @return {Object}               - The styleManager object
  */
 export function createStyleManager({
-  jss = createJss().use(nested(), camelCase(), defaultUnit()),
+  jss = createJss().use(extend(), nested(), camelCase(), defaultUnit()),
   theme = {},
   sheetMap = []
 } = {}) {

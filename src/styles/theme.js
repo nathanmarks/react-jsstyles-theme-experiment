@@ -3,14 +3,18 @@ import hashObject from '../utils/hashObject';
 import { createPalette } from './colors';
 import shadows from './shadows';
 import transitions from './transitions';
-import typography from './typography';
+import createTypography from './typography';
 
-export function createMuiTheme(palette = createPalette(), ...more) {
+export function createMuiTheme(
+  palette = createPalette(),
+  typography = createTypography(palette),
+  ...more
+) {
   const properties = merge({
     palette,
+    typography,
     shadows,
     transitions,
-    typography,
   }, ...more);
 
   if (!properties.hasOwnProperty('id')) {

@@ -1,20 +1,9 @@
 {
   "presets": ["es2015", "stage-0", "react"],
-  "plugins": ["transform-runtime"],
+  "plugins": ["react-hot-loader/babel"],
   "env": {
     "test": {
       "sourceMaps": "both"
-    },
-    "development": {
-      "plugins": [
-        ["react-transform", {
-            "transforms": [{
-                "transform": "react-transform-catch-errors",
-                "imports": ["react", "redbox-react"]
-              }
-            ]
-        }]
-      ]
     }
   }
 }

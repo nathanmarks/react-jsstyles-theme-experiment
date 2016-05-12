@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createStyleSheet } from '../styles/styleSheet';
-import AppBar from './AppBar';
 import AppContent from './AppContent';
+import AppBar from './AppBar';
 
 export const globalStyleSheet = createStyleSheet('global', (theme) => {
   const { palette, typography } = theme;

@@ -26,10 +26,11 @@ export function createStyleManager({
   sheetMap = []
 } = {}) {
   const styleManager = {};
-  styleManager.attach = (styleSheet) => attach(jss, theme, sheetMap, styleSheet);
+  const createSheet = (styleSheet) => createJssSheet(jss, theme, styleSheet);
+  styleManager.attach = (styleSheet) => attach(createSheet, sheetMap, styleSheet);
   styleManager.detach = (styleSheet) => detach(sheetMap, styleSheet);
   styleManager.getSheets = () => getSheets(jss);
-  styleManager.getClasses = (styleSheet) => getClasses(sheetMap, styleSheet);
+  styleManager.getClasses = (styleSheet) => getClasses(createSheet, sheetMap, styleSheet);
   return styleManager;
 }
 
@@ -37,26 +38,37 @@ export function getSheets(jss) {
   return jss.sheets.registry;
 }
 
-export function getClasses(sheetMap, styleSheet) {
-  return find(sheetMap, { styleSheet }).sheet.classes;
+export function getClasses(createSheet, sheetMap, styleSheet) {
+  let mapping = find(sheetMap, { styleSheet });
+
+  // Catches HMR when the function reference
+  // does not match but the sheet already exists
+  if (!mapping) {
+    mapping = find(sheetMap, { styleSheet: { name: styleSheet.name } });
+    mapping.styleSheet = styleSheet;
+    mapping.sheet.detach();
+    mapping.sheet = createSheet(styleSheet);
+    mapping.sheet.attach();
+  }
+
+  return mapping && mapping.sheet.classes || {};
 }
 
 /**
  * Attaches a styleSheet object
  *
- * @param  {Object}  jss        - JSS Instance
- * @param  {Object}  theme      - Theme object
- * @param  {Array}   sheetMap   - Tracks the sheets in play and the # of instances
- * @param  {Object}  styleSheet - The styleSheet object to be attached
- * @return {Object}             - An object @TODO has classes etc
+ * @param  {Function}  createSheet - JSS Instance
+ * @param  {Array}     sheetMap    - Tracks the sheets in play and the # of instances
+ * @param  {Object}    styleSheet  - The styleSheet object to be attached
+ * @return {Object}                - An object @TODO has classes etc
  */
-export function attach(jss, theme, sheetMap, styleSheet) {
+export function attach(createSheet, sheetMap, styleSheet) {
   let mapping = find(sheetMap, { styleSheet });
 
   if (!mapping) {
     mapping = {
       styleSheet,
-      sheet: createJssSheet(jss, theme, styleSheet),
+      sheet: createSheet(styleSheet),
       counter: 0
     };
     sheetMap.push(mapping);
@@ -120,4 +132,3 @@ export function createJssSheet(jss, theme, styleSheet) {
   sheet.classes = classes;
   return sheet;
 }
-

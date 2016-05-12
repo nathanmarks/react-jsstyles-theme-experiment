@@ -27,7 +27,7 @@ export default class Demo extends Component {
   };
 
   componentWillMount() {
-    this.styleSheet = this.context.styleManager.attach(styleSheet);
+    this.context.styleManager.attach(styleSheet);
   }
 
   componentWillUnmount() {
@@ -35,7 +35,7 @@ export default class Demo extends Component {
   }
 
   render() {
-    const { classes } = this.styleSheet;
+    const classes = this.context.styleManager.getClasses(styleSheet);
 
     return (
       <div className={classes.appContent}>

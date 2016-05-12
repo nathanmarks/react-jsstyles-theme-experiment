@@ -33,7 +33,7 @@ export default class AppBar extends Component {
   };
 
   componentWillMount() {
-    this.styleSheet = this.context.styleManager.attach(styleSheet);
+    this.context.styleManager.attach(styleSheet);
   }
 
   componentWillUnmount() {
@@ -47,7 +47,7 @@ export default class AppBar extends Component {
       ...other
     } = this.props;
 
-    const { classes } = this.styleSheet;
+    const classes = this.context.styleManager.getClasses(styleSheet);
 
     const classNames = ClassNames({
       [classes.base]: true

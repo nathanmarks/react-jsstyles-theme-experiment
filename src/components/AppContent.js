@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { createStyleSheet } from '../styles/styleSheet';
 import Button from './Button';
+import Chip from './Chip';
+import Avatar from './Avatar';
 
 export const styleSheet = createStyleSheet('app-content', () => {
   return {
@@ -12,7 +14,7 @@ export const styleSheet = createStyleSheet('app-content', () => {
       justifyContent: 'center'
     },
     button: {
-      margin: 30
+      margin: 6
     }
   };
 });
@@ -49,6 +51,26 @@ export default class Demo extends Component {
           </div>
           <div className={classes.button}>
             <Button accent={true}>Hello World</Button>
+          </div>
+          <div className={classes.button}>
+            <Chip>Chips Ahoy!</Chip>
+          </div>
+          <div className={classes.button}>
+            <Chip
+              onRequestDelete={() => {}}
+            >
+              <Avatar>MB</Avatar>
+              Deletable Chip
+            </Chip>
+          </div>
+          <div className={classes.button}>
+            <Chip
+              onTouchTap={() => {}}
+              onRequestDelete={() => {}}
+            >
+              <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg"></Avatar>
+              Clickable Chip
+            </Chip>
           </div>
         </div>
       </div>

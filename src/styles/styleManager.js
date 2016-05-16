@@ -1,8 +1,8 @@
 import { create as createJss } from 'jss';
-import extend from 'jss-extend';
 import nested from 'jss-nested';
 import camelCase from 'jss-camel-case';
 import defaultUnit from 'jss-default-unit';
+import vendorPrefixer from 'jss-vendor-prefixer';
 import find from 'lodash.find';
 import hashObject from '../utils/hashObject';
 
@@ -11,6 +11,14 @@ const canUseDOM = !!(
   window.document &&
   window.document.createElement
 );
+
+const createDefaultJss = () =>
+  createJss().use(
+    nested(),
+    camelCase(),
+    defaultUnit(),
+    vendorPrefixer()
+  );
 
 /**
  * Creates a styleManager object responsible
@@ -21,7 +29,7 @@ const canUseDOM = !!(
  * @return {Object}               - The styleManager object
  */
 export function createStyleManager({
-  jss = createJss().use(extend(), nested(), camelCase(), defaultUnit()),
+  jss = createDefaultJss(),
   theme = {},
   sheetMap = []
 } = {}) {

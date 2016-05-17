@@ -86,6 +86,10 @@ export default class Chip extends Component {
      * @param {object} event TouchTap event targeting the element.
      */
     onTouchTap: PropTypes.func,
+    /**
+     * Override the inline-styles of the root element.
+     */
+    style: PropTypes.object,
   };
 
   static contextTypes = {
@@ -149,6 +153,7 @@ export default class Chip extends Component {
         avatar = children.shift();
 
         avatar = React.cloneElement(avatar, {
+          size: 32,
           className: avatarClassNames,
         });
       }

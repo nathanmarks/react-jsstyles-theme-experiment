@@ -4,30 +4,23 @@ import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('avatar', (theme) => {
   const { palette, } = theme;
-  const size = 32;
 
   return {
     base: {
       color: palette.contrastText,
       backgroundColor: palette.grey[400],
       userSelect: 'none',
-      display: 'inline-block',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       textAlign: 'center',
-      lineHeight: `${size}px`,
-      fontSize: size / 2,
       borderRadius: '50%',
-      height: size,
-      width: size,
     },
     hasImage: {
       boxShadow: `inset 0px 0px 0px 1px ${palette.grey[600]}`,
     },
     icon: {
       color: palette.contrastText,
-      width: size * 0.6,
-      height: size * 0.6,
-      fontSize: size * 0.6,
-      margin: size * 0.2,
     },
   };
 });
@@ -49,9 +42,17 @@ export default class Avatar extends Component {
      */
     icon: PropTypes.element,
     /**
+     * The size of the avatar in pixels.
+     */
+    size: PropTypes.number,
+    /**
      * If passed in, this component will render an img element. Otherwise, a div will be rendered.
      */
     src: PropTypes.string,
+  };
+
+  static defaultProps = {
+    size: 40,
   };
 
   static contextTypes = {
@@ -72,6 +73,8 @@ export default class Avatar extends Component {
       className,
       icon,
       iconClassName,
+      size,
+      style,
       src,
       ...other
     } = this.props;
@@ -87,23 +90,41 @@ export default class Avatar extends Component {
       [classes.icon]: true,
     }, iconClassName);
 
+    const styles = {
+      root: {
+        lineHeight: `${size}px`,
+        fontSize: size / 2,
+        height: size,
+        width: size,
+      },
+      icon: {
+        width: size * 0.6,
+        height: size * 0.6,
+        margin: size * 0.2,
+      },
+    };
+
     if (src) {
       return (
         <img
           {...other}
           src={src}
           className={classNames}
+          style={Object.assign(styles.root, style)}
         />
       );
     } else {
       return (
         <div
-          {...other}
           className={classNames}
+          style={Object.assign(styles.root, style)}
+          {...other}
         >
           {icon && React.cloneElement(icon, {
-            color: styles.icon.color,
+            color: Object.assign(styles.icon.color, icon.props.color),
+            color: Object.assign(styles.icon.color, icon.props.color),
             className: iconClassNames,
+            style: Object.assign(styles.icon, icon.props.style),
           })}
           {children}
         </div>

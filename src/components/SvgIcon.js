@@ -74,7 +74,7 @@ export default class SvgIcon extends Component {
       children,
       className,
       color,
-      hoverColor,
+      hoverColor, // TODO: Make this work
       viewBox,
       ...other,
     } = this.props;
@@ -88,8 +88,9 @@ export default class SvgIcon extends Component {
     return (
       <svg
         className={classNames}
-        {...other}
+        style={{fill: color}}
         viewBox={viewBox}
+        {...other}
       >
         {children}
       </svg>

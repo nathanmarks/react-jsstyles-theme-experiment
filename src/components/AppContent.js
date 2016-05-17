@@ -18,7 +18,10 @@ export const styleSheet = createStyleSheet('app-content', () => {
       display: 'flex',
       flexDirection: 'column',
     },
-    component: {
+    button: {
+      margin: 6
+    },
+    chip: {
       margin: 6
     }
   };
@@ -49,46 +52,35 @@ export default class Demo extends Component {
         <h4>JS Styles</h4>
         <div className={classes.components}>
           <div className={classes.componentRow}>
-            <div className={classes.component}>
-              <Button>Hello World</Button>
-            </div>
-            <div className={classes.component}>
-              <Button primary={true}>Hello World</Button>
-            </div>
-            <div className={classes.component}>
-              <Button accent={true}>Hello World</Button>
-            </div>
+              <Button className={classes.button}>Hello World</Button>
+              <Button primary={true} className={classes.button}>Hello World</Button>
+              <Button accent={true} className={classes.button}>Hello World</Button>
           </div>
           <div className={classes.componentRow}>
-            <div className={classes.component}>
-              <Chip>Chips Ahoy!</Chip>
-            </div>
-            <div className={classes.component}>
-              <Chip
-                onRequestDelete={() => {}}
-              >
-                <Avatar>MB</Avatar>
-                Deletable Chip
-              </Chip>
-            </div>
-            <div className={classes.component}>
-              <Chip
-                onTouchTap={() => {}}
-                onRequestDelete={() => {}}
-              >
-                <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg"></Avatar>
-                Clickable Chip
-              </Chip>
-            </div>
-            <div className={classes.component}>
-              <Chip
-                onTouchTap={() => {}}
-                onRequestDelete={() => {}}
-              >
-                <Avatar><SvgIconFace color="#444" /></Avatar>
-                SvgIcon Chip
-              </Chip>
-            </div>
+            <Chip className={classes.chip}>Chips Ahoy!</Chip>
+            <Chip
+              onRequestDelete={() => {}}
+              className={classes.chip}
+            >
+              <Avatar>MB</Avatar>
+              Deletable Chip
+            </Chip>
+            <Chip
+              onTouchTap={() => {}}
+              onRequestDelete={() => {}}
+              className={classes.chip}
+            >
+              <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg"></Avatar>
+              Clickable Chip
+            </Chip>
+            <Chip
+              onTouchTap={() => {}}
+              onRequestDelete={() => {}}
+              className={classes.chip}
+            >
+              <Avatar><SvgIconFace color="#444" /></Avatar>
+              SvgIcon Chip
+            </Chip>
           </div>
         </div>
       </div>

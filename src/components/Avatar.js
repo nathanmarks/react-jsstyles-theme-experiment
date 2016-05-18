@@ -92,7 +92,6 @@ export default class Avatar extends Component {
 
     const styles = {
       root: {
-        lineHeight: `${size}px`,
         fontSize: size / 2,
         height: size,
         width: size,
@@ -100,7 +99,6 @@ export default class Avatar extends Component {
       icon: {
         width: size * 0.6,
         height: size * 0.6,
-        margin: size * 0.2,
       },
     };
 

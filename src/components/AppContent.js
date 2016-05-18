@@ -3,12 +3,15 @@ import { createStyleSheet } from '../styles/styleSheet';
 import Button from './Button';
 import Chip from './Chip';
 import Avatar from './Avatar';
+import LinearProgress from './LinearProgress';
+import LinearProgressExampleDeterminate from './LinearProgressExampleDeterminate';
+
 import SvgIconFace from './svg-icons/action/face';
 
 export const styleSheet = createStyleSheet('app-content', () => {
   return {
     appContent: {
-      marginTop: 64
+      margin: 64
     },
     componentRow: {
       display: 'flex',
@@ -26,6 +29,9 @@ export const styleSheet = createStyleSheet('app-content', () => {
     },
     svgIcon: {
       fill: '#444'
+    },
+    spacer: {
+      height: 20
     }
   };
 });
@@ -84,6 +90,14 @@ export default class Demo extends Component {
               <Avatar><SvgIconFace className={classes.svgIcon}/></Avatar>
               SvgIcon Chip
             </Chip>
+          </div>
+          <div className={classes.spacer} />
+          <div className={classes.componentRow}>
+            <LinearProgress mode="indeterminate" />
+          </div>
+          <div className={classes.spacer} />
+          <div className={classes.componentRow}>
+            <LinearProgressExampleDeterminate />
           </div>
         </div>
       </div>

@@ -86,10 +86,6 @@ export default class Chip extends Component {
      * @param {object} event TouchTap event targeting the element.
      */
     onTouchTap: PropTypes.func,
-    /**
-     * Override the inline-styles of the root element.
-     */
-    style: PropTypes.object,
   };
 
   static contextTypes = {

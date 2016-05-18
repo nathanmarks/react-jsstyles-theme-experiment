@@ -17,9 +17,6 @@ export const styleSheet = createStyleSheet('avatar', (theme) => {
       textAlign: 'center',
       borderRadius: '50%',
     },
-    hasImage: {
-      boxShadow: `inset 0px 0px 0px 1px ${palette.grey[600]}`,
-    },
     icon: {
       color: palette.contrastText,
     },
@@ -84,7 +81,6 @@ export default class Avatar extends Component {
 
     const classNames = ClassNames({
       [classes.base]: true,
-      [classes.hasImage]: src,
     }, className);
 
     const iconClassNames = ClassNames({

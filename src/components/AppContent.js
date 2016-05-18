@@ -16,13 +16,16 @@ export const styleSheet = createStyleSheet('app-content', () => {
     },
     components: {
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: 'column'
     },
     button: {
       margin: 6
     },
     chip: {
       margin: 6
+    },
+    svgIcon: {
+      fill: '#444'
     }
   };
 });
@@ -78,7 +81,7 @@ export default class Demo extends Component {
               onRequestDelete={() => {}}
               className={classes.chip}
             >
-              <Avatar><SvgIconFace color="#444" /></Avatar>
+              <Avatar><SvgIconFace className={classes.svgIcon}/></Avatar>
               SvgIcon Chip
             </Chip>
           </div>

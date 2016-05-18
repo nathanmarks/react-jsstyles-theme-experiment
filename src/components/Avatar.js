@@ -8,6 +8,7 @@ export const styleSheet = createStyleSheet('avatar', (theme) => {
   return {
     base: {
       color: palette.contrastText,
+      fill: palette.contrastText,
       backgroundColor: palette.grey[400],
       userSelect: 'none',
       display: 'inline-flex',
@@ -119,8 +120,6 @@ export default class Avatar extends Component {
           {...other}
         >
           {icon && React.cloneElement(icon, {
-            color: Object.assign(styles.icon.color, icon.props.color),
-            color: Object.assign(styles.icon.color, icon.props.color),
             className: iconClassNames,
             style: Object.assign(styles.icon, icon.props.style),
           })}

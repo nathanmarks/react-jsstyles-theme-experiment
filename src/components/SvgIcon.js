@@ -33,14 +33,6 @@ export default class SvgIcon extends Component {
      * If not specified, this component will default
      * to muiTheme.palette.textColor.
      */
-    color: PropTypes.string,
-    /**
-     * This is the icon color when the mouse hovers over the icon.
-     */
-    hoverColor: PropTypes.string,
-    /**
-     * Override the inline-styles of the root element.
-     */
     style: PropTypes.object,
     /**
      * Allows you to redifine what the coordinates
@@ -73,8 +65,6 @@ export default class SvgIcon extends Component {
     const {
       children,
       className,
-      color,
-      hoverColor, // TODO: Make this work
       viewBox,
       ...other,
     } = this.props;
@@ -88,7 +78,6 @@ export default class SvgIcon extends Component {
     return (
       <svg
         className={classNames}
-        style={{fill: color}}
         viewBox={viewBox}
         {...other}
       >

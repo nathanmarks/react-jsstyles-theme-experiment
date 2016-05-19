@@ -7,8 +7,8 @@ export const styleSheet = createStyleSheet('avatar', (theme) => {
 
   return {
     base: {
-      color: palette.contrastText,
-      fill: palette.contrastText,
+      color: palette.contrastText['light'],
+      fill: palette.contrastText['light'],
       backgroundColor: palette.grey[400],
       userSelect: 'none',
       display: 'inline-flex',
@@ -36,10 +36,6 @@ export default class Avatar extends Component {
      */
     className: PropTypes.string,
     /**
-     * This is the SvgIcon or FontIcon to be used inside the avatar.
-     */
-    icon: PropTypes.element,
-    /**
      * The size of the avatar in pixels.
      */
     size: PropTypes.number,
@@ -47,6 +43,10 @@ export default class Avatar extends Component {
      * If passed in, this component will render an img element. Otherwise, a div will be rendered.
      */
     src: PropTypes.string,
+    /**
+     * Override the inline style of the root element.
+     */
+    style: PropTypes.object,
   };
 
   static defaultProps = {
@@ -69,11 +69,9 @@ export default class Avatar extends Component {
     const {
       children,
       className,
-      icon,
-      iconClassName,
       size,
-      style,
       src,
+      style,
       ...other
     } = this.props;
 
@@ -83,9 +81,11 @@ export default class Avatar extends Component {
       [classes.base]: true,
     }, className);
 
+    console.log(classNames);
+
     const iconClassNames = ClassNames({
-      [classes.icon]: true,
-    }, iconClassName);
+      [classes.icon]: true
+    });
 
     const styles = {
       root: {
@@ -98,6 +98,17 @@ export default class Avatar extends Component {
         height: size * 0.6,
       },
     };
+
+    let cloneChildren;
+
+    if (React.isValidElement(children)) {
+      cloneChildren = React.cloneElement(children, {
+        className: `${iconClassNames} ${children.props.className}`,
+        style: Object.assign(styles.icon, children.props.style),
+      });
+    } else {
+      cloneChildren = children;
+    }
 
     if (src) {
       return (
@@ -115,11 +126,7 @@ export default class Avatar extends Component {
           style={Object.assign(styles.root, style)}
           {...other}
         >
-          {icon && React.cloneElement(icon, {
-            className: iconClassNames,
-            style: Object.assign(styles.icon, icon.props.style),
-          })}
-          {children}
+          {cloneChildren}
         </div>
       );
     }

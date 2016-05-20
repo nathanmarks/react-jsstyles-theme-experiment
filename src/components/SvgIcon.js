@@ -28,6 +28,7 @@ export default class SvgIcon extends Component {
      * Elements passed into the SVG Icon.
      */
     children: PropTypes.node,
+    className: PropTypes.string,
     /**
      * This is the fill color of the svg icon.
      * If not specified, this component will default

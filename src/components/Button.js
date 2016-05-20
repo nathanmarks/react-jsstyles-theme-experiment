@@ -7,7 +7,7 @@ export const styleSheet = createStyleSheet('button', (theme) => {
 
   return {
     base: {
-      extend: typography.button,
+      ...typography.button,
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',

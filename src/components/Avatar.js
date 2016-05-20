@@ -7,8 +7,8 @@ export const styleSheet = createStyleSheet('avatar', (theme) => {
 
   return {
     base: {
-      color: palette.contrastText['light'],
-      fill: palette.contrastText['light'],
+      color: palette.contrastText.light,
+      fill: palette.contrastText.light,
       backgroundColor: palette.grey[400],
       userSelect: 'none',
       display: 'inline-flex',

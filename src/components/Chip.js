@@ -8,7 +8,7 @@ export const styleSheet = createStyleSheet('chip', (theme) => {
 
   return {
     base: {
-      extend: typography.chip,
+      ...typography.chip,
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',

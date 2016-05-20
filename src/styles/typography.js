@@ -69,6 +69,12 @@ export default function createTypography(palette) {
       fontFamily: basicVars.fontFamily,
       color: palette.text.secondary
     },
+    chip: {
+      fontSize: 13,
+      fontWeight: basicVars.fontWeightNormal,
+      fontFamily: basicVars.fontFamily,
+      color: palette.text.secondary
+    },
     button: {
       fontSize: 14,
       fontWeight: basicVars.fontWeightMedium,

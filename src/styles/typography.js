@@ -8,7 +8,7 @@ const basicVars = {
 
 export default function createTypography(palette) {
   return {
-    fontFamily: basicVars.fontFamily,
+    ...basicVars,
     display4: {
       fontSize: 112,
       fontWeight: basicVars.fontWeightLight,

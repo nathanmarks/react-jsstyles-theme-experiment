@@ -27,21 +27,21 @@ export const styleSheet = createStyleSheet('button', (theme) => {
       }
     },
     raisedDefault: {
-      color: palette.contrastText[palette.grey.contrastDefaultColor],
+      color: palette.getContrastText(palette.grey[300]),
       backgroundColor: palette.grey[300],
       '&:hover, &:active': {
         backgroundColor: palette.grey.A100
       }
     },
     raisedPrimary: {
-      color: palette.contrastText[palette.primary.contrastDefaultColor],
+      color: palette.getContrastText(palette.primary[500]),
       backgroundColor: palette.primary[500],
       '&:hover, &:active': {
         backgroundColor: palette.primary[700]
       }
     },
     raisedAccent: {
-      color: palette.contrastText[palette.accent.contrastDefaultColor],
+      color: palette.getContrastText(palette.accent.A200),
       backgroundColor: palette.accent.A200,
       '&:hover, &:active': {
         backgroundColor: palette.accent.A400

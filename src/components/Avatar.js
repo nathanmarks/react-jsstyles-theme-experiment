@@ -5,10 +5,12 @@ import ClassNames from 'classnames';
 export const styleSheet = createStyleSheet('avatar', (theme) => {
   const { palette, } = theme;
 
+  const contrastText = palette.getContrastText(palette.grey[400]);
+
   return {
     base: {
-      color: palette.contrastText.light,
-      fill: palette.contrastText.light,
+      color: contrastText,
+      fill: contrastText,
       backgroundColor: palette.grey[400],
       userSelect: 'none',
       display: 'inline-flex',
@@ -18,7 +20,7 @@ export const styleSheet = createStyleSheet('avatar', (theme) => {
       borderRadius: '50%',
     },
     icon: {
-      color: palette.contrastText,
+      color: contrastText,
     },
   };
 });
@@ -80,8 +82,6 @@ export default class Avatar extends Component {
     const classNames = ClassNames({
       [classes.base]: true,
     }, className);
-
-    console.log(classNames);
 
     const iconClassNames = ClassNames({
       [classes.icon]: true

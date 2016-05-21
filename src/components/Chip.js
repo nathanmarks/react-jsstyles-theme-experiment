@@ -15,7 +15,7 @@ export const styleSheet = createStyleSheet('chip', (theme) => {
       height: 32,
       outline: 'none',
       border: 0,
-      color: palette.contrastText[palette.grey.contrastDefaultColor],
+      color: palette.getContrastText(palette.grey[300]),
       backgroundColor: palette.grey[300],
       boxShadow: shadows[0],
       borderRadius: 16,

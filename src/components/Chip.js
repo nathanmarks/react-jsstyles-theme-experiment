@@ -101,9 +101,9 @@ export default class Chip extends Component {
   }
 
   render() {
-    let {
+    const {
       avatarClassName,
-      children,
+      children: theChildren,
       className,
       deleteIconClassName,
       labelClassName,
@@ -111,6 +111,8 @@ export default class Chip extends Component {
       onTouchTap,
       ...other
     } = this.props;
+
+    let children = theChildren;
 
     const classes = this.context.styleManager.getClasses(styleSheet);
 

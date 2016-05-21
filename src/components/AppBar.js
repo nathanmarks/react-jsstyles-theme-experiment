@@ -18,8 +18,8 @@ export const styleSheet = createStyleSheet('AppBar', (theme) => {
       boxShadow: shadows[4],
       backgroundColor: palette.primary[500],
       color: palette.getContrastText(palette.primary[500]),
-      fontSize: 20,
-      fontWeight: 500
+      fontSize: 20, // for demo purposes
+      fontWeight: 500 // for demo purposes
     }
   };
 });

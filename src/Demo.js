@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createStyleSheet } from './styles/styleSheet';
 import AppBar from './components/AppBar';
+import AppContent from './components/AppContent';
 
 export const globalStyleSheet = createStyleSheet('global', (theme) => {
   const { palette, typography } = theme;
@@ -38,6 +39,7 @@ export default class Demo extends Component {
         <AppBar>
           <span>Material-UI Style Experiment</span>
         </AppBar>
+        <AppContent />
       </div>
     );
   }

@@ -82,28 +82,28 @@ export default class Demo extends Component {
             <Avatar
               className={classes.avatar}
             >
-              <FileFolder/>
+              <FileFolder />
             </Avatar>
             <Avatar
               size={30}
               className={classes.avatar}
-              style={{backgroundColor: pink[400]}}
+              style={{ backgroundColor: pink[400] }}
             >
-              <FileFolder style={{fill: orange[200]}}/>
+              <FileFolder style={{ fill: orange[200] }} />
             </Avatar>
             <Avatar className={classes.avatar}>A</Avatar>
             <Avatar
               size={30}
               className={classes.avatar}
-              style={{color: deepOrange[300], backgroundColor: purple[500]}}
+              style={{ color: deepOrange[300], backgroundColor: purple[500] }}
             >
               A
             </Avatar>
           </div>
           <div className={classes.componentRow}>
-              <Button className={classes.button}>Hello World</Button>
-              <Button primary={true} className={classes.button}>Hello World</Button>
-              <Button accent={true} className={classes.button}>Hello World</Button>
+            <Button className={classes.button}>Hello World</Button>
+            <Button primary={true} className={classes.button}>Hello World</Button>
+            <Button accent={true} className={classes.button}>Hello World</Button>
           </div>
           <div className={classes.componentRow}>
             <Chip className={classes.chip}>Chips Ahoy!</Chip>
@@ -119,7 +119,7 @@ export default class Demo extends Component {
               onRequestDelete={() => {}}
               className={classes.chip}
             >
-              <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg"></Avatar>
+              <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg" />
               Clickable Chip
             </Chip>
             <Chip
@@ -127,7 +127,7 @@ export default class Demo extends Component {
               onRequestDelete={() => {}}
               className={classes.chip}
             >
-              <Avatar><SvgIconFace className={classes.svgIcon}/></Avatar>
+              <Avatar><SvgIconFace className={classes.svgIcon} /></Avatar>
               SvgIcon Chip
             </Chip>
           </div>

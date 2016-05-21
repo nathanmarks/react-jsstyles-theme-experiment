@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import { createStyleSheet } from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
@@ -10,7 +10,7 @@ function getRelativeValue(value, min, max) {
 }
 
 export const styleSheet = createStyleSheet('linear-progress', (theme) => {
-  const { palette, transitions,} = theme;
+  const { palette, transitions } = theme;
 
   return {
     base: {
@@ -115,8 +115,8 @@ class LinearProgress extends Component {
   barUpdate(id, step, barElement, stepValues) {
     if (this.props.mode !== 'indeterminate') return;
 
-    step = step || 0;
-    step %= 4;
+    step = step || 0; // eslint-disable-line no-param-reassign
+    step %= 4; // eslint-disable-line no-param-reassign
 
     // const right = this.context.muiTheme.isRtl ? 'left' : 'right';
     // const left = this.context.muiTheme.isRtl ? 'right' : 'left';
@@ -166,7 +166,7 @@ class LinearProgress extends Component {
       [classes.barFragment2]: mode === 'indeterminate'
     });
 
-    const barStyle = (mode === 'determinate') ? {width: `${getRelativeValue(value, min, max)}%`} : {};
+    const barStyle = (mode === 'determinate') ? { width: `${getRelativeValue(value, min, max)}%` } : {};
 
     return (
       <div className={classNames} {...other}>

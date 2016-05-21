@@ -3,25 +3,20 @@ import { createStyleSheet } from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('avatar', (theme) => {
-  const { palette, } = theme;
-
-  const contrastText = palette.getContrastText(palette.grey[400]);
+  const { palette } = theme;
 
   return {
     base: {
-      color: contrastText,
-      fill: contrastText,
+      color: 'white',
+      fill: 'white',
       backgroundColor: palette.grey[400],
       userSelect: 'none',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
-      borderRadius: '50%',
-    },
-    icon: {
-      color: contrastText,
-    },
+      borderRadius: '50%'
+    }
   };
 });
 
@@ -48,7 +43,7 @@ export default class Avatar extends Component {
     /**
      * Override the inline style of the root element.
      */
-    style: PropTypes.object,
+    style: PropTypes.object
   };
 
   static defaultProps = {
@@ -56,7 +51,7 @@ export default class Avatar extends Component {
   };
 
   static contextTypes = {
-    styleManager: PropTypes.object.isRequired,
+    styleManager: PropTypes.object.isRequired
   };
 
   componentWillMount() {
@@ -80,7 +75,7 @@ export default class Avatar extends Component {
     const classes = this.context.styleManager.getClasses(styleSheet);
 
     const classNames = ClassNames({
-      [classes.base]: true,
+      [classes.base]: true
     }, className);
 
     const iconClassNames = ClassNames({
@@ -91,11 +86,11 @@ export default class Avatar extends Component {
       root: {
         fontSize: size / 2,
         height: size,
-        width: size,
+        width: size
       },
       icon: {
         width: size * 0.6,
-        height: size * 0.6,
+        height: size * 0.6
       },
     };
 
@@ -104,7 +99,7 @@ export default class Avatar extends Component {
     if (React.isValidElement(children)) {
       cloneChildren = React.cloneElement(children, {
         className: `${iconClassNames} ${children.props.className}`,
-        style: Object.assign(styles.icon, children.props.style),
+        style: Object.assign(styles.icon, children.props.style)
       });
     } else {
       cloneChildren = children;

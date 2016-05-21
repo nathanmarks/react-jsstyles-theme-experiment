@@ -21,14 +21,14 @@ export const styleSheet = createStyleSheet('linear-progress', (theme) => {
       backgroundColor: palette.grey[400],
       borderRadius: 2,
       margin: 0,
-      overflow: 'hidden',
+      overflow: 'hidden'
     },
     bar: {
-      height: '100%',
+      height: '100%'
     },
     barDeterminate: {
       backgroundColor: palette.primary[400],
-      transition: transitions.create('width', '.3s', null, 'linear'),
+      transition: transitions.create('width', '.3s', null, 'linear')
     },
     barFragment1: {
       position: 'absolute',
@@ -36,7 +36,7 @@ export const styleSheet = createStyleSheet('linear-progress', (theme) => {
       top: 0,
       left: 0,
       bottom: 0,
-      transition: transitions.create('all', '840ms', null, 'cubic-bezier(0.650, 0.815, 0.735, 0.395)'),
+      transition: transitions.create('all', '840ms', null, 'cubic-bezier(0.650, 0.815, 0.735, 0.395)')
     },
     barFragment2: {
       position: 'absolute',
@@ -44,7 +44,7 @@ export const styleSheet = createStyleSheet('linear-progress', (theme) => {
       top: 0,
       left: 0,
       bottom: 0,
-      transition: transitions.create('all', '840ms', null, 'cubic-bezier(0.165, 0.840, 0.440, 1.000)'),
+      transition: transitions.create('all', '840ms', null, 'cubic-bezier(0.165, 0.840, 0.440, 1.000)')
     }
   };
 });
@@ -72,7 +72,7 @@ class LinearProgress extends Component {
     /**
      * The value of progress, only works in determinate mode.
      */
-    value: PropTypes.number,
+    value: PropTypes.number
   };
 
   static defaultProps = {
@@ -83,7 +83,7 @@ class LinearProgress extends Component {
   };
 
   static contextTypes = {
-    styleManager: PropTypes.object.isRequired,
+    styleManager: PropTypes.object.isRequired
   };
 
   componentWillMount() {
@@ -95,13 +95,13 @@ class LinearProgress extends Component {
 
     this.timers.bar1 = this.barUpdate('bar1', 0, this.refs.bar1, [
       [-35, 100],
-      [100, -90],
+      [100, -90]
     ]);
 
     this.timers.bar2 = setTimeout(() => {
       this.barUpdate('bar2', 0, this.refs.bar2, [
         [-200, 100],
-        [107, -8],
+        [107, -8]
       ]);
     }, 850);
   }

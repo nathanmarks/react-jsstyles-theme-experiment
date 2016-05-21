@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { createStyleSheet } from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
-export const styleSheet = createStyleSheet('app-bar', (theme) => {
+export const styleSheet = createStyleSheet('AppBar', (theme) => {
   const { palette, shadows } = theme;
 
   return {
@@ -17,7 +17,9 @@ export const styleSheet = createStyleSheet('app-bar', (theme) => {
       padding: '0px 24px',
       boxShadow: shadows[4],
       backgroundColor: palette.primary[500],
-      color: palette.contrastText[palette.primary.contrastDefaultColor],
+      color: palette.getContrastText(palette.primary[500]),
+      fontSize: 20,
+      fontWeight: 500
     }
   };
 });

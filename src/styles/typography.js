@@ -37,31 +37,26 @@ export default function createTypography(palette) {
       fontSize: 24,
       fontWeight: basicVars.fontWeightNormal,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.primary
     },
     title: {
       fontSize: 20,
       fontWeight: basicVars.fontWeightMedium,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.primary
     },
     subheading: {
       fontSize: 16,
       fontWeight: basicVars.fontWeightNormal,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.primary
     },
     body2: {
       fontSize: 14,
       fontWeight: basicVars.fontWeightMedium,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.primary
     },
     body1: {
       fontSize: 14,
       fontWeight: basicVars.fontWeightNormal,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.primary
     },
     caption: {
       fontSize: 12,
@@ -79,7 +74,6 @@ export default function createTypography(palette) {
       fontSize: 14,
       fontWeight: basicVars.fontWeightMedium,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.primary,
       textTransform: 'uppercase'
     }
   };

@@ -1,6 +1,7 @@
 export function createStyleSheet(name, createStyles, options = {}) {
   const styleSheet = {};
   styleSheet.name = name;
+  styleSheet.prefix = name.replace(/\W+/g, '-').replace(/([a-z\d])([A-Z])/g, '$1-$2').toLowerCase();
   styleSheet.createStyles = createStyles;
   styleSheet.options = Object.assign({ global: false, named: true }, options);
   styleSheet.getRules = getRules;

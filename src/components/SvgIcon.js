@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { createStyleSheet } from '../styles/styleSheet';
+import React, {Component, PropTypes} from 'react';
+import {createStyleSheet} from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('svgicon', (theme) => {
-  const { palette, transitions } = theme;
+  const {palette, transitions} = theme;
 
   return {
     base: {
@@ -14,9 +14,9 @@ export const styleSheet = createStyleSheet('svgicon', (theme) => {
       userSelect: 'none',
       transition: transitions.easeOut(),
       '&:hover': {
-        backgroundColor: palette.text
-      }
-    }
+        backgroundColor: palette.text,
+      },
+    },
   };
 });
 
@@ -28,9 +28,6 @@ export default class SvgIcon extends Component {
      * Elements passed into the SVG Icon.
      */
     children: PropTypes.node,
-    /**
-     * The css class name of the root element.
-     */
     className: PropTypes.string,
     /**
      * This is the fill color of the svg icon.
@@ -39,22 +36,22 @@ export default class SvgIcon extends Component {
      */
     style: PropTypes.object,
     /**
-     * Allows you to redefine what the coordinates
+     * Allows you to redifine what the coordinates
      * without units mean inside an svg element. For example,
      * if the SVG element is 500 (width) by 200 (height), and you
      * pass viewBox="0 0 50 20", this means that the coordinates inside
      * the svg will go from the top left corner (0,0) to bottom right (50,20)
      * and each unit will be worth 10px.
      */
-    viewBox: PropTypes.string
+    viewBox: PropTypes.string,
   };
 
   static defaultProps = {
-    viewBox: '0 0 24 24'
+    viewBox: '0 0 24 24',
   };
 
   static contextTypes = {
-    styleManager: PropTypes.object.isRequired
+    styleManager: PropTypes.object.isRequired,
   };
 
   componentWillMount() {
@@ -76,7 +73,7 @@ export default class SvgIcon extends Component {
     const classes = this.context.styleManager.getClasses(styleSheet);
 
     const classNames = ClassNames({
-      [classes.base]: true
+      [classes.base]: true,
     }, className);
 
     return (

@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { createStyleSheet } from '../styles/styleSheet';
+import React, {Component, PropTypes} from 'react';
+import {createStyleSheet} from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('button', (theme) => {
-  const { palette, shadows, transitions, typography } = theme;
+  const {palette, shadows, transitions, typography} = theme;
 
   return {
     base: {
@@ -18,35 +18,35 @@ export const styleSheet = createStyleSheet('button', (theme) => {
       border: 10,
       borderRadius: 2,
       cursor: 'pointer',
-      transition: transitions.easeOut()
+      transition: transitions.easeOut(),
     },
     raised: {
       boxShadow: shadows[2],
       '&:active': {
-        boxShadow: shadows[8]
-      }
+        boxShadow: shadows[8],
+      },
     },
     raisedDefault: {
       color: palette.getContrastText(palette.grey[300]),
       backgroundColor: palette.grey[300],
       '&:hover, &:active': {
-        backgroundColor: palette.grey.A100
-      }
+        backgroundColor: palette.grey.A100,
+      },
     },
     raisedPrimary: {
       color: palette.getContrastText(palette.primary[500]),
       backgroundColor: palette.primary[500],
       '&:hover, &:active': {
-        backgroundColor: palette.primary[700]
-      }
+        backgroundColor: palette.primary[700],
+      },
     },
     raisedAccent: {
       color: palette.getContrastText(palette.accent.A200),
       backgroundColor: palette.accent.A200,
       '&:hover, &:active': {
-        backgroundColor: palette.accent.A400
-      }
-    }
+        backgroundColor: palette.accent.A400,
+      },
+    },
   };
 });
 
@@ -56,11 +56,11 @@ export default class Button extends Component {
     children: PropTypes.node,
     className: PropTypes.string,
     primary: PropTypes.bool,
-    type: PropTypes.oneOf(['flat', 'raised'])
+    type: PropTypes.oneOf(['flat', 'raised']),
   };
 
   static defaultProps = {
-    type: 'raised'
+    type: 'raised',
   };
 
   static contextTypes = {
@@ -82,7 +82,7 @@ export default class Button extends Component {
       className,
       primary,
       type, // eslint-disable-line no-unused-vars
-      ...other
+      ...other,
     } = this.props;
 
     const classes = this.context.styleManager.getClasses(styleSheet);
@@ -93,7 +93,7 @@ export default class Button extends Component {
       [classes.raised]: raised,
       [classes.raisedDefault]: raised && !primary && !accent,
       [classes.raisedPrimary]: raised && primary,
-      [classes.raisedAccent]: raised && accent
+      [classes.raisedAccent]: raised && accent,
     }, className);
 
     return (

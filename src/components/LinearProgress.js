@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import { createStyleSheet } from '../styles/styleSheet';
+import React, {Component, PropTypes} from 'react';
+import {createStyleSheet} from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
 function getRelativeValue(value, min, max) {
@@ -10,7 +10,7 @@ function getRelativeValue(value, min, max) {
 }
 
 export const styleSheet = createStyleSheet('linear-progress', (theme) => {
-  const { palette, transitions } = theme;
+  const {palette, transitions} = theme;
 
   return {
     base: {
@@ -21,14 +21,14 @@ export const styleSheet = createStyleSheet('linear-progress', (theme) => {
       backgroundColor: palette.grey[400],
       borderRadius: 2,
       margin: 0,
-      overflow: 'hidden'
+      overflow: 'hidden',
     },
     bar: {
-      height: '100%'
+      height: '100%',
     },
     barDeterminate: {
       backgroundColor: palette.primary[400],
-      transition: transitions.create('width', '.3s', null, 'linear')
+      transition: transitions.create('width', '.3s', null, 'linear'),
     },
     barFragment1: {
       position: 'absolute',
@@ -36,7 +36,7 @@ export const styleSheet = createStyleSheet('linear-progress', (theme) => {
       top: 0,
       left: 0,
       bottom: 0,
-      transition: transitions.create('all', '840ms', null, 'cubic-bezier(0.650, 0.815, 0.735, 0.395)')
+      transition: transitions.create('all', '840ms', null, 'cubic-bezier(0.650, 0.815, 0.735, 0.395)'),
     },
     barFragment2: {
       position: 'absolute',
@@ -44,8 +44,8 @@ export const styleSheet = createStyleSheet('linear-progress', (theme) => {
       top: 0,
       left: 0,
       bottom: 0,
-      transition: transitions.create('all', '840ms', null, 'cubic-bezier(0.165, 0.840, 0.440, 1.000)')
-    }
+      transition: transitions.create('all', '840ms', null, 'cubic-bezier(0.165, 0.840, 0.440, 1.000)'),
+    },
   };
 });
 
@@ -72,7 +72,7 @@ class LinearProgress extends Component {
     /**
      * The value of progress, only works in determinate mode.
      */
-    value: PropTypes.number
+    value: PropTypes.number,
   };
 
   static defaultProps = {
@@ -83,7 +83,7 @@ class LinearProgress extends Component {
   };
 
   static contextTypes = {
-    styleManager: PropTypes.object.isRequired
+    styleManager: PropTypes.object.isRequired,
   };
 
   componentWillMount() {
@@ -95,13 +95,13 @@ class LinearProgress extends Component {
 
     this.timers.bar1 = this.barUpdate('bar1', 0, this.refs.bar1, [
       [-35, 100],
-      [100, -90]
+      [100, -90],
     ]);
 
     this.timers.bar2 = setTimeout(() => {
       this.barUpdate('bar2', 0, this.refs.bar2, [
         [-200, 100],
-        [107, -8]
+        [107, -8],
       ]);
     }, 850);
   }
@@ -150,23 +150,23 @@ class LinearProgress extends Component {
     const classes = this.context.styleManager.getClasses(styleSheet);
 
     const classNames = ClassNames({
-      [classes.base]: true
+      [classes.base]: true,
     }, className);
 
     const barClassNames = ClassNames({
       [classes.bar]: true,
-      [classes.barDeterminate]: mode === 'determinate'
+      [classes.barDeterminate]: mode === 'determinate',
     });
 
     const bar1ClassNames = ClassNames({
-      [classes.barFragment1]: mode === 'indeterminate'
+      [classes.barFragment1]: mode === 'indeterminate',
     });
 
     const bar2ClassNames = ClassNames({
-      [classes.barFragment2]: mode === 'indeterminate'
+      [classes.barFragment2]: mode === 'indeterminate',
     });
 
-    const barStyle = (mode === 'determinate') ? { width: `${getRelativeValue(value, min, max)}%` } : {};
+    const barStyle = (mode === 'determinate') ? {width: `${getRelativeValue(value, min, max)}%`} : {};
 
     return (
       <div className={classNames} {...other}>

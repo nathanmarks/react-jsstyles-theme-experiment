@@ -1,7 +1,7 @@
 /* eslint-env mocha */
-import { assert } from 'chai';
-import { createStyleManager } from './styleManager';
-import { createStyleSheet } from './styleSheet';
+import {assert} from 'chai';
+import {createStyleManager} from './styleManager';
+import {createStyleSheet} from './styleSheet';
 import find from 'lodash.find';
 
 describe('styles/styleManager', () => {
@@ -15,14 +15,14 @@ describe('styles/styleManager', () => {
   });
 
   describe('styleManager', () => {
-    const theme = { id: 'mytheme' };
+    const theme = {id: 'mytheme'};
     const sheetMap = [];
-    const styleSheet = createStyleSheet('woof', () => ({ base: { color: 'red' } }));
-    const styleManager = createStyleManager({ theme, sheetMap });
+    const styleSheet = createStyleSheet('woof', () => ({base: {color: 'red'}}));
+    const styleManager = createStyleManager({theme, sheetMap});
 
     describe('.attach(styleSheet)', () => {
       const localStyleSheet = styleManager.attach(styleSheet);
-      const mapping = find(sheetMap, { styleSheet });
+      const mapping = find(sheetMap, {styleSheet});
 
       it('should return an object with the resolved classnames', () => {
         assert.strictEqual(
@@ -56,13 +56,13 @@ describe('styles/styleManager', () => {
     describe('.detach(styleSheet)', () => {
       it('should remove a count from the sheetMap', () => {
         styleManager.detach(styleSheet);
-        const mapping = find(sheetMap, { styleSheet });
+        const mapping = find(sheetMap, {styleSheet});
         assert.strictEqual(mapping.counter, 1, 'counter should be 1');
       });
 
       it('should remove the sheet from the sheetMap entirely when counter is 0', () => {
         styleManager.detach(styleSheet);
-        assert.notOk(find(sheetMap, { styleSheet }), 'should delete the map entry');
+        assert.notOk(find(sheetMap, {styleSheet}), 'should delete the map entry');
       });
     });
   });

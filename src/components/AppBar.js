@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { createStyleSheet } from '../styles/styleSheet';
+import React, {Component, PropTypes} from 'react';
+import {createStyleSheet} from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('AppBar', (theme) => {
-  const { palette, shadows } = theme;
+  const {palette, shadows} = theme;
 
   return {
     base: {
@@ -19,15 +19,15 @@ export const styleSheet = createStyleSheet('AppBar', (theme) => {
       backgroundColor: palette.primary[500],
       color: palette.getContrastText(palette.primary[500]),
       fontSize: 20, // for demo purposes
-      fontWeight: 500 // for demo purposes
-    }
+      fontWeight: 500, // for demo purposes
+    },
   };
 });
 
 export default class AppBar extends Component {
   static propTypes = {
     children: PropTypes.node,
-    className: PropTypes.string
+    className: PropTypes.string,
   };
 
   static contextTypes = {
@@ -46,13 +46,13 @@ export default class AppBar extends Component {
     const {
       children,
       className,
-      ...other
+      ...other,
     } = this.props;
 
     const classes = this.context.styleManager.getClasses(styleSheet);
 
     const classNames = ClassNames({
-      [classes.base]: true
+      [classes.base]: true,
     }, className);
 
     return (

@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-import { assert } from 'chai';
+import {assert} from 'chai';
 import {
   createPalette,
   indigo,
@@ -7,7 +7,7 @@ import {
   deepOrange,
   green,
   darkText,
-  lightText
+  lightText,
 } from './colors';
 
 describe('styles/colors.js', () => {
@@ -32,7 +32,7 @@ describe('styles/colors.js', () => {
     });
 
     it('should create a palette with custom colours', () => {
-      const palette = createPalette({ primary: deepOrange, accent: green });
+      const palette = createPalette({primary: deepOrange, accent: green});
       assert.strictEqual(
         palette.primary,
         deepOrange,
@@ -51,7 +51,7 @@ describe('styles/colors.js', () => {
     });
 
     it('should create a dark palette', () => {
-      const palette = createPalette({ dark: true });
+      const palette = createPalette({dark: true});
       assert.strictEqual(
         palette.primary,
         indigo,

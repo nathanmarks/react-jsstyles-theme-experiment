@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import { createStyleSheet } from '../styles/styleSheet';
+import React, {Component, PropTypes} from 'react';
+import {createStyleSheet} from '../styles/styleSheet';
 import Button from './Button';
 import Chip from './Chip';
 import Avatar from './Avatar';
@@ -19,35 +19,35 @@ import SvgIconFace from './svg-icons/action/face';
 export const styleSheet = createStyleSheet('app-content', () => {
   return {
     appContent: {
-      margin: 64
+      margin: 64,
     },
     componentRow: {
       display: 'flex',
       justifyContent: 'center',
-      marginBottom: 10
+      marginBottom: 10,
     },
     components: {
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
     },
     button: {
-      margin: 6
+      margin: 6,
     },
     chip: {
-      margin: 6
+      margin: 6,
     },
     avatar: {
-      margin: 6
+      margin: 6,
     },
     svgIcon: {
-      fill: '#444'
+      fill: '#444',
     },
   };
 });
 
 export default class Demo extends Component {
   static propTypes = {
-    children: PropTypes.any
+    children: PropTypes.any,
   };
 
   static contextTypes = {
@@ -87,15 +87,15 @@ export default class Demo extends Component {
             <Avatar
               size={30}
               className={classes.avatar}
-              style={{ backgroundColor: pink[400] }}
+              style={{backgroundColor: pink[400]}}
             >
-              <FileFolder style={{ fill: orange[200] }} />
+              <FileFolder style={{fill: orange[200]}} />
             </Avatar>
             <Avatar className={classes.avatar}>A</Avatar>
             <Avatar
               size={30}
               className={classes.avatar}
-              style={{ color: deepOrange[300], backgroundColor: purple[500] }}
+              style={{color: deepOrange[300], backgroundColor: purple[500]}}
             >
               A
             </Avatar>

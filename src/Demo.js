@@ -1,24 +1,24 @@
-import React, { Component, PropTypes } from 'react';
-import { createStyleSheet } from './styles/styleSheet';
+import React, {Component, PropTypes} from 'react';
+import {createStyleSheet} from './styles/styleSheet';
 import AppBar from './components/AppBar';
 import AppContent from './components/AppContent';
 
 export const globalStyleSheet = createStyleSheet('global', (theme) => {
-  const { palette, typography } = theme;
+  const {palette, typography} = theme;
   return {
     body: {
       background: palette.background,
       fontFamily: typography.fontFamily,
       color: palette.text.primary,
       margin: 0,
-      padding: 0
-    }
+      padding: 0,
+    },
   };
-}, { global: true, named: false });
+}, {global: true, named: false});
 
 export default class Demo extends Component {
   static propTypes = {
-    children: PropTypes.any
+    children: PropTypes.any,
   };
 
   static contextTypes = {

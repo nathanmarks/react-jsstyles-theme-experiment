@@ -1,3 +1,9 @@
+/**
+ * From https://github.com/Khan/aphrodite/blob/master/src/util.js
+ *
+ * @author xymostech@gmail.com
+ * @see https://github.com/Khan/aphrodite
+ */
 
 // Hash a javascript object using JSON.stringify. This is very fast, about 3
 // microseconds on my computer for a sample object:

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
-import { assert } from 'chai';
+import {assert} from 'chai';
 import sinon from 'sinon';
-import { createMuiTheme } from './theme';
+import {createMuiTheme} from './theme';
 
 describe('styles/theme', () => {
   describe('createMuiTheme()', () => {
@@ -30,8 +30,8 @@ describe('styles/theme', () => {
   describe('custom muiTheme', () => {
     const myFunc = sinon.spy();
     const muiTheme = createMuiTheme(
-      { foo: 'bar' },
-      { myFunc }
+      {foo: 'bar'},
+      {myFunc}
     );
 
     it('should have the custom palette', () => {

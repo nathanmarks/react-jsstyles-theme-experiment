@@ -1,7 +1,7 @@
 /* eslint-env mocha */
-import { assert } from 'chai';
+import {assert} from 'chai';
 import {
-  createStyleSheet
+  createStyleSheet,
 } from './styleSheet';
 
 describe('styles/styleSheet', () => {

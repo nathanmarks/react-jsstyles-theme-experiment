@@ -3,7 +3,7 @@ const basicVars = {
   fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
   fontWeightLight: 300,
   fontWeightNormal: 400,
-  fontWeightMedium: 500
+  fontWeightMedium: 500,
 };
 
 export default function createTypography(palette) {
@@ -13,25 +13,25 @@ export default function createTypography(palette) {
       fontSize: 112,
       fontWeight: basicVars.fontWeightLight,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.secondary
+      color: palette.text.secondary,
     },
     display3: {
       fontSize: 56,
       fontWeight: basicVars.fontWeightNormal,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.secondary
+      color: palette.text.secondary,
     },
     display2: {
       fontSize: 45,
       fontWeight: basicVars.fontWeightNormal,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.secondary
+      color: palette.text.secondary,
     },
     display1: {
       fontSize: 34,
       fontWeight: basicVars.fontWeightNormal,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.secondary
+      color: palette.text.secondary,
     },
     headline: {
       fontSize: 24,
@@ -62,19 +62,19 @@ export default function createTypography(palette) {
       fontSize: 12,
       fontWeight: basicVars.fontWeightNormal,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.secondary
+      color: palette.text.secondary,
     },
     chip: {
       fontSize: 13,
       fontWeight: basicVars.fontWeightNormal,
       fontFamily: basicVars.fontFamily,
-      color: palette.text.secondary
+      color: palette.text.secondary,
     },
     button: {
       fontSize: 14,
       fontWeight: basicVars.fontWeightMedium,
       fontFamily: basicVars.fontFamily,
-      textTransform: 'uppercase'
-    }
+      textTransform: 'uppercase',
+    },
   };
 }

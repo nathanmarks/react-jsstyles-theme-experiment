@@ -3,7 +3,7 @@ export function createStyleSheet(name, createStyles, options = {}) {
   styleSheet.name = name;
   styleSheet.prefix = name.replace(/\W+/g, '-').replace(/([a-z\d])([A-Z])/g, '$1-$2').toLowerCase();
   styleSheet.createStyles = createStyles;
-  styleSheet.options = Object.assign({ global: false, named: true }, options);
+  styleSheet.options = Object.assign({global: false, named: true}, options);
   styleSheet.getRules = getRules;
   return styleSheet;
 }
@@ -19,5 +19,5 @@ function getRules(theme) {
     ruleDefinitions[this.options.named ? `.${selector}` : selector] = styles[key];
   });
 
-  return { ruleDefinitions, classes };
+  return {ruleDefinitions, classes};
 }

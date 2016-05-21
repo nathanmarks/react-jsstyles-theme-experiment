@@ -1,5 +1,5 @@
-
 module.exports = {
+  // So parent files don't get applied
   root: true,
   env: {
     es6: true,
@@ -13,12 +13,12 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
-      experimentalObjectRestSpread: true
+      experimentalObjectRestSpread: true,
     }
   },
   plugins: [
     'babel',
-    'react'
+    'react',
   ],
   rules: {
     // Errors
@@ -27,12 +27,12 @@ module.exports = {
     'arrow-parens': 'error',
     'block-spacing': ['error', 'always'],
     'brace-style': 'error',
-    'comma-dangle': ['off', 'never'],
-    'comma-spacing': ['error'],
+    'comma-dangle': ['error', 'always-multiline'],
+    'comma-spacing': ['error', {before: false, after: true}],
     'comma-style': ['error', 'last'],
     'computed-property-spacing': ['error', 'never'],
     'consistent-this': ['error', 'self'],
-    'consistent-return': 'error',
+    'consistent-return': 'off', // Wishlist, one day
     'dot-notation': 'error',
     'dot-location': ['error', 'property'],
     'eqeqeq': ['error', 'smart'],
@@ -42,10 +42,11 @@ module.exports = {
     'jsx-quotes': ['error', 'prefer-double'],
     'keyword-spacing': 'error',
     'key-spacing': 'error',
-    'new-cap': ['off', {capIsNew: true, newIsCap: true}],
+    'max-len': ['error', 120, 4],
+    'new-cap': ['off', {capIsNew: true, newIsCap: true}], // Wishlist, one day
     'no-unused-expressions': 'error',
     'no-unused-vars': 'error',
-    'no-shadow': 'error',
+    'no-shadow': 'off', // Wishlist, one day
     'no-spaced-func': 'error',
     'no-multiple-empty-lines': 'error',
     'no-multi-spaces': 'error',
@@ -55,11 +56,8 @@ module.exports = {
     'no-dupe-args': 'error',
     'no-duplicate-case': 'error',
     'no-cond-assign': 'error',
-    'no-console': 'off',
     'no-extra-semi': 'error',
     'no-extra-boolean-cast': 'error',
-    'no-param-reassign': 'error',
-    'no-shadow': 'error',
     'no-trailing-spaces': 'error',
     'no-underscore-dangle': 'error',
     'no-unneeded-ternary': 'error',
@@ -68,8 +66,9 @@ module.exports = {
     'one-var': ['error', 'never'],
     'operator-linebreak': ['error', 'after'],
     'padded-blocks': ['error', 'never'],
-    'prefer-arrow-callback': 'error',
+    'prefer-arrow-callback': 'off', // Wishlist, one day
     'prefer-const': 'error',
+    'prefer-template': 'error',
     'quotes': ['error', 'single', 'avoid-escape'],
     'semi': ['error', 'always'],
     'space-before-blocks': ['error', 'always'],
@@ -84,7 +83,7 @@ module.exports = {
     'no-case-declarations': 'off',
 
     // Babel
-    'babel/object-curly-spacing': ['error', 'always'],
+    'babel/object-curly-spacing': ['error', 'never'],
 
     // React
     'react/display-name': 'error',
@@ -92,6 +91,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': 'error',
     'react/jsx-curly-spacing': 'error',
     'react/jsx-equals-spacing': 'error',
+    'react/jsx-first-prop-new-line': ['error', 'multiline'],
     'react/jsx-handler-names': 'error',
     'react/jsx-indent-props': ['error', 2],
     'react/jsx-max-props-per-line': ['error', {maximum: 3}],
@@ -109,7 +109,7 @@ module.exports = {
     'react/no-unknown-property': 'error',
     'react/no-is-mounted': 'error',
     'react/prefer-arrow-callback': 'off', // Wishlist, one day
-    'react/prefer-es6-class': 'off', // Wishlist, one day
+    'react/prefer-es6-class': 'error',
     'react/prop-types': 'error',
     'react/react-in-jsx-scope': 'error',
     'react/require-extension': 'error',
@@ -124,5 +124,6 @@ module.exports = {
     'react/jsx-no-literals': 'off',
     'react/jsx-sort-props': 'off',
     'react/no-set-state': 'off',
-  }
+
+  },
 };

@@ -35,7 +35,7 @@ const shadows = [
   createShadow(0, 10, 13, -6, 0, 21, 33, 3, 0, 8, 40, 7),
   createShadow(0, 10, 14, -6, 0, 22, 35, 3, 0, 8, 42, 7),
   createShadow(0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8),
-  createShadow(0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8)
+  createShadow(0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8),
 ];
 
 export default shadows;

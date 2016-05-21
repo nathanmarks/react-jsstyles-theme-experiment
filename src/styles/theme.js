@@ -1,6 +1,6 @@
 import merge from 'lodash.merge';
 import hashObject from '../utils/hashObject';
-import { createPalette } from './colors';
+import {createPalette} from './colors';
 import shadows from './shadows';
 import transitions from './transitions';
 import createTypography from './typography';
@@ -21,7 +21,7 @@ export function createMuiTheme(
     properties.id = hashObject(properties);
   }
 
-  const muiTheme = { ...properties };
+  const muiTheme = {...properties};
 
   return muiTheme;
 }

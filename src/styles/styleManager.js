@@ -1,4 +1,4 @@
-import { create as createJss } from 'jss';
+import {create as createJss} from 'jss';
 import nested from 'jss-nested';
 import camelCase from 'jss-camel-case';
 import defaultUnit from 'jss-default-unit';
@@ -31,7 +31,7 @@ const createDefaultJss = () =>
 export function createStyleManager({
   jss = createDefaultJss(),
   theme = {},
-  sheetMap = []
+  sheetMap = [],
 } = {}) {
   const styleManager = {};
   const createSheet = (styleSheet) => createJssSheet(jss, theme, styleSheet);
@@ -47,12 +47,12 @@ export function getSheets(jss) {
 }
 
 export function getClasses(createSheet, sheetMap, styleSheet) {
-  let mapping = find(sheetMap, { styleSheet });
+  let mapping = find(sheetMap, {styleSheet});
 
   // Catches HMR when the function reference
   // does not match but the sheet already exists
   if (!mapping) {
-    mapping = find(sheetMap, { styleSheet: { name: styleSheet.name } });
+    mapping = find(sheetMap, {styleSheet: {name: styleSheet.name}});
     mapping.styleSheet = styleSheet;
     mapping.sheet.detach();
     mapping.sheet = createSheet(styleSheet);
@@ -71,13 +71,13 @@ export function getClasses(createSheet, sheetMap, styleSheet) {
  * @return {Object}                - An object @TODO has classes etc
  */
 export function attach(createSheet, sheetMap, styleSheet) {
-  let mapping = find(sheetMap, { styleSheet });
+  let mapping = find(sheetMap, {styleSheet});
 
   if (!mapping) {
     mapping = {
       styleSheet,
       sheet: createSheet(styleSheet),
-      counter: 0
+      counter: 0,
     };
     sheetMap.push(mapping);
   }
@@ -89,7 +89,7 @@ export function attach(createSheet, sheetMap, styleSheet) {
   mapping.counter = mapping.counter + 1;
 
   return {
-    classes: mapping.sheet.classes
+    classes: mapping.sheet.classes,
   };
 }
 
@@ -100,7 +100,7 @@ export function attach(createSheet, sheetMap, styleSheet) {
  * @param  {Object}  styleSheet - The styleSheet object to be attached
  */
 export function detach(sheetMap, styleSheet) {
-  const mapping = find(sheetMap, { styleSheet });
+  const mapping = find(sheetMap, {styleSheet});
   const counter = mapping.counter - 1;
 
   if (counter) {
@@ -124,10 +124,10 @@ export function detach(sheetMap, styleSheet) {
  * @return {Object}             - The JSS sheet
  */
 export function createJssSheet(jss, theme, styleSheet) {
-  const { ruleDefinitions, classes } = styleSheet.getRules(theme);
+  const {ruleDefinitions, classes} = styleSheet.getRules(theme);
 
   const hash = hashObject(ruleDefinitions);
-  const options = { meta: hash, named: false };
+  const options = {meta: hash, named: false};
 
   if (canUseDOM) {
     const element = document.querySelector(`style[data-meta="${hash}"]`);

@@ -1,9 +1,9 @@
-import { getContrastRatio } from './colorManipulator';
+import {getContrastRatio} from './colorManipulator';
 
 export const createPalette = ({
   primary = indigo,
   accent = pink,
-  dark = false
+  dark = false,
 } = {}) => ({
   primary,
   accent,
@@ -12,7 +12,7 @@ export const createPalette = ({
   background: dark ? '#303030' : grey[50],
   paperBackground: dark ? grey[800] : white,
   darkerBackground: dark ? grey[900] : grey[100],
-  getContrastText
+  getContrastText,
 });
 
 function getContrastText(color) {
@@ -39,14 +39,14 @@ export const darkText = {
   primary: 'rgba(0, 0, 0, 0.87)',
   secondary: 'rgba(0, 0, 0, 0.54)',
   disabled: 'rgba(0, 0, 0, 0.38)',
-  divider: 'rgba(0, 0, 0, 0.12)'
+  divider: 'rgba(0, 0, 0, 0.12)',
 };
 
 export const lightText = {
   primary: 'rgba(255, 255, 255, 1)',
   secondary: 'rgba(255, 255, 255, 0.70)',
   disabled: 'rgba(255, 255, 255, 0.50)',
-  divider: 'rgba(255, 255, 255, 0.12)'
+  divider: 'rgba(255, 255, 255, 0.12)',
 };
 
 export const red = {
@@ -64,7 +64,7 @@ export const red = {
   A200: '#ff5252',
   A400: '#ff1744',
   A700: '#d50000',
-  contrastDefaultColor: 'light'
+  contrastDefaultColor: 'light',
 };
 
 export const pink = {
@@ -82,7 +82,7 @@ export const pink = {
   A200: '#ff4081',
   A400: '#f50057',
   A700: '#c51162',
-  contrastDefaultColor: 'light'
+  contrastDefaultColor: 'light',
 };
 
 export const purple = {
@@ -100,7 +100,7 @@ export const purple = {
   A200: '#e040fb',
   A400: '#d500f9',
   A700: '#aa00ff',
-  contrastDefaultColor: 'light'
+  contrastDefaultColor: 'light',
 };
 
 export const deepPurple = {
@@ -118,7 +118,7 @@ export const deepPurple = {
   A200: '#7c4dff',
   A400: '#651fff',
   A700: '#6200ea',
-  contrastDefaultColor: 'light'
+  contrastDefaultColor: 'light',
 };
 
 export const indigo = {
@@ -136,7 +136,7 @@ export const indigo = {
   A200: '#536dfe',
   A400: '#3d5afe',
   A700: '#304ffe',
-  contrastDefaultColor: 'light'
+  contrastDefaultColor: 'light',
 };
 
 export const blue = {
@@ -154,7 +154,7 @@ export const blue = {
   A200: '#448aff',
   A400: '#2979ff',
   A700: '#2962ff',
-  contrastDefaultColor: 'light'
+  contrastDefaultColor: 'light',
 };
 
 export const lightBlue = {
@@ -172,7 +172,7 @@ export const lightBlue = {
   A200: '#40c4ff',
   A400: '#00b0ff',
   A700: '#0091ea',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };
 
 export const cyan = {
@@ -190,7 +190,7 @@ export const cyan = {
   A200: '#18ffff',
   A400: '#00e5ff',
   A700: '#00b8d4',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };
 
 export const teal = {
@@ -208,7 +208,7 @@ export const teal = {
   A200: '#64ffda',
   A400: '#1de9b6',
   A700: '#00bfa5',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };
 
 export const green = {
@@ -226,7 +226,7 @@ export const green = {
   A200: '#69f0ae',
   A400: '#00e676',
   A700: '#00c853',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };
 
 export const lightGreen = {
@@ -244,7 +244,7 @@ export const lightGreen = {
   A200: '#b2ff59',
   A400: '#76ff03',
   A700: '#64dd17',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };
 
 export const lime = {
@@ -262,7 +262,7 @@ export const lime = {
   A200: '#eeff41',
   A400: '#c6ff00',
   A700: '#aeea00',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };
 
 export const yellow = {
@@ -280,7 +280,7 @@ export const yellow = {
   A200: '#ffff00',
   A400: '#ffea00',
   A700: '#ffd600',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };
 
 export const amber = {
@@ -298,7 +298,7 @@ export const amber = {
   A200: '#ffd740',
   A400: '#ffc400',
   A700: '#ffab00',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };
 
 export const orange = {
@@ -316,7 +316,7 @@ export const orange = {
   A200: '#ffab40',
   A400: '#ff9100',
   A700: '#ff6d00',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };
 
 export const deepOrange = {
@@ -334,7 +334,7 @@ export const deepOrange = {
   A200: '#ff6e40',
   A400: '#ff3d00',
   A700: '#dd2c00',
-  contrastDefaultColor: 'light'
+  contrastDefaultColor: 'light',
 };
 
 export const brown = {
@@ -352,7 +352,7 @@ export const brown = {
   A200: '#bcaaa4',
   A400: '#8d6e63',
   A700: '#5d4037',
-  contrastDefaultColor: 'brown'
+  contrastDefaultColor: 'brown',
 };
 
 export const grey = {
@@ -370,5 +370,5 @@ export const grey = {
   A200: '#aaaaaa',
   A400: '#303030',
   A700: '#616161',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };

@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from 'react';
-import { createStyleSheet } from '../styles/styleSheet';
+import React, {Component, PropTypes} from 'react';
+import {createStyleSheet} from '../styles/styleSheet';
 import ClassNames from 'classnames';
 import DeleteIcon from './svg-icons/navigation/cancel';
 
 export const styleSheet = createStyleSheet('chip', (theme) => {
-  const { palette, shadows, transitions, typography } = theme;
+  const {palette, shadows, transitions, typography} = theme;
 
   return {
     base: {
@@ -21,14 +21,14 @@ export const styleSheet = createStyleSheet('chip', (theme) => {
       borderRadius: 16,
       whiteSpace: 'nowrap',
       width: 'fit-content',
-      transition: transitions.easeOut()
+      transition: transitions.easeOut(),
     },
     clickable: {
       '&:active': {
-        boxShadow: shadows[1]
+        boxShadow: shadows[1],
       },
       '&:hover, &:active': {
-        backgroundColor: palette.grey.A100
+        backgroundColor: palette.grey.A100,
       },
       cursor: 'pointer'
     },
@@ -109,7 +109,7 @@ export default class Chip extends Component {
       labelClassName,
       onRequestDelete,
       onTouchTap,
-      ...other
+      ...other,
     } = this.props;
 
     let children = theChildren;

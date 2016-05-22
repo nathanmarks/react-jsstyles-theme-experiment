@@ -4,7 +4,7 @@ import LinearProgress from './LinearProgress';
 export default class LinearProgressExampleDeterminate extends React.Component {
 
   state = {
-    completed: 0
+    completed: 0,
   };
 
   componentDidMount() {

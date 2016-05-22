@@ -9,7 +9,7 @@ function getRelativeValue(value, min, max) {
   return relValue * 100;
 }
 
-export const styleSheet = createStyleSheet('linear-progress', (theme) => {
+export const styleSheet = createStyleSheet('LinearProgress', (theme) => {
   const {palette, transitions} = theme;
 
   return {

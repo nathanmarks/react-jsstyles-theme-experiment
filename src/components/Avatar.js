@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
-export const styleSheet = createStyleSheet('avatar', (theme) => {
+export const styleSheet = createStyleSheet('Avatar', (theme) => {
   const {palette} = theme;
 
   const contrastText = palette.getContrastText(palette.grey[400]);

@@ -3,7 +3,7 @@ import {createStyleSheet} from '../styles/styleSheet';
 import ClassNames from 'classnames';
 import DeleteIcon from './svg-icons/navigation/cancel';
 
-export const styleSheet = createStyleSheet('chip', (theme) => {
+export const styleSheet = createStyleSheet('Chip', (theme) => {
   const {palette, shadows, transitions, typography} = theme;
 
   return {
@@ -30,26 +30,26 @@ export const styleSheet = createStyleSheet('chip', (theme) => {
       '&:hover, &:active': {
         backgroundColor: palette.grey.A100,
       },
-      cursor: 'pointer'
+      cursor: 'pointer',
     },
     avatar: {
-      marginRight: -4
+      marginRight: -4,
     },
     label: {
       color: palette.text,
       paddingLeft: 12,
       paddingRight: 12,
       userSelect: 'none',
-      whiteSpace: 'nowrap'
+      whiteSpace: 'nowrap',
     },
     deleteIcon: {
       fill: palette.grey[500],
       '&:hover': {
-        fill: palette.grey[600]
+        fill: palette.grey[600],
       },
       cursor: 'pointer',
-      margin: '0 4px 0 -8px'
-    }
+      margin: '0 4px 0 -8px',
+    },
   };
 });
 
@@ -85,11 +85,11 @@ export default class Chip extends Component {
      *
      * @param {object} event TouchTap event targeting the element.
      */
-    onTouchTap: PropTypes.func
+    onTouchTap: PropTypes.func,
   };
 
   static contextTypes = {
-    styleManager: PropTypes.object.isRequired
+    styleManager: PropTypes.object.isRequired,
   };
 
   componentWillMount() {
@@ -118,19 +118,19 @@ export default class Chip extends Component {
 
     const classNames = ClassNames({
       [classes.base]: true,
-      [classes.clickable]: onTouchTap
+      [classes.clickable]: onTouchTap,
     }, className);
 
     const avatarClassNames = ClassNames({
-      [classes.avatar]: true
+      [classes.avatar]: true,
     }, avatarClassName);
 
     const labelClassNames = ClassNames({
-      [classes.label]: true
+      [classes.label]: true,
     }, labelClassName);
 
     const deleteIconclassNames = ClassNames({
-      [classes.deleteIcon]: onRequestDelete
+      [classes.deleteIcon]: onRequestDelete,
     }, deleteIconClassName);
 
     const deleteIcon = onRequestDelete ?
@@ -152,7 +152,7 @@ export default class Chip extends Component {
 
         avatar = React.cloneElement(avatar, {
           size: 32,
-          className: avatarClassNames
+          className: avatarClassNames,
         });
       }
     }

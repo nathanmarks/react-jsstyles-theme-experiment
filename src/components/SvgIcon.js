@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
-export const styleSheet = createStyleSheet('svgicon', (theme) => {
+export const styleSheet = createStyleSheet('SvgIcon', (theme) => {
   const {palette, transitions} = theme;
 
   return {

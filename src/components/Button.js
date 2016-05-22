@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from '../styles/styleSheet';
 import ClassNames from 'classnames';
 
-export const styleSheet = createStyleSheet('button', (theme) => {
+export const styleSheet = createStyleSheet('Button', (theme) => {
   const {palette, shadows, transitions, typography} = theme;
 
   return {

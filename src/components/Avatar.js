@@ -5,12 +5,9 @@ import ClassNames from 'classnames';
 export const styleSheet = createStyleSheet('avatar', (theme) => {
   const {palette} = theme;
 
-  const contrastText = palette.getContrastText(palette.grey[400]);
-
   return {
     base: {
-      color: contrastText,
-      fill: contrastText,
+      color: 'white',
       backgroundColor: palette.grey[400],
       userSelect: 'none',
       display: 'inline-flex',
@@ -20,7 +17,7 @@ export const styleSheet = createStyleSheet('avatar', (theme) => {
       borderRadius: '50%',
     },
     icon: {
-      color: contrastText,
+      fill: 'white',
     },
   };
 });

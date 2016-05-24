@@ -5,12 +5,10 @@ import ClassNames from 'classnames';
 export const styleSheet = createStyleSheet('avatar', (theme) => {
   const {palette} = theme;
 
-  const contrastText = palette.getContrastText(palette.grey[400]);
-
   return {
     base: {
-      color: contrastText,
-      fill: contrastText,
+      color: 'white',
+      fill: 'white',
       backgroundColor: palette.grey[400],
       userSelect: 'none',
       display: 'inline-flex',
@@ -18,9 +16,6 @@ export const styleSheet = createStyleSheet('avatar', (theme) => {
       justifyContent: 'center',
       textAlign: 'center',
       borderRadius: '50%',
-    },
-    icon: {
-      color: contrastText,
     },
   };
 });
@@ -83,10 +78,6 @@ export default class Avatar extends Component {
       [classes.base]: true,
     }, className);
 
-    const iconClassNames = ClassNames({
-      [classes.icon]: true,
-    });
-
     const styles = {
       root: {
         fontSize: size / 2,
@@ -103,7 +94,6 @@ export default class Avatar extends Component {
 
     if (React.isValidElement(children)) {
       cloneChildren = React.cloneElement(children, {
-        className: `${iconClassNames} ${children.props.className}`,
         style: Object.assign(styles.icon, children.props.style),
       });
     } else {

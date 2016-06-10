@@ -11,25 +11,25 @@ module.exports = {
       'react-hot-loader/patch',
       'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/only-dev-server',
-      './src/index'
-    ]
+      './src/index',
+    ],
   },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/static/',
   },
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] },
-      { test: /\.hbs$/, loader: 'handlebars' }
-    ]
+      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
+      {test: /\.hbs$/, loader: 'handlebars'},
+    ],
   },
   progress: true,
   plugins: [
     // new HtmlWebpackPlugin({
     //   template: './src/index.html.hbs'
     // }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 };

@@ -1,20 +1,18 @@
 import React, {Component, PropTypes} from 'react';
-import {createStyleSheet} from './styles/styleSheet';
+import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import AppBar from './components/AppBar';
 import AppContent from './components/AppContent';
 
-export const globalStyleSheet = createStyleSheet('global', (theme) => {
+export const styleSheet = createStyleSheet('Demo', (theme) => {
   const {palette, typography} = theme;
   return {
-    body: {
+    '@raw body': {
       background: palette.background,
       fontFamily: typography.fontFamily,
       color: palette.text.primary,
-      margin: 0,
-      padding: 0,
     },
   };
-}, {global: true, named: false});
+});
 
 export default class Demo extends Component {
   static propTypes = {
@@ -25,15 +23,9 @@ export default class Demo extends Component {
     styleManager: PropTypes.object.isRequired,
   };
 
-  componentWillMount() {
-    this.context.styleManager.attach(globalStyleSheet);
-  }
-
-  componentWillUnmount() {
-    this.context.styleManager.detach(globalStyleSheet);
-  }
-
   render() {
+    this.context.styleManager.render(styleSheet);
+
     return (
       <div>
         <AppBar>

@@ -4,6 +4,7 @@ build
 coverage
 webpack-assets.json
 webpack-stats.json
+NOTES.md
 
 # OS files
 .DS_STORE

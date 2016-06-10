@@ -8,14 +8,14 @@ const serverOptions = {
   hot: true,
   // inline: true,
   historyApiFallback: true,
-  stats: { colors: true }
+  stats: {colors: true},
 };
 
 new WebpackDevServer(webpack(webpackConfig), serverOptions)
   .listen(3000, 'localhost', (err) => {
     if (err) {
-      return console.log(err);
+      return console.log(err); // eslint-disable-line no-console
     }
 
-    return console.info('Webpack dev server listening at http://localhost:3000/');
+    return console.info('Webpack dev server listening at http://localhost:3000/'); // eslint-disable-line no-console
   });

@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {createStyleSheet} from '../styles/styleSheet';
+import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('AppBar', (theme) => {
@@ -34,14 +34,6 @@ export default class AppBar extends Component {
     styleManager: PropTypes.object.isRequired,
   };
 
-  componentWillMount() {
-    this.context.styleManager.attach(styleSheet);
-  }
-
-  componentWillUnmount() {
-    this.context.styleManager.detach(styleSheet);
-  }
-
   render() {
     const {
       children,
@@ -49,7 +41,7 @@ export default class AppBar extends Component {
       ...other,
     } = this.props;
 
-    const classes = this.context.styleManager.getClasses(styleSheet);
+    const classes = this.context.styleManager.render(styleSheet);
 
     const classNames = ClassNames({
       [classes.base]: true,

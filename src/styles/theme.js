@@ -1,4 +1,4 @@
-import merge from 'lodash.merge';
+import merge from 'lodash/merge';
 import hashObject from '../utils/hashObject';
 import {createPalette} from './colors';
 import shadows from './shadows';

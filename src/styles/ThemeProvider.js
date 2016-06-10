@@ -1,6 +1,6 @@
 import {Component, PropTypes} from 'react';
 import {createMuiTheme} from './theme';
-import {createStyleManager} from './styleManager';
+import {createStyleManager} from 'stylishly/lib/styleManager';
 
 export default class ThemeProvider extends Component {
   static propTypes = {

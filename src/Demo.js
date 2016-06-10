@@ -6,6 +6,12 @@ import AppContent from './components/AppContent';
 export const styleSheet = createStyleSheet('Demo', (theme) => {
   const {palette, typography} = theme;
   return {
+    '@raw html': {
+      boxSizing: 'border-box',
+    },
+    '@raw *, *:before, *:after': {
+      boxSizing: 'inherit',
+    },
     '@raw body': {
       background: palette.background,
       fontFamily: typography.fontFamily,

@@ -12,7 +12,6 @@ export const styleSheet = createStyleSheet('Avatar', (theme) => {
       color: contrastText,
       fill: contrastText,
       backgroundColor: palette.grey[400],
-      userSelect: 'none',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',

@@ -7,11 +7,12 @@ export default {
   easeOut(duration, property, delay, easeFunction) {
     easeFunction = easeFunction || this.easeOutFunction;
 
-    if (property && Object.prototype.toString.call(property) === '[object Array]') {
+    if (property && Array.isArray(property)) {
       let transitions = '';
       for (let i = 0; i < property.length; i++) {
         if (transitions) transitions += ',';
-        transitions += this.create(duration, property[i], delay, easeFunction);
+        const thisDelay = Array.isArray(delay) ? delay[i] : delay;
+        transitions += this.create(duration, property[i], thisDelay, easeFunction);
       }
 
       return transitions;

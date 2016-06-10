@@ -40,8 +40,8 @@ export default class Demo extends Component {
         <h4>Button</h4>
         <div className={classes.components}>
           <div className={classes.componentRow}>
-            <Button className={classes.component} primary={true}>Hello World</Button>
-            <Button className={classes.component} accent={true}>Click Here</Button>
+            <Button className={classes.component} primary={true}>Primary</Button>
+            <Button className={classes.component} accent={true}>Accent</Button>
           </div>
         </div>
         <h4>Avatar</h4>

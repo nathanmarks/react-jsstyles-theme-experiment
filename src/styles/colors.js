@@ -1,27 +1,3 @@
-import {getContrastRatio} from './colorManipulator';
-
-export const createPalette = ({
-  primary = indigo,
-  accent = pink,
-  dark = false,
-} = {}) => ({
-  primary,
-  accent,
-  grey,
-  text: dark ? lightText : darkText,
-  background: dark ? '#303030' : grey[50],
-  paperBackground: dark ? grey[800] : white,
-  darkerBackground: dark ? grey[900] : grey[100],
-  getContrastText,
-});
-
-function getContrastText(color) {
-  if (getContrastRatio(color, black) < 7) {
-    return white;
-  }
-  return black;
-}
-
 export const black = '#000000';
 export const white = '#ffffff';
 

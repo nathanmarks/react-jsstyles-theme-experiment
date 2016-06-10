@@ -1,11 +1,8 @@
 import React, {Component, PropTypes} from 'react';
-import ClassNames from 'classnames';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import Button from './Button';
 
-export const styleSheet = createStyleSheet('AppContent', (theme) => {
-  const {shadows} = theme;
-
+export const styleSheet = createStyleSheet('AppContent', () => {
   return {
     base: {
       margin: '128px 32px 0',
@@ -22,11 +19,6 @@ export const styleSheet = createStyleSheet('AppContent', (theme) => {
     button: {
       margin: 6,
     },
-    shadowButton: {
-      'base &': {
-        boxShadow: shadows[15],
-      },
-    },
   };
 });
 
@@ -41,15 +33,14 @@ export default class Demo extends Component {
 
   render() {
     const classes = this.context.styleManager.render(styleSheet);
-    const shadowButton = ClassNames(classes.button, classes.shadowButton);
 
     return (
       <div className={classes.base}>
         <h4>JS Styles</h4>
         <div className={classes.components}>
           <div className={classes.componentRow}>
-            <Button className={classes.button} accent={true}>Hello World</Button>
-            <Button className={shadowButton} accent={true}>Whoa Shadow</Button>
+            <Button className={classes.button} primary={true}>Hello World</Button>
+            <Button className={classes.button} accent={true}>Click Here</Button>
           </div>
         </div>
       </div>

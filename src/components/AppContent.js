@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import Button from './Button';
+import Avatar from './Avatar';
 
 export const styleSheet = createStyleSheet('AppContent', () => {
   return {
@@ -16,7 +17,7 @@ export const styleSheet = createStyleSheet('AppContent', () => {
       display: 'flex',
       flexDirection: 'column',
     },
-    button: {
+    component: {
       margin: 6,
     },
   };
@@ -36,11 +37,25 @@ export default class Demo extends Component {
 
     return (
       <div className={classes.base}>
-        <h4>JS Styles</h4>
+        <h4>Button</h4>
         <div className={classes.components}>
           <div className={classes.componentRow}>
-            <Button className={classes.button} primary={true}>Hello World</Button>
-            <Button className={classes.button} accent={true}>Click Here</Button>
+            <Button className={classes.component} primary={true}>Hello World</Button>
+            <Button className={classes.component} accent={true}>Click Here</Button>
+          </div>
+        </div>
+        <h4>Avatar</h4>
+        <div className={classes.components}>
+          <div className={classes.componentRow}>
+            <Avatar
+              src="https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/73.jpg"
+              className={classes.component}
+            />
+            <Avatar
+              src="https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/128.jpg"
+              size={80}
+              className={classes.component}
+            />
           </div>
         </div>
       </div>

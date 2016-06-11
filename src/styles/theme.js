@@ -46,7 +46,7 @@ export function createPalette({
 
 function getContrastText(color) {
   if (getContrastRatio(color, black) < 7) {
-    return white;
+    return lightText.primary;
   }
-  return black;
+  return darkText.primary;
 }

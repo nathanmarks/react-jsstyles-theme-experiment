@@ -48,7 +48,7 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
     ),
   },
   visible: {
-    opacity: 0.25,
+    opacity: 0.2,
   },
 }));
 

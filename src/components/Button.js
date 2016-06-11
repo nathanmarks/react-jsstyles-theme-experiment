@@ -20,6 +20,7 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
       border: 10,
       borderRadius: 2,
       cursor: 'pointer',
+      overflow: 'hidden',
       transition: transitions.easeOut(),
     },
     raised: {

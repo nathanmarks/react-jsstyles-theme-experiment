@@ -80,7 +80,7 @@ export default class Demo extends Component {
             <Avatar className={classes.component}>A</Avatar>
             <Avatar
               size={30}
-              className={classes.avatar}
+              className={classes.component}
               style={{color: deepOrange[300], backgroundColor: purple[500]}}
             >
               A

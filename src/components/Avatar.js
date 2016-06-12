@@ -9,9 +9,10 @@ export const styleSheet = createStyleSheet('Avatar', (theme) => {
     base: {
       color: 'white',
       fill: 'white',
+      lineHeight: 1,
       backgroundColor: palette.grey[400],
       userSelect: 'none',
-      display: 'inline-flex',
+      display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',

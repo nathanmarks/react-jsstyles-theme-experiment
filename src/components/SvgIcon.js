@@ -3,12 +3,12 @@ import {createStyleSheet} from 'stylishly';
 import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('SvgIcon', (theme) => {
-  const {palette, transitions} = theme;
+  const {transitions} = theme;
 
   return {
     base: {
       display: 'inline-block',
-      fill: palette.text,
+      fill: 'currentColor',
       height: 24,
       width: 24,
       userSelect: 'none',

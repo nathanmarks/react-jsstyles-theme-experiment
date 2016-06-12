@@ -8,14 +8,11 @@ export const styleSheet = createStyleSheet('SvgIcon', (theme) => {
   return {
     base: {
       display: 'inline-block',
-      fill: palette.text,
+      fill: palette.text.primary,
       height: 24,
       width: 24,
       userSelect: 'none',
       transition: transitions.easeOut(),
-      '&:hover': {
-        backgroundColor: palette.text,
-      },
     },
   };
 });
@@ -28,13 +25,10 @@ export default class SvgIcon extends Component {
      * Elements passed into the SVG Icon.
      */
     children: PropTypes.node,
-    className: PropTypes.string,
     /**
-     * This is the fill color of the svg icon.
-     * If not specified, this component will default
-     * to muiTheme.palette.textColor.
+     * The css class name of the root element.
      */
-    style: PropTypes.object,
+    className: PropTypes.string,
     /**
      * Allows you to redifine what the coordinates
      * without units mean inside an svg element. For example,

@@ -2,6 +2,14 @@ import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import Button from './Button';
 import Avatar from './Avatar';
+import FileFolder from './svg-icons/file/folder';
+
+import {
+  orange,
+  deepOrange,
+  pink,
+  purple,
+} from '../styles/colors';
 
 export const styleSheet = createStyleSheet('AppContent', () => {
   return {
@@ -49,14 +57,34 @@ export default class Demo extends Component {
         <div className={classes.components}>
           <div className={classes.componentRow}>
             <Avatar
-              src="https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/73.jpg"
+              src="https://avatars1.githubusercontent.com/nathanmarks?&s=40"
               className={classes.component}
             />
             <Avatar
-              src="https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/128.jpg"
-              size={80}
+              src="https://avatars1.githubusercontent.com/nathanmarks?&s=30"
+              size={30}
               className={classes.component}
             />
+            <Avatar
+              className={classes.component}
+            >
+              <FileFolder />
+            </Avatar>
+            <Avatar
+              size={30}
+              className={classes.component}
+              style={{backgroundColor: pink[400]}}
+            >
+              <FileFolder style={{fill: orange[200]}} />
+            </Avatar>
+            <Avatar className={classes.component}>A</Avatar>
+            <Avatar
+              size={30}
+              className={classes.avatar}
+              style={{color: deepOrange[300], backgroundColor: purple[500]}}
+            >
+              A
+            </Avatar>
           </div>
         </div>
       </div>

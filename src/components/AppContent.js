@@ -31,7 +31,7 @@ export const styleSheet = createStyleSheet('AppContent', () => {
       margin: 6,
     },
     svgIcon: {
-      fill: '#444',
+      color: '#444',
     },
   };
 });

@@ -5,7 +5,6 @@ import ClassNames from 'classnames';
 export const styleSheet = createStyleSheet('SvgIcon', (theme) => {
   const {palette, transitions} = theme;
 
-  console.log(palette.text.primary);
   return {
     base: {
       display: 'inline-block',

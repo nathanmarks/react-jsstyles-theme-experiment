@@ -1,8 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
-import Button from './Button';
 import Avatar from './Avatar';
+import Button from './Button';
+import Chip from './Chip';
 import FileFolder from './svg-icons/file/folder';
+import Face from './svg-icons/action/face';
 
 import {
   orange,
@@ -28,6 +30,9 @@ export const styleSheet = createStyleSheet('AppContent', () => {
     component: {
       margin: 6,
     },
+    svgIcon: {
+      fill: '#444',
+    },
   };
 });
 
@@ -45,14 +50,6 @@ export default class Demo extends Component {
 
     return (
       <div className={classes.base}>
-        <h4>Button</h4>
-        <div className={classes.components}>
-          <div className={classes.componentRow}>
-            <Button className={classes.component} primary={true}>Primary</Button>
-            <Button className={classes.component} accent={true}>Accent</Button>
-            <Button className={classes.component}>Default</Button>
-          </div>
-        </div>
         <h4>Avatar</h4>
         <div className={classes.components}>
           <div className={classes.componentRow}>
@@ -86,6 +83,41 @@ export default class Demo extends Component {
               A
             </Avatar>
           </div>
+        </div>
+        <h4>Button</h4>
+        <div className={classes.components}>
+          <div className={classes.componentRow}>
+            <Button className={classes.component} primary={true}>Primary</Button>
+            <Button className={classes.component} accent={true}>Accent</Button>
+            <Button className={classes.component}>Default</Button>
+          </div>
+        </div>
+        <h4>Chip</h4>
+        <div className={classes.componentRow}>
+          <Chip className={classes.component}>Chips Ahoy!</Chip>
+          <Chip
+            onRequestDelete={() => {}}
+            className={classes.component}
+          >
+            <Avatar>MB</Avatar>
+            Deletable Chip
+          </Chip>
+          <Chip
+            onTouchTap={() => {}}
+            onRequestDelete={() => {}}
+            className={classes.component}
+          >
+            <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg" />
+            Clickable Chip
+          </Chip>
+          <Chip
+            onTouchTap={() => {}}
+            onRequestDelete={() => {}}
+            className={classes.component}
+          >
+            <Avatar><Face className={classes.svgIcon} /></Avatar>
+            SvgIcon Chip
+          </Chip>
         </div>
       </div>
     );

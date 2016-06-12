@@ -1,10 +1,11 @@
 import React, {Component, PropTypes} from 'react';
-import {createStyleSheet} from '../styles/styleSheet';
+import {createStyleSheet} from 'stylishly';
 import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('SvgIcon', (theme) => {
   const {palette, transitions} = theme;
 
+  console.log(palette.text.primary);
   return {
     base: {
       display: 'inline-block',
@@ -13,9 +14,6 @@ export const styleSheet = createStyleSheet('SvgIcon', (theme) => {
       width: 24,
       userSelect: 'none',
       transition: transitions.easeOut(),
-      '&:hover': {
-        backgroundColor: palette.text,
-      },
     },
   };
 });
@@ -28,11 +26,12 @@ export default class SvgIcon extends Component {
      * Elements passed into the SVG Icon.
      */
     children: PropTypes.node,
+    /**
+     * The css class name of the root element.
+     */
     className: PropTypes.string,
     /**
-     * This is the fill color of the svg icon.
-     * If not specified, this component will default
-     * to muiTheme.palette.textColor.
+     * Override the inline style of the root element.
      */
     style: PropTypes.object,
     /**
@@ -54,14 +53,6 @@ export default class SvgIcon extends Component {
     styleManager: PropTypes.object.isRequired,
   };
 
-  componentWillMount() {
-    this.context.styleManager.attach(styleSheet);
-  }
-
-  componentWillUnmount() {
-    this.context.styleManager.detach(styleSheet);
-  }
-
   render() {
     const {
       children,
@@ -70,7 +61,7 @@ export default class SvgIcon extends Component {
       ...other,
     } = this.props;
 
-    const classes = this.context.styleManager.getClasses(styleSheet);
+    const classes = this.context.styleManager.render(styleSheet);
 
     const classNames = ClassNames({
       [classes.base]: true,

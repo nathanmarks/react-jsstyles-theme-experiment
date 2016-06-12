@@ -1,25 +1,21 @@
 import React, {Component, PropTypes} from 'react';
-import {createStyleSheet} from 'stylishly/lib/styleSheet';
+import {createStyleSheet} from 'stylishly';
 import ClassNames from 'classnames';
 
 export const styleSheet = createStyleSheet('Avatar', (theme) => {
   const {palette} = theme;
 
-  const contrastText = palette.getContrastText(palette.grey[400]);
-
   return {
     base: {
-      color: contrastText,
-      fill: contrastText,
+      color: 'white',
+      fill: 'white',
       backgroundColor: palette.grey[400],
+      userSelect: 'none',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
       borderRadius: '50%',
-    },
-    icon: {
-      color: contrastText,
     },
   };
 });
@@ -74,10 +70,6 @@ export default class Avatar extends Component {
       [classes.base]: true,
     }, className);
 
-    const iconClassNames = ClassNames({
-      [classes.icon]: true,
-    });
-
     const styles = {
       root: {
         fontSize: size / 2,
@@ -94,7 +86,6 @@ export default class Avatar extends Component {
 
     if (React.isValidElement(children)) {
       cloneChildren = React.cloneElement(children, {
-        className: `${iconClassNames} ${children.props.className}`,
         style: Object.assign(styles.icon, children.props.style),
       });
     } else {

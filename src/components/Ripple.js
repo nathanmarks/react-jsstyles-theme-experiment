@@ -24,7 +24,6 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
     top: 0,
     zIndex: 0,
     overflow: 'hidden',
-    transition: theme.transitions.easeOut('600ms', 'opacity'),
   },
   ripple: {
     width: 50,
@@ -41,7 +40,7 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
   },
   animating: {
     transition: theme.transitions.easeOut(
-      '600ms',
+      '500ms',
       ['transform', 'opacity'],
     ),
   },

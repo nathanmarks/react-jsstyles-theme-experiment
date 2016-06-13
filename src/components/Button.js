@@ -42,7 +42,12 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
       },
     },
     raised: {
+      color: palette.getContrastText(palette.grey[300]),
+      backgroundColor: palette.grey[300],
       boxShadow: shadows[2],
+      '&:hover': {
+        backgroundColor: palette.grey.A100,
+      },
       '&:active': {
         boxShadow: shadows[8],
       },

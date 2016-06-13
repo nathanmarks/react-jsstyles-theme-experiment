@@ -2,7 +2,7 @@ import {Component, PropTypes} from 'react';
 import {createMuiTheme} from './theme';
 import {createStyleManager} from 'stylishly/lib/styleManager';
 import {createPluginRegistry} from 'stylishly/lib/pluginRegistry';
-// import vendorPrefixer from 'stylishly-vendor-prefixer';
+import vendorPrefixer from 'stylishly-vendor-prefixer';
 import pseudoClasses from 'stylishly-pseudo-classes';
 import descendants from 'stylishly-descendants';
 import chained from 'stylishly-chained';
@@ -36,8 +36,8 @@ export default class ThemeProvider extends Component {
         chained(),
         descendants(),
         pseudoClasses(),
-        units()
-        // vendorPrefixer()
+        units(),
+        vendorPrefixer()
       ),
     });
   }

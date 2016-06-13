@@ -5,6 +5,7 @@ import {createPluginRegistry} from 'stylishly/lib/pluginRegistry';
 import vendorPrefixer from 'stylishly-vendor-prefixer';
 import pseudoClasses from 'stylishly-pseudo-classes';
 import descendants from 'stylishly-descendants';
+import chained from 'stylishly-chained';
 import units from 'stylishly-units';
 
 export default class ThemeProvider extends Component {
@@ -32,6 +33,7 @@ export default class ThemeProvider extends Component {
     this.styleManager = this.props.styleManager || createStyleManager({
       theme: this.theme,
       pluginRegistry: createPluginRegistry(
+        chained(),
         descendants(),
         pseudoClasses(),
         units(),

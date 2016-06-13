@@ -3,6 +3,19 @@ import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
 import Ripple, {createRippleHandler} from './Ripple';
 
+function createButtonColorRule(main, contrast, hover) {
+  return {
+    color: main,
+    '& raised': {
+      color: contrast,
+      backgroundColor: main,
+      '&:hover': {
+        backgroundColor: hover,
+      },
+    },
+  };
+}
+
 export const styleSheet = createStyleSheet('Button', (theme) => {
   const {palette, shadows, transitions, typography} = theme;
 
@@ -29,27 +42,21 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
         boxShadow: shadows[8],
       },
     },
-    raisedDefault: {
-      color: palette.getContrastText(palette.grey[300]),
-      backgroundColor: palette.grey[300],
-      '&:hover, &:active': {
-        backgroundColor: palette.grey.A100,
-      },
-    },
-    raisedPrimary: {
-      color: palette.getContrastText(palette.primary[500]),
-      backgroundColor: palette.primary[500],
-      '&:hover, &:active': {
-        backgroundColor: palette.primary[700],
-      },
-    },
-    raisedAccent: {
-      color: palette.getContrastText(palette.accent.A200),
-      backgroundColor: palette.accent.A200,
-      '&:hover, &:active': {
-        backgroundColor: palette.accent.A400,
-      },
-    },
+    default: createButtonColorRule(
+      palette.grey[300],
+      palette.getContrastText(palette.grey[300]),
+      palette.grey.A100
+    ),
+    primary: createButtonColorRule(
+      palette.primary[500],
+      palette.getContrastText(palette.primary[500]),
+      palette.primary[700]
+    ),
+    accent: createButtonColorRule(
+      palette.accent.A200,
+      palette.getContrastText(palette.accent.A200),
+      palette.accent.A400
+    ),
   };
 });
 
@@ -109,9 +116,9 @@ export default class Button extends Component {
     const classNames = ClassNames({
       [classes.base]: true,
       [classes.raised]: raised,
-      [classes.raisedDefault]: raised && !primary && !accent,
-      [classes.raisedPrimary]: raised && primary,
-      [classes.raisedAccent]: raised && accent,
+      [classes.default]: !primary && !accent,
+      [classes.primary]: primary,
+      [classes.accent]: accent,
     }, className);
 
     return (

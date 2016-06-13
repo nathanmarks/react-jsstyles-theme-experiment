@@ -30,7 +30,7 @@ export function createMuiTheme(
 export function createPalette({
   primary = indigo,
   accent = pink,
-  dark = true,
+  dark = false,
 } = {}) {
   return {
     primary,

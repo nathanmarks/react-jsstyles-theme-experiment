@@ -84,12 +84,20 @@ export default class Demo extends Component {
             </Avatar>
           </div>
         </div>
-        <h4>Button</h4>
+        <h4>Raised Button</h4>
         <div className={classes.components}>
           <div className={classes.componentRow}>
             <Button className={classes.component} primary={true}>Primary</Button>
             <Button className={classes.component} accent={true}>Accent</Button>
             <Button className={classes.component}>Default</Button>
+          </div>
+        </div>
+        <h4>Flat Button</h4>
+        <div className={classes.components}>
+          <div className={classes.componentRow}>
+            <Button className={classes.component} type="flat" primary={true}>Primary</Button>
+            <Button className={classes.component} type="flat" accent={true}>Accent</Button>
+            <Button className={classes.component} type="flat">Default</Button>
           </div>
         </div>
         <h4>Chip</h4>

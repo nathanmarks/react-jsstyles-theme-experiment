@@ -34,7 +34,12 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
       borderRadius: 2,
       cursor: 'pointer',
       overflow: 'hidden',
+      color: palette.text.primary,
+      backgroundColor: 'transparent',
       transition: transitions.easeOut(),
+      '&:hover': {
+        backgroundColor: palette.text.divider,
+      },
     },
     raised: {
       boxShadow: shadows[2],
@@ -42,11 +47,6 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
         boxShadow: shadows[8],
       },
     },
-    default: createButtonColorRule(
-      palette.grey[300],
-      palette.getContrastText(palette.grey[300]),
-      palette.grey.A100
-    ),
     primary: createButtonColorRule(
       palette.primary[500],
       palette.getContrastText(palette.primary[500]),
@@ -116,7 +116,6 @@ export default class Button extends Component {
     const classNames = ClassNames({
       [classes.base]: true,
       [classes.raised]: raised,
-      [classes.default]: !primary && !accent,
       [classes.primary]: primary,
       [classes.accent]: accent,
     }, className);

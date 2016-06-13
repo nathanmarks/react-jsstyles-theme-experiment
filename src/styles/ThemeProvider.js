@@ -36,8 +36,8 @@ export default class ThemeProvider extends Component {
         chained(),
         descendants(),
         pseudoClasses(),
-        units(),
-        vendorPrefixer()
+        units()
+        // vendorPrefixer()
       ),
     });
   }

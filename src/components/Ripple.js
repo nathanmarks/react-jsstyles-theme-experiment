@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
 
-export function createRippleHandler(eventName, action) {
+export function createRippleHandler(instance, eventName, action) {
   return function handleEvent(event) {
-    if (this.ripple) {
-      this.ripple[action](event);
+    if (instance.ripple) {
+      instance.ripple[action](event);
     }
-    if (this.props && typeof this.props[`handle${eventName}`] === 'function') {
-      this.props[`on${eventName}`](event);
+    if (instance.props && typeof instance.props[`handle${eventName}`] === 'function') {
+      instance.props[`on${eventName}`](event);
     }
   };
 }

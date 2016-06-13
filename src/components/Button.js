@@ -87,11 +87,11 @@ export default class Button extends Component {
 
   ripple = undefined;
 
-  handleMouseDown = createRippleHandler('MouseDown', 'start').bind(this);
-  handleMouseUp = createRippleHandler('MouseUp', 'stop').bind(this);
-  handleTouchStart = createRippleHandler('TouchStart', 'start').bind(this);
-  handleTouchEnd = createRippleHandler('TouchEnd', 'stop').bind(this);
-  handleBlur = createRippleHandler('Blur', 'stop').bind(this);
+  handleMouseDown = createRippleHandler(this, 'MouseDown', 'start');
+  handleMouseUp = createRippleHandler(this, 'MouseUp', 'stop');
+  handleTouchStart = createRippleHandler(this, 'TouchStart', 'start');
+  handleTouchEnd = createRippleHandler(this, 'TouchEnd', 'stop');
+  handleBlur = createRippleHandler(this, 'Blur', 'stop');
 
   render() {
     const {

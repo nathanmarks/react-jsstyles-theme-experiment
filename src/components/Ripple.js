@@ -43,12 +43,12 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
   },
   animating: {
     transition: theme.transitions.easeOut(
-      ['450ms', '450ms', '450ms', '600ms'],
-      ['transform', 'width', 'height', 'opacity'],
+      '600ms',
+      ['transform', 'opacity'],
     ),
   },
   visible: {
-    opacity: 0.2,
+    opacity: 0.3,
   },
 }));
 
@@ -105,8 +105,8 @@ export default class Ripple extends Component {
       this.rippleVisible = true;
       this.rippleStart = true;
 
-      const sizeX = Math.max(Math.abs(elem.clientWidth - rippleX), rippleX) * 2;
-      const sizeY = Math.max(Math.abs(elem.clientHeight - rippleY), rippleY) * 2;
+      const sizeX = Math.max(Math.abs(elem.clientWidth - rippleX), rippleX) * 2 + 2;
+      const sizeY = Math.max(Math.abs(elem.clientHeight - rippleY), rippleY) * 2 + 2;
 
       this.rippleSize = Math.sqrt(Math.pow(sizeX, 2) + Math.pow(sizeY, 2));
 
@@ -134,17 +134,15 @@ export default class Ripple extends Component {
     let scale;
     const offset = `translate(${rippleX}px, ${rippleY}px)`;
 
+    // if (recentering) {
+    //   offset = 'translate(' + this.boundWidth / 2 + 'px, ' +
+    //     this.boundHeight / 2 + 'px)';
+    // }
+
     if (rippleStart) {
       scale = 'scale(0.0001, 0.0001)';
-      // size = '1px';
     } else {
-      scale = '';
-      // size = `${rippleSize}px`;
-
-      // if (recentering) {
-      //   offset = 'translate(' + this.boundWidth / 2 + 'px, ' +
-      //     this.boundHeight / 2 + 'px)';
-      // }
+      scale = 'scale(1, 1)';
     }
 
     const transformString = `translate(-50%, -50%) ${offset} ${scale}`;

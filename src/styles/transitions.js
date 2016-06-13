@@ -1,18 +1,22 @@
 /* eslint-disable no-param-reassign */
+
+const easing = {
+  easeInOut: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
+  easeOut: 'cubic-bezier(0.0, 0.0, 0.2, 1)',
+  easeIn: 'cubic-bezier(0.4, 0.0, 1, 1)',
+  sharp: 'cubic-bezier(0.4, 0.0, 0.6, 1)',
+};
+
 export default {
 
-  easeOutFunction: 'cubic-bezier(0.23, 1, 0.32, 1)',
-  easeInOutFunction: 'cubic-bezier(0.445, 0.05, 0.55, 0.95)',
-
   easeOut(duration, property, delay, easeFunction) {
-    easeFunction = easeFunction || this.easeOutFunction;
+    easeFunction = easeFunction || easing.easeInOut;
 
     if (property && Array.isArray(property)) {
       let transitions = '';
       for (let i = 0; i < property.length; i++) {
         if (transitions) transitions += ',';
-        const thisDelay = Array.isArray(delay) ? delay[i] : delay;
-        transitions += this.create(duration, property[i], thisDelay, easeFunction);
+        transitions += this.create(duration, property[i], delay, easeFunction);
       }
 
       return transitions;
@@ -22,10 +26,10 @@ export default {
   },
 
   create(duration, property, delay, easeFunction) {
-    duration = duration || '450ms';
+    duration = duration || '300ms';
     property = property || 'all';
     delay = delay || '0ms';
-    easeFunction = easeFunction || 'linear';
+    easeFunction = easeFunction || easing.easeInOut;
 
     return `${property} ${duration} ${easeFunction} ${delay}`;
   },

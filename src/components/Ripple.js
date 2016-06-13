@@ -25,8 +25,6 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
     zIndex: 0,
     overflow: 'hidden',
     transition: theme.transitions.easeOut('600ms', 'opacity'),
-    // fixes overflow:hidden with ripples in chrome/safari
-    WebkitMaskImage: 'url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC\')', // eslint-disable-line max-len
   },
   ripple: {
     width: 50,

@@ -17,6 +17,11 @@ export const styleSheet = createStyleSheet('Avatar', (theme) => {
       justifyContent: 'center',
       textAlign: 'center',
       borderRadius: '50%',
+      overflow: 'hidden',
+    },
+    img: {
+      maxWidth: '100%',
+      height: 'auto',
     },
   };
 });
@@ -93,25 +98,17 @@ export default class Avatar extends Component {
       cloneChildren = children;
     }
 
-    if (src) {
-      return (
-        <img
-          {...other}
-          src={src}
-          className={classNames}
-          style={Object.assign(styles.root, style)}
-        />
-      );
-    } else {
-      return (
-        <div
-          className={classNames}
-          style={Object.assign(styles.root, style)}
-          {...other}
-        >
-          {cloneChildren}
-        </div>
-      );
-    }
+    return (
+      <div
+        className={classNames}
+        style={Object.assign(styles.root, style)}
+        {...other}
+      >
+        {src && (
+          <img className={classes.img} src={src} />
+        )}
+        {cloneChildren}
+      </div>
+    );
   }
 }

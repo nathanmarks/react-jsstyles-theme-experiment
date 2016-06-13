@@ -50,15 +50,15 @@ export default class Demo extends Component {
 
     return (
       <div className={classes.base}>
-        <h4>Avatar</h4>
+        <h6>Avatar</h6>
         <div className={classes.components}>
           <div className={classes.componentRow}>
             <Avatar
-              src="https://avatars1.githubusercontent.com/nathanmarks?&s=40"
+              src="https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/73.jpg"
               className={classes.component}
             />
             <Avatar
-              src="https://avatars1.githubusercontent.com/nathanmarks?&s=30"
+              src="https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/48.jpg"
               size={30}
               className={classes.component}
             />
@@ -84,7 +84,7 @@ export default class Demo extends Component {
             </Avatar>
           </div>
         </div>
-        <h4>Raised Button</h4>
+        <h6>Raised Button</h6>
         <div className={classes.components}>
           <div className={classes.componentRow}>
             <Button className={classes.component} primary={true}>Primary</Button>
@@ -92,7 +92,7 @@ export default class Demo extends Component {
             <Button className={classes.component}>Default</Button>
           </div>
         </div>
-        <h4>Flat Button</h4>
+        <h6>Flat Button</h6>
         <div className={classes.components}>
           <div className={classes.componentRow}>
             <Button className={classes.component} type="flat" primary={true}>Primary</Button>
@@ -100,7 +100,7 @@ export default class Demo extends Component {
             <Button className={classes.component} type="flat">Default</Button>
           </div>
         </div>
-        <h4>Chip</h4>
+        <h6>Chip</h6>
         <div className={classes.componentRow}>
           <Chip className={classes.component}>Chips Ahoy!</Chip>
           <Chip

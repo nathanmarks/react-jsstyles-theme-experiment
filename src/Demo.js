@@ -17,6 +17,24 @@ export const styleSheet = createStyleSheet('Demo', (theme) => {
       fontFamily: typography.fontFamily,
       color: palette.text.primary,
     },
+    '@raw h1': {
+      ...typography.display4,
+    },
+    '@raw h2': {
+      ...typography.display3,
+    },
+    '@raw h3': {
+      ...typography.display2,
+    },
+    '@raw h4': {
+      ...typography.display1,
+    },
+    '@raw h5': {
+      ...typography.headline,
+    },
+    '@raw h6': {
+      ...typography.title,
+    },
   };
 });
 

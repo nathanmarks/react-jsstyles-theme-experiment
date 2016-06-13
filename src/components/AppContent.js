@@ -45,8 +45,26 @@ export default class Demo extends Component {
     styleManager: PropTypes.object.isRequired,
   };
 
+  state = {
+    hidden: true,
+  };
+
   render() {
     const classes = this.context.styleManager.render(styleSheet);
+
+    if (this.state.hidden) {
+      return (
+        <div className={classes.base}>
+          <Button
+            onClick={() => this.setState({hidden: false})}
+            className={classes.component}
+            primary={true}
+          >
+            Go go go!
+          </Button>
+        </div>
+      );
+    }
 
     return (
       <div className={classes.base}>

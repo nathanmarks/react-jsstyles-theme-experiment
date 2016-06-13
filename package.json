@@ -16,7 +16,7 @@
     "classnames": "^2.2.5",
     "lodash": "^4.13.1",
     "recompose": "^0.17.0",
-    "stylishly": "^0.2.0",
+    "stylishly": "^0.2.1",
     "stylishly-chained": "^0.2.0",
     "stylishly-descendants": "^0.2.0",
     "stylishly-pseudo-classes": "^0.2.0",

@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 // Helpers for debugging
-window.React = React;
-window.Perf = require('react-addons-perf');
+// window.React = React;
+// window.Perf = require('react-addons-perf');
 
 const rootEl = document.getElementById('app');
 

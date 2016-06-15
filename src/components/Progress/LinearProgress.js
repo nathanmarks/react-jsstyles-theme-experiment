@@ -86,10 +86,6 @@ class LinearProgress extends Component {
     styleManager: PropTypes.object.isRequired,
   };
 
-  componentWillMount() {
-    this.context.styleManager.attach(styleSheet);
-  }
-
   componentDidMount() {
     this.timers = {};
 
@@ -109,7 +105,6 @@ class LinearProgress extends Component {
   componentWillUnmount() {
     clearTimeout(this.timers.bar1);
     clearTimeout(this.timers.bar2);
-    this.context.styleManager.detach(styleSheet);
   }
 
   barUpdate(id, step, barElement, stepValues) {
@@ -147,7 +142,7 @@ class LinearProgress extends Component {
       ...other,
     } = this.props;
 
-    const classes = this.context.styleManager.getClasses(styleSheet);
+    const classes = this.context.styleManager.render(styleSheet);
 
     const classNames = ClassNames({
       [classes.base]: true,

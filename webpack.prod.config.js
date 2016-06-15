@@ -3,14 +3,10 @@ const webpack = require('webpack');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  debug: true,
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   context: path.resolve(__dirname),
   entry: {
     'main': [
-      'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
       './src/index',
     ],
   },
@@ -24,8 +20,21 @@ module.exports = {
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
     ],
   },
-  progress: true,
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+      output: {
+        comments: false,
+      },
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
   ],
 };

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node webpack.dev.server.js",
     "build": "babel ./src --ignore *.spec.js --out-dir ./lib",
+    "build:browser": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress --colors",
     "test": "cross-env NODE_ENV=test babel-node test/index.js",
     "test:coverage": "cross-env NODE_ENV=test babel-node ./node_modules/istanbul/lib/cli.js cover test/index.js",
     "test:watch": "cross-env NODE_ENV=test babel-node test/watch.js"

@@ -23,7 +23,6 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
     left: 0,
     top: 0,
     zIndex: 0,
-    overflow: 'hidden',
   },
   ripple: {
     width: 50,
@@ -33,7 +32,6 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
     opacity: 0,
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
-    overflow: 'hidden',
     borderRadius: '50%',
     background: 'currentColor',
     pointerEvents: 'none',
@@ -52,6 +50,7 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
 export default class Ripple extends Component {
 
   static propTypes = {
+    center: PropTypes.bool,
     className: PropTypes.string,
   };
 
@@ -86,7 +85,7 @@ export default class Ripple extends Component {
       let rippleY;
 
       // Check if we are handling a keyboard click.
-      if (event.clientX === 0 && event.clientY === 0) {
+      if (event.clientX === 0 && event.clientY === 0 || this.props.center) {
         rippleX = Math.round(rect.width / 2);
         rippleY = Math.round(rect.height / 2);
       } else {
@@ -102,10 +101,13 @@ export default class Ripple extends Component {
       this.rippleVisible = true;
       this.rippleStart = true;
 
-      const sizeX = Math.max(Math.abs(elem.clientWidth - rippleX), rippleX) * 2 + 2;
-      const sizeY = Math.max(Math.abs(elem.clientHeight - rippleY), rippleY) * 2 + 2;
-
-      this.rippleSize = Math.sqrt(Math.pow(sizeX, 2) + Math.pow(sizeY, 2));
+      if (this.props.center) {
+        this.rippleSize = (rect.width + rect.height) / 2;
+      } else {
+        const sizeX = Math.max(Math.abs(elem.clientWidth - rippleX), rippleX) * 2 + 2;
+        const sizeY = Math.max(Math.abs(elem.clientHeight - rippleY), rippleY) * 2 + 2;
+        this.rippleSize = Math.sqrt(Math.pow(sizeX, 2) + Math.pow(sizeY, 2));
+      }
 
       this.setState({
         rippleVisible: true,
@@ -129,18 +131,13 @@ export default class Ripple extends Component {
     const {rippleSize, rippleX, rippleY} = this;
 
     let scale;
-    const offset = `translate(${rippleX}px, ${rippleY}px)`;
-
-    // if (recentering) {
-    //   offset = 'translate(' + this.boundWidth / 2 + 'px, ' +
-    //     this.boundHeight / 2 + 'px)';
-    // }
 
     if (rippleStart) {
       scale = 'scale(0.0001, 0.0001)';
     } else {
       scale = 'scale(1, 1)';
     }
+    const offset = `translate(${rippleX}px, ${rippleY}px)`;
 
     const transformString = `translate(-50%, -50%) ${offset} ${scale}`;
 

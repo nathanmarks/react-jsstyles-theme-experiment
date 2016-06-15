@@ -3,7 +3,7 @@ import {createStyleSheet} from '../styles/styleSheet';
 import Button from './Button';
 import Chip from './Chip';
 import Avatar from './Avatar';
-import LinearProgress from './LinearProgress';
+import LinearProgress from './Progress/LinearProgress';
 import LinearProgressExampleDeterminate from './LinearProgressExampleDeterminate';
 import FileFolder from './svg-icons/file/folder';
 

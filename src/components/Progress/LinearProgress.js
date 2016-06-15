@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {createStyleSheet} from '../styles/styleSheet';
+import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
 
 function getRelativeValue(value, min, max) {

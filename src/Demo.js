@@ -1,7 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import AppBar from './components/AppBar';
-import AppContent from './components/AppContent';
+import Toolbar, {ToolbarTitle} from './components/Toolbar';
+import IconButton from './components/IconButton';
+import DemoContent from './components/DemoContent';
 
 export const styleSheet = createStyleSheet('Demo', (theme) => {
   const {palette, typography} = theme;
@@ -13,7 +15,7 @@ export const styleSheet = createStyleSheet('Demo', (theme) => {
       boxSizing: 'inherit',
     },
     '@raw body': {
-      background: palette.background,
+      background: palette.background.default,
       fontFamily: typography.fontFamily,
       color: palette.text.primary,
     },
@@ -53,9 +55,12 @@ export default class Demo extends Component {
     return (
       <div>
         <AppBar>
-          <span>Material-UI Style Experiment</span>
+          <Toolbar>
+            <IconButton>menu</IconButton>
+            <ToolbarTitle>Style Experiment</ToolbarTitle>
+          </Toolbar>
         </AppBar>
-        <AppContent />
+        <DemoContent />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
-import DeleteIcon from './svg-icons/navigation/cancel';
+import DeleteIcon from '../svg-icons/navigation/cancel';
 
 export const styleSheet = createStyleSheet('Chip', (theme) => {
   const {palette, shadows, transitions, typography} = theme;
@@ -9,7 +9,7 @@ export const styleSheet = createStyleSheet('Chip', (theme) => {
   return {
     base: {
       ...typography.chip,
-      display: 'inline-flex',
+      display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       height: 32,

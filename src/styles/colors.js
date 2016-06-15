@@ -11,20 +11,6 @@ export const fullWhite = 'rgba(255, 255, 255, 1)';
 export const darkWhite = 'rgba(255, 255, 255, 0.87)';
 export const lightWhite = 'rgba(255, 255, 255, 0.54)';
 
-export const darkText = {
-  primary: 'rgba(0, 0, 0, 0.87)',
-  secondary: 'rgba(0, 0, 0, 0.54)',
-  disabled: 'rgba(0, 0, 0, 0.38)',
-  divider: 'rgba(0, 0, 0, 0.12)',
-};
-
-export const lightText = {
-  primary: 'rgba(255, 255, 255, 1)',
-  secondary: 'rgba(255, 255, 255, 0.70)',
-  disabled: 'rgba(255, 255, 255, 0.50)',
-  divider: 'rgba(255, 255, 255, 0.12)',
-};
-
 export const red = {
   50: '#ffebee',
   100: '#ffcdd2',

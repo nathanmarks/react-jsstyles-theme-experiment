@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
-import Ripple, {createRippleHandler} from './Ripple';
+import {Ripple, createRippleHandler} from '../Animation';
 
 function createButtonColorRule(main, contrast, hover) {
   return {
@@ -23,7 +23,7 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
     base: {
       ...typography.button,
       position: 'relative',
-      display: 'inline-flex',
+      display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       minWidth: 88,

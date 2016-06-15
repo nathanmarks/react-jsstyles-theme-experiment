@@ -6,28 +6,34 @@ export const styleSheet = createStyleSheet('AppBar', (theme) => {
   const {palette, shadows} = theme;
 
   return {
-    base: {
+    root: {
       display: 'flex',
       alignItems: 'center',
       width: '100%',
-      height: 64,
       position: 'fixed',
       top: 0,
       left: 0,
-      padding: '0px 24px',
       boxShadow: shadows[4],
       backgroundColor: palette.primary[500],
       color: palette.getContrastText(palette.primary[500]),
-      fontSize: 20, // for demo purposes
-      fontWeight: 500, // for demo purposes
+      '& primary': {
+        backgroundColor: palette.primary[500],
+        color: palette.getContrastText(palette.primary[500]),
+      },
+      '& accent': {
+        backgroundColor: palette.accent.A200,
+        color: palette.getContrastText(palette.accent.A200),
+      },
     },
   };
 });
 
 export default class AppBar extends Component {
   static propTypes = {
+    accent: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
+    primary: PropTypes.bool,
   };
 
   static contextTypes = {
@@ -43,9 +49,7 @@ export default class AppBar extends Component {
 
     const classes = this.context.styleManager.render(styleSheet);
 
-    const classNames = ClassNames({
-      [classes.base]: true,
-    }, className);
+    const classNames = ClassNames(classes.root, className);
 
     return (
       <div className={classNames} {...other}>

@@ -13,25 +13,21 @@ export default function createTypography(palette, constants = defaultConstants) 
       fontSize: 112,
       fontWeight: constants.fontWeightLight,
       fontFamily: constants.fontFamily,
-      color: palette.text.secondary,
     },
     display3: {
       fontSize: 56,
       fontWeight: constants.fontWeightNormal,
       fontFamily: constants.fontFamily,
-      color: palette.text.secondary,
     },
     display2: {
       fontSize: 45,
       fontWeight: constants.fontWeightNormal,
       fontFamily: constants.fontFamily,
-      color: palette.text.secondary,
     },
     display1: {
       fontSize: 34,
       fontWeight: constants.fontWeightNormal,
       fontFamily: constants.fontFamily,
-      color: palette.text.secondary,
     },
     headline: {
       fontSize: 24,
@@ -62,13 +58,11 @@ export default function createTypography(palette, constants = defaultConstants) 
       fontSize: 12,
       fontWeight: constants.fontWeightNormal,
       fontFamily: constants.fontFamily,
-      color: palette.text.secondary,
     },
     chip: {
       fontSize: 13,
       fontWeight: constants.fontWeightNormal,
       fontFamily: constants.fontFamily,
-      color: palette.text.secondary,
     },
     button: {
       fontSize: 14,

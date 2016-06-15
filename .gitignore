@@ -2,7 +2,6 @@ node_modules
 npm-debug.log
 build
 lib
-dist
 coverage
 webpack-assets.json
 webpack-stats.json

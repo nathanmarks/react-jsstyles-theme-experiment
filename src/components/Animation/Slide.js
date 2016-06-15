@@ -1,23 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {createStyleSheet} from 'stylishly';
-import ClassNames from 'classnames';
 import Transition from 'react-overlays/lib/Transition';
-
-// const triggerBrowserReflow = (node) => node.offsetHeight;
-
-export const styleSheet = createStyleSheet('Slide', (theme) => {
-  return {
-    slideIn: {
-      transition: theme.transitions.create(),
-    },
-    right: {
-      transform: 'translate3d(-100%, 0, 0)',
-    },
-    in: {
-      transform: 'translate3d(0, 0, 0)',
-    },
-  };
-});
 
 export default class Slide extends Component {
   static propTypes = {
@@ -42,20 +24,39 @@ export default class Slide extends Component {
   };
 
   static contextTypes = {
-    styleManager: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
+  };
+
+  getTranslateValue() {
+    const x = this.props.direction === 'left' ? '100%' :
+      this.props.direction === 'right' ? '-100%' : '0';
+    const y = this.props.direction === 'up' ? '100%' :
+      this.props.direction === 'down' ? '-100%' : '0';
+    return `translate3d(${x}, ${y}, 0)`;
+  }
+
+  handleEnter = (element) => {
+    element.style.transform = this.getTranslateValue();
+    element.style.transition = this.context.theme.transitions.create();
+  };
+
+  handleEntering = (element) => {
+    element.style.transform = 'translate3d(0, 0, 0)';
+  };
+
+  handleExiting = (element) => {
+    element.style.transform = this.getTranslateValue();
   };
 
   render() {
-    const {active, children, className, direction, ...other} = this.props;
-    const classes = this.context.styleManager.render(styleSheet);
-    const classNames = ClassNames(classes.slideIn, classes[direction], className);
-    console.log(classes);
+    const {active, children, ...other} = this.props;
+
     return (
       <Transition
         in={active}
-        className={classNames}
-        enteredClassName={classes.in}
-        enteringClassName={classes.in}
+        onEnter={this.handleEnter}
+        onEntering={this.handleEntering}
+        onExiting={this.handleExiting}
         timeout={500}
         transitionAppear={true}
         {...other}

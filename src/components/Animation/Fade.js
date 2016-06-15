@@ -1,21 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {createStyleSheet} from 'stylishly';
-import ClassNames from 'classnames';
 import Transition from 'react-overlays/lib/Transition';
-
-// const triggerBrowserReflow = (node) => node.offsetHeight;
-
-export const styleSheet = createStyleSheet('Fade', (theme) => {
-  return {
-    fade: {
-      opacity: 0,
-      transition: theme.transitions.create(),
-    },
-    in: {
-      opacity: 1,
-    },
-  };
-});
 
 export default class Fade extends Component {
   static propTypes = {
@@ -27,10 +11,6 @@ export default class Fade extends Component {
      * Can be used, for instance, to render a letter inside the avatar.
      */
     children: PropTypes.node,
-    /**
-     * The CSS class name of the root element.
-     */
-    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -38,20 +18,32 @@ export default class Fade extends Component {
   };
 
   static contextTypes = {
-    styleManager: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
+  };
+
+  handleEnter = (element) => {
+    element.style.opacity = 0;
+    element.style.transition = this.context.theme.transitions.create();
+  };
+
+  handleEntering = (element) => {
+    element.style.opacity = 1;
+  };
+
+  handleExiting = (element) => {
+    element.style.opacity = 0;
   };
 
   render() {
-    const {active, children, className, ...other} = this.props;
-    const classes = this.context.styleManager.render(styleSheet);
-    const classNames = ClassNames(classes.fade, className);
+    const {active, children, ...other} = this.props;
+
 
     return (
       <Transition
         in={active}
-        className={classNames}
-        enteredClassName={classes.in}
-        enteringClassName={classes.in}
+        onEnter={this.handleEnter}
+        onEntering={this.handleEntering}
+        onExiting={this.handleExiting}
         timeout={500}
         transitionAppear={true}
         {...other}

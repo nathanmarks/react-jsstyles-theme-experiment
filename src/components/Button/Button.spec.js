@@ -14,7 +14,7 @@ describe('<Button />', () => {
 
   it('should render a primary color raised button', () => {
     const wrapper = shallowWithContext(
-      <Button type="raised" primary={true}>Hello World</Button>
+      <Button raised={true} primary={true}>Hello World</Button>
     );
     const classes = styleManager.getClasses(styleSheet);
     assert.ok(

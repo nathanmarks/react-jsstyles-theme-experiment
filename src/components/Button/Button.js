@@ -77,13 +77,13 @@ export default class Button extends Component {
     onTouchEnd: PropTypes.func,
     onTouchStart: PropTypes.func,
     primary: PropTypes.bool,
+    raised: PropTypes.bool,
     ripple: PropTypes.bool,
-    type: PropTypes.oneOf(['flat', 'raised']),
   };
 
   static defaultProps = {
     ripple: true,
-    type: 'raised',
+    raised: false,
   };
 
   static contextTypes = {
@@ -110,13 +110,12 @@ export default class Button extends Component {
       onTouchEnd, // eslint-disable-line no-unused-vars
       onTouchStart, // eslint-disable-line no-unused-vars
       primary,
+      raised,
       ripple,
-      type, // eslint-disable-line no-unused-vars
       ...other,
     } = this.props;
 
     const classes = this.context.styleManager.render(styleSheet);
-    const raised = type === 'raised';
 
     const classNames = ClassNames({
       [classes.base]: true,

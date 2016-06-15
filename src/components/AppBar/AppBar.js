@@ -8,7 +8,7 @@ export const styleSheet = createStyleSheet('AppBar', (theme) => {
   return {
     root: {
       display: 'flex',
-      alignItems: 'center',
+      flexDirection: 'column',
       width: '100%',
       position: 'fixed',
       top: 0,

@@ -3,23 +3,19 @@ import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
 import Paper from '../Paper';
 import Modal from '../internal/Modal';
+import Slide from '../Animation/Slide';
 
-export const styleSheet = createStyleSheet('Drawer', (theme) => {
-  const {transitions} = theme;
-
+export const styleSheet = createStyleSheet('Drawer', () => {
   return {
     paper: {
+      display: 'flex',
+      flexDirection: 'column',
       position: 'fixed',
       height: '100vh',
       width: '280px',
       flex: '1 0 280px',
-      transform: 'translate3d(-280px, 0, 0)',
-      transition: transitions.create('transform'),
       '&:focus': {
         outline: 'none',
-      },
-      '& open': {
-        transform: 'translate3d(0, 0, 0)',
       },
     },
   };
@@ -41,12 +37,14 @@ class Drawer extends Component {
      * The CSS class name of the paper element.
      */
     paperClassName: PropTypes.string,
+    transition: PropTypes.node,
     zDepth: PropTypes.number,
   };
 
   static defaultProps = {
     container: Modal,
     open: false,
+    transition: <Slide />,
   };
 
   static contextTypes = {
@@ -60,6 +58,7 @@ class Drawer extends Component {
       container,
       open,
       paperClassName,
+      transition,
       zDepth,
       ...other,
     } = this.props;
@@ -84,10 +83,12 @@ class Drawer extends Component {
       ...other,
     };
 
+    // return React.cloneElement(transition, {active: open}, drawer);
+
     return React.createElement(
       container,
       containerProps,
-      drawer
+      React.cloneElement(transition, {active: open}, drawer),
     );
   }
 }

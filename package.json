@@ -1,11 +1,11 @@
 {
-  "name": "react-jsstyles-experiment",
+  "name": "md-style",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node webpack.dev.server.js",
-    "build": "npm run test && cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress --colors -p",
+    "build": "babel ./src --ignore *.spec.js --out-dir ./lib",
     "test": "cross-env NODE_ENV=test babel-node test/index.js",
     "test:coverage": "cross-env NODE_ENV=test babel-node ./node_modules/istanbul/lib/cli.js cover test/index.js",
     "test:watch": "cross-env NODE_ENV=test babel-node test/watch.js"
@@ -19,7 +19,7 @@
     "recompose": "^0.17.0",
     "stylishly": "^0.2.1",
     "stylishly-chained": "^0.2.0",
-    "stylishly-descendants": "^0.2.0",
+    "stylishly-descendants": "^0.2.3",
     "stylishly-pseudo-classes": "^0.2.0",
     "stylishly-units": "^0.2.0",
     "stylishly-vendor-prefixer": "^0.2.1"

@@ -16,7 +16,8 @@ import {
 export const styleSheet = createStyleSheet('AppContent', (theme) => {
   return {
     base: {
-      margin: '128px 32px 0',
+      margin: '128px 24px 0',
+      width: '100%',
     },
     title: {
       ...theme.typography.title,
@@ -24,7 +25,9 @@ export const styleSheet = createStyleSheet('AppContent', (theme) => {
     componentRow: {
       display: 'flex',
       justifyContent: 'center',
-      marginBottom: 10,
+      flexWrap: 'wrap',
+      marginBottom: 20,
+      paddingBottom: 30,
     },
     components: {
       display: 'flex',
@@ -90,17 +93,17 @@ export default class Demo extends Component {
         <h3 className={classes.title}>Raised Button</h3>
         <div className={classes.components}>
           <div className={classes.componentRow}>
-            <Button className={classes.component} primary={true}>Primary</Button>
-            <Button className={classes.component} accent={true}>Accent</Button>
-            <Button className={classes.component}>Default</Button>
+            <Button className={classes.component} raised={true} primary={true}>Primary</Button>
+            <Button className={classes.component} raised={true} accent={true}>Accent</Button>
+            <Button className={classes.component} raised={true}>Default</Button>
           </div>
         </div>
         <h3 className={classes.title}>Flat Button</h3>
         <div className={classes.components}>
           <div className={classes.componentRow}>
-            <Button className={classes.component} type="flat" primary={true}>Primary</Button>
-            <Button className={classes.component} type="flat" accent={true}>Accent</Button>
-            <Button className={classes.component} type="flat">Default</Button>
+            <Button className={classes.component} primary={true}>Primary</Button>
+            <Button className={classes.component} accent={true}>Accent</Button>
+            <Button className={classes.component}>Default</Button>
           </div>
         </div>
         <h3 className={classes.title}>Chip</h3>

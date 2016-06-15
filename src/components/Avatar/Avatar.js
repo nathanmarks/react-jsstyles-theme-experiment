@@ -13,6 +13,7 @@ export const styleSheet = createStyleSheet('Avatar', (theme) => {
       backgroundColor: palette.grey[400],
       userSelect: 'none',
       display: 'flex',
+      flex: '0 0 auto',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',

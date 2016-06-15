@@ -1,18 +1,26 @@
 import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
-import Paper from 'src/components/Paper';
+import Paper from '../Paper';
+import Modal from '../internal/Modal';
 
 export const styleSheet = createStyleSheet('Drawer', (theme) => {
   const {transitions} = theme;
 
   return {
-    root: {
+    paper: {
+      position: 'fixed',
       height: '100vh',
       width: '280px',
       flex: '1 0 280px',
-      transform: 'translate3d(0, 0, 0)',
+      transform: 'translate3d(-280px, 0, 0)',
       transition: transitions.create('transform'),
+      '&:focus': {
+        outline: 'none',
+      },
+      '& open': {
+        transform: 'translate3d(0, 0, 0)',
+      },
     },
   };
 });
@@ -27,15 +35,18 @@ class Drawer extends Component {
      * The CSS class name of the root element.
      */
     className: PropTypes.string,
+    container: PropTypes.func,
+    open: PropTypes.bool,
     /**
-     * The CSS class name of the root element.
+     * The CSS class name of the paper element.
      */
     paperClassName: PropTypes.string,
     zDepth: PropTypes.number,
   };
 
   static defaultProps = {
-    permanent: false,
+    container: Modal,
+    open: false,
   };
 
   static contextTypes = {
@@ -46,6 +57,8 @@ class Drawer extends Component {
     const {
       children,
       className,
+      container,
+      open,
       paperClassName,
       zDepth,
       ...other,
@@ -53,19 +66,28 @@ class Drawer extends Component {
 
     const classes = this.context.styleManager.render(styleSheet);
 
-    return (
-      <div
-        className={ClassNames(classes.root, className)}
-        {...other}
+    const drawer = (
+      <Paper
+        zDepth={zDepth}
+        rounded={false}
+        className={ClassNames(classes.paper, {
+          [classes.open]: open,
+        }, paperClassName)}
       >
-        <Paper
-          zDepth={zDepth}
-          rounded={false}
-          className={paperClassName}
-        >
-          {children}
-        </Paper>
-      </div>
+        {children}
+      </Paper>
+    );
+
+    const containerProps = {
+      className,
+      open,
+      ...other,
+    };
+
+    return React.createElement(
+      container,
+      containerProps,
+      drawer
     );
   }
 }

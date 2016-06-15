@@ -36,7 +36,7 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
       overflow: 'hidden',
       color: palette.text.primary,
       backgroundColor: 'transparent',
-      transition: transitions.easeOut(),
+      transition: transitions.create(),
       '&:hover': {
         backgroundColor: palette.text.divider,
       },

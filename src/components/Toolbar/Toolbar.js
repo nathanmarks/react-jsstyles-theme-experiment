@@ -8,10 +8,12 @@ export const styleSheet = createStyleSheet('Toolbar', (theme) => {
       display: 'flex',
       alignItems: 'center',
       height: 56,
-      [theme.breakpoints.up('sm')]: {
+    }),
+    [theme.breakpoints.up('sm')]: {
+      root: {
         height: 64,
       },
-    }),
+    },
   };
 });
 

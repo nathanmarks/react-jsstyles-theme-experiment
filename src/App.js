@@ -1,11 +1,11 @@
 import React from 'react';
 import ThemeProvider from './styles/ThemeProvider';
-import Demo from './Demo';
+import AppFrame from './AppFrame';
 
 export default function App(props) {
   return (
     <ThemeProvider {...props}>
-      <Demo />
+      <AppFrame />
     </ThemeProvider>
   );
 }

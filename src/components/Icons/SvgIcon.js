@@ -12,7 +12,7 @@ export const styleSheet = createStyleSheet('SvgIcon', (theme) => {
       height: 24,
       width: 24,
       userSelect: 'none',
-      transition: transitions.easeOut(),
+      transition: transitions.create(),
     },
   };
 });

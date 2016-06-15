@@ -13,10 +13,13 @@ import {
   purple,
 } from '../styles/colors';
 
-export const styleSheet = createStyleSheet('AppContent', () => {
+export const styleSheet = createStyleSheet('AppContent', (theme) => {
   return {
     base: {
       margin: '128px 32px 0',
+    },
+    title: {
+      ...theme.typography.title,
     },
     componentRow: {
       display: 'flex',
@@ -50,7 +53,7 @@ export default class Demo extends Component {
 
     return (
       <div className={classes.base}>
-        <h6>Avatar</h6>
+        <h3 className={classes.title}>Avatar</h3>
         <div className={classes.components}>
           <div className={classes.componentRow}>
             <Avatar
@@ -84,7 +87,7 @@ export default class Demo extends Component {
             </Avatar>
           </div>
         </div>
-        <h6>Raised Button</h6>
+        <h3 className={classes.title}>Raised Button</h3>
         <div className={classes.components}>
           <div className={classes.componentRow}>
             <Button className={classes.component} primary={true}>Primary</Button>
@@ -92,7 +95,7 @@ export default class Demo extends Component {
             <Button className={classes.component}>Default</Button>
           </div>
         </div>
-        <h6>Flat Button</h6>
+        <h3 className={classes.title}>Flat Button</h3>
         <div className={classes.components}>
           <div className={classes.componentRow}>
             <Button className={classes.component} type="flat" primary={true}>Primary</Button>
@@ -100,7 +103,7 @@ export default class Demo extends Component {
             <Button className={classes.component} type="flat">Default</Button>
           </div>
         </div>
-        <h6>Chip</h6>
+        <h3 className={classes.title}>Chip</h3>
         <div className={classes.componentRow}>
           <Chip className={classes.component}>Chips Ahoy!</Chip>
           <Chip

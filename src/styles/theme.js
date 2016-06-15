@@ -6,6 +6,7 @@ import shadows from './shadows';
 import transitions from './transitions';
 import createTypography from './typography';
 import createBreakpoints from './breakpoints';
+import zIndex from './zIndex';
 import createMixins from './mixins';
 
 export function createMuiTheme(
@@ -22,6 +23,7 @@ export function createMuiTheme(
     transitions,
     mixins,
     breakpoints,
+    zIndex,
   }, ...more);
 
   if (!properties.hasOwnProperty('id')) {

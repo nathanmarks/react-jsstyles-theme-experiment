@@ -37,9 +37,9 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
     pointerEvents: 'none',
   },
   animating: {
-    transition: theme.transitions.easeOut(
-      '500ms',
+    transition: theme.transitions.multi(
       ['transform', 'opacity'],
+      '500ms',
     ),
   },
   visible: {

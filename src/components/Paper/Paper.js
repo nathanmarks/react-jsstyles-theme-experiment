@@ -14,7 +14,7 @@ export const styleSheet = createStyleSheet('Paper', (theme) => {
 
   return {
     root: {
-      backgroundColor: palette.paperBackground,
+      backgroundColor: palette.background.paper,
     },
     ...shadows,
   };

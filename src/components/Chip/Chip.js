@@ -21,7 +21,7 @@ export const styleSheet = createStyleSheet('Chip', (theme) => {
       borderRadius: 16,
       whiteSpace: 'nowrap',
       width: 'fit-content',
-      transition: transitions.easeOut(),
+      transition: transitions.create(),
     },
     clickable: {
       '&:active': {

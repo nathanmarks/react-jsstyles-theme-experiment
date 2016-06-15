@@ -25,7 +25,7 @@ export default function Paper(props, context) {
   const classes = context.styleManager.render(styleSheet);
 
   const classNames = ClassNames(classes.root, {
-    [`dp-${zDepth >= 0 || 0}`]: true,
+    [classes[`dp-${zDepth >= 0 ? zDepth : 0}`]]: true,
   }, className);
 
   return (

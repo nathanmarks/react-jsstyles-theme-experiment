@@ -37,14 +37,15 @@ class Drawer extends Component {
      * The CSS class name of the paper element.
      */
     paperClassName: PropTypes.string,
-    transition: PropTypes.node,
+    transition: PropTypes.any,
     zDepth: PropTypes.number,
   };
 
   static defaultProps = {
     container: Modal,
     open: false,
-    transition: <Slide />,
+    transition: Slide,
+    zDepth: 16,
   };
 
   static contextTypes = {
@@ -69,9 +70,7 @@ class Drawer extends Component {
       <Paper
         zDepth={zDepth}
         rounded={false}
-        className={ClassNames(classes.paper, {
-          [classes.open]: open,
-        }, paperClassName)}
+        className={ClassNames(classes.paper, paperClassName)}
       >
         {children}
       </Paper>
@@ -83,12 +82,10 @@ class Drawer extends Component {
       ...other,
     };
 
-    // return React.cloneElement(transition, {active: open}, drawer);
-
     return React.createElement(
       container,
       containerProps,
-      React.cloneElement(transition, {active: open}, drawer),
+      React.createElement(transition, {active: open}, drawer),
     );
   }
 }

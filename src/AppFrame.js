@@ -3,9 +3,8 @@ import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import AppBar from './components/AppBar';
 import Toolbar, {ToolbarTitle} from './components/Toolbar';
 import IconButton from './components/IconButton';
-import DemoContent from './components/DemoContent';
 import AppDrawer from './AppDrawer';
-import Slide from './components/Animation/Slide';
+import AppContent from './AppContent';
 
 export const styleSheet = createStyleSheet('AppFrame', (theme) => {
   const {palette, typography} = theme;
@@ -30,7 +29,7 @@ export const styleSheet = createStyleSheet('AppFrame', (theme) => {
 
 export default class AppFrame extends Component {
   static propTypes = {
-    children: PropTypes.any,
+    children: PropTypes.node,
   };
 
   static contextTypes = {
@@ -51,7 +50,7 @@ export default class AppFrame extends Component {
     return (
       <div className={classes.root}>
         <AppBar>
-          <Toolbar style={{justifyContent: 'flex-end'}}>
+          <Toolbar>
             <IconButton onClick={this.handleDrawerToggle}>menu</IconButton>
             <ToolbarTitle>Style Experiment</ToolbarTitle>
           </Toolbar>
@@ -60,8 +59,7 @@ export default class AppFrame extends Component {
           onRequestClose={this.handleDrawerClose}
           open={this.state.drawerOpen}
         />
-        <Slide><DemoContent /></Slide>
-
+        <AppContent>{this.props.children}</AppContent>
       </div>
     );
   }

@@ -49,6 +49,7 @@ export default class Slide extends Component {
     const {active, children, className, direction, ...other} = this.props;
     const classes = this.context.styleManager.render(styleSheet);
     const classNames = ClassNames(classes.slideIn, classes[direction], className);
+    console.log(classes);
     return (
       <Transition
         in={active}

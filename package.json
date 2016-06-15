@@ -19,7 +19,7 @@
     "react-overlays": "^0.6.3",
     "react-router": "^2.4.1",
     "recompose": "^0.17.0",
-    "stylishly": "^0.2.1",
+    "stylishly": "^0.2.2",
     "stylishly-chained": "^0.2.0",
     "stylishly-descendants": "^0.2.3",
     "stylishly-pseudo-classes": "^0.2.0",

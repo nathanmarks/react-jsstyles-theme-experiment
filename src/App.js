@@ -1,11 +1,11 @@
 import React from 'react';
 import ThemeProvider from './styles/ThemeProvider';
-import AppFrame from './AppFrame';
+import Router from './Router';
 
-export default function App(props) {
+export default function App() {
   return (
     <ThemeProvider>
-      <AppFrame {...props} />
+      <Router />
     </ThemeProvider>
   );
 }

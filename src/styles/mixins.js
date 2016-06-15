@@ -3,6 +3,8 @@ export default function createMixins(breakpoints) {
   function gutters(styles) {
     styles.paddingLeft = 16;
     styles.paddingRight = 16;
+    console.log('woof');
+    console.log(breakpoints.up('sm'));
     styles[breakpoints.up('sm')] = {
       paddingLeft: 24,
       paddingRight: 24,

@@ -1,7 +1,7 @@
 import {AppContainer} from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from './Router';
+import App from './App';
 
 // Helpers for debugging
 // window.React = React;
@@ -11,19 +11,19 @@ const rootEl = document.getElementById('app');
 
 ReactDOM.render(
   <AppContainer>
-    <Router />
+    <App />
   </AppContainer>,
   rootEl
 );
 
 if (module.hot) {
-  module.hot.accept('./Router', () => {
+  module.hot.accept('./App', () => {
     // If you use Webpack 2 in ES modules mode, you can
-    // use <Router /> here rather than require() a <NextApp />.
-    const NextRouter = require('./Router').default;
+    // use <App /> here rather than require() a <NextApp />.
+    const NextApp = require('./App').default;
     ReactDOM.render(
       <AppContainer>
-        <NextRouter />
+        <NextApp />
       </AppContainer>,
       rootEl
     );

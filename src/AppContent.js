@@ -20,6 +20,7 @@ export default class AppContent extends Component {
 
   render() {
     const classes = this.context.styleManager.render(styleSheet);
+    console.log(classes);
     return (
       <div className={classes.content} {...this.props} />
     );

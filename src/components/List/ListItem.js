@@ -18,7 +18,7 @@ export default class ListItem extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    el: PropTypes.string,
+    el: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   };
 
   static defaultProps = {

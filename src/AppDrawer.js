@@ -1,17 +1,14 @@
 import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
-import {List, ListItem} from './components/List';
+import {List, ListItem, ListItemIcon} from './components/List';
 import {Link} from 'react-router';
 import Drawer from './components/Drawer';
 import Divider from './components/Divider';
 
 export const styleSheet = createStyleSheet('AppDrawer', (theme) => {
   return {
-    root: {
-      display: 'flex',
-      alignItems: 'stretch',
-      minHeight: '100vh',
-      width: '100vw',
+    paper: {
+      width: '275px',
     },
     nav: {
       flex: '1 0 auto',
@@ -46,14 +43,14 @@ export default class AppDrawer extends Component {
     const classes = this.context.styleManager.render(styleSheet);
 
     return (
-      <Drawer {...this.props}>
+      <Drawer paperClassName={classes.paper} {...this.props}>
         <div className={classes.nav}>
           <List>
             <ListItem className={classes.navItem} el={Link} to="/inbox">
-              <span className="material-icons">inbox</span> Inbox
+              <ListItemIcon className="material-icons">inbox</ListItemIcon> Inbox
             </ListItem>
             <ListItem className={classes.navItem} el={Link} to="/starred">
-              <span className="material-icons">star</span> Starred
+              <ListItemIcon className="material-icons">star</ListItemIcon> Starred
             </ListItem>
           </List>
         </div>
@@ -61,7 +58,7 @@ export default class AppDrawer extends Component {
           <Divider />
           <List className={classes.nav}>
             <ListItem className={classes.navItem} el={Link} to="/inbox">
-              <span className="material-icons">eject</span> Sign Out
+              <ListItemIcon className="material-icons">eject</ListItemIcon> Sign Out
             </ListItem>
           </List>
           <div className={classes.copyright}>&copy;2016 HAL9000</div>

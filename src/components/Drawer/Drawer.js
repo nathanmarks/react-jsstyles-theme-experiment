@@ -12,8 +12,7 @@ export const styleSheet = createStyleSheet('Drawer', () => {
       flexDirection: 'column',
       position: 'fixed',
       height: '100vh',
-      width: '280px',
-      flex: '1 0 280px',
+      flex: '1 0 auto',
       '&:focus': {
         outline: 'none',
       },

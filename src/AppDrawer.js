@@ -2,8 +2,10 @@ import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import {List, ListItem, ListItemIcon} from './components/List';
 import {Link} from 'react-router';
+import Toolbar from './components/Toolbar';
 import Drawer from './components/Drawer';
 import Divider from './components/Divider';
+import Avatar from './components/Avatar';
 
 export const styleSheet = createStyleSheet('AppDrawer', (theme) => {
   return {
@@ -45,6 +47,18 @@ export default class AppDrawer extends Component {
     return (
       <Drawer paperClassName={classes.paper} {...this.props}>
         <div className={classes.nav}>
+          <Toolbar gutters={false}>
+            <ListItem className={classes.navItem}>
+              <ListItemIcon>
+                <Avatar
+                  src="https://s3.amazonaws.com/uifaces/faces/twitter/teleject/73.jpg"
+                  className={classes.component}
+                />
+              </ListItemIcon>
+              Chris Schmitt
+            </ListItem>
+            <Divider absolute={true} />
+          </Toolbar>
           <List>
             <ListItem className={classes.navItem} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">inbox</ListItemIcon> Inbox

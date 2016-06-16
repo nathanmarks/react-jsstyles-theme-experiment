@@ -9,6 +9,7 @@ export const styleSheet = createStyleSheet('ListItem', () => {
       alignItems: 'center',
       position: 'relative',
       padding: '8px 16px',
+      textDecoration: 'none',
     },
   };
 });

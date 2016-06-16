@@ -26,19 +26,19 @@ export default class Inbox extends Component {
       {
         from: 'Kekek',
         avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/73.jpg',
-        subject: 'Hello Nathan, check out these crazy links! KEK!',
+        subject: 'Hello Nathan, check out these crazy links!',
         msg: 'Integer a sagittis felis. Nam eget ullamcorper mi.',
       },
       {
-        from: 'xXv1g1l4nt3Xx',
+        from: 'polovecn',
         avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/polovecn/73.jpg',
-        subject: 'RE: last time we met at the pit of doom',
+        subject: 'RE: last time we met at the supermarket',
         msg: 'Pellentesque habitant morbi tristique senectus et netus ets egestas',
       },
       {
         from: 'Remy',
         avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/rem/73.jpg',
-        subject: 'have you seen my mutated children?',
+        subject: 'Proin quis velit ut libero aliquam?',
         msg: 'Mauris in elit eu erat tincidunt semper at id sem. Cum sociis natoque',
       },
     ];

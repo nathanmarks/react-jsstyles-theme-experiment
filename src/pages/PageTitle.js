@@ -6,6 +6,7 @@ export const styleSheet = createStyleSheet('PageTitle', (theme) => {
   return {
     root: {
       ...theme.typography.display2,
+      color: theme.palette.text.secondary,
     },
   };
 });

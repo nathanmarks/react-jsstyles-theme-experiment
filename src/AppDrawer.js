@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
+import ClassNames from 'classnames';
 import {List, ListItem, ListItemIcon} from './components/List';
 import {Link} from 'react-router';
 import Toolbar from './components/Toolbar';
@@ -17,6 +18,14 @@ export const styleSheet = createStyleSheet('AppDrawer', (theme) => {
       navItem: {
         ...theme.typography.body2,
         color: theme.palette.text.secondary,
+      },
+      navLink: {
+        '&:hover': {
+          backgroundColor: theme.palette.text.divider,
+        },
+        '&:active': {
+          color: theme.palette.accent.A200,
+        },
       },
     },
     footer: {
@@ -43,7 +52,7 @@ export default class AppDrawer extends Component {
 
   render() {
     const classes = this.context.styleManager.render(styleSheet);
-
+    const listLinkClass = ClassNames(classes.navItem, classes.navLink);
     return (
       <Drawer paperClassName={classes.paper} {...this.props}>
         <div className={classes.nav}>
@@ -60,28 +69,28 @@ export default class AppDrawer extends Component {
             <Divider absolute={true} />
           </Toolbar>
           <List>
-            <ListItem className={classes.navItem} el={Link} to="/inbox">
+            <ListItem className={listLinkClass} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">inbox</ListItemIcon> Inbox
             </ListItem>
-            <ListItem className={classes.navItem} el={Link} to="/inbox">
+            <ListItem className={listLinkClass} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">star</ListItemIcon> Starred
             </ListItem>
-            <ListItem className={classes.navItem} el={Link} to="/inbox">
+            <ListItem className={listLinkClass} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">send</ListItemIcon> Sent mail
             </ListItem>
-            <ListItem className={classes.navItem} el={Link} to="/inbox">
+            <ListItem className={listLinkClass} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">drafts</ListItemIcon> Drafts
             </ListItem>
           </List>
           <Divider />
           <List>
-            <ListItem className={classes.navItem} el={Link} to="/inbox">
+            <ListItem className={listLinkClass} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">email</ListItemIcon> All mail
             </ListItem>
-            <ListItem className={classes.navItem} el={Link} to="/inbox">
+            <ListItem className={listLinkClass} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">delete</ListItemIcon> Trash
             </ListItem>
-            <ListItem className={classes.navItem} el={Link} to="/inbox">
+            <ListItem className={listLinkClass} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">report</ListItemIcon> Spam
             </ListItem>
           </List>
@@ -89,7 +98,7 @@ export default class AppDrawer extends Component {
         <footer className={classes.footer}>
           <Divider />
           <List className={classes.nav}>
-            <ListItem className={classes.navItem} el={Link} to="/inbox">
+            <ListItem className={listLinkClass} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">eject</ListItemIcon> Sign Out
             </ListItem>
           </List>

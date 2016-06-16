@@ -13,11 +13,10 @@ import {
   purple,
 } from '../styles/colors';
 
-export const styleSheet = createStyleSheet('AppContent', (theme) => {
+export const styleSheet = createStyleSheet('DemoContent', (theme) => {
   return {
     base: {
-      margin: '128px 24px 0',
-      width: '100%',
+      margin: '128px 0',
     },
     title: {
       ...theme.typography.title,

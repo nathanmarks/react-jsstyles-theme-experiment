@@ -4,6 +4,7 @@ import {List, ListItem, ListItemText} from '../components/List';
 import Avatar from '../components/Avatar';
 import Paper from '../components/Paper';
 import Divider from '../components/Divider';
+import DemoContent from '../components/DemoContent';
 import PageTitle from './PageTitle';
 
 export const styleSheet = createStyleSheet('Inbox', () => {
@@ -60,6 +61,7 @@ export default class Inbox extends Component {
             ))}
           </List>
         </Paper>
+        <DemoContent />
       </div>
     );
   }

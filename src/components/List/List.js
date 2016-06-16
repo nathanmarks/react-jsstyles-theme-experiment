@@ -1,14 +1,36 @@
 import React, {Component, PropTypes} from 'react';
+import {createStyleSheet} from 'stylishly/lib/styleSheet';
+import ClassNames from 'classnames';
+
+export const styleSheet = createStyleSheet('List', () => {
+  return {
+    root: {
+      listStyle: 'none',
+      margin: 0,
+      padding: '8px 0',
+    },
+  };
+});
 
 export default class List extends Component {
-
   static propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
+    el: PropTypes.string,
+  };
+
+  static defaultProps = {
+    el: 'div',
+  };
+
+  static contextTypes = {
+    styleManager: PropTypes.object.isRequired,
   };
 
   render() {
-    return (
-      <ul>{this.props.children}</ul>
-    );
+    const {className, el, ...other} = this.props;
+    const classes = this.context.styleManager.render(styleSheet);
+    const classNames = ClassNames(classes.root, className);
+    return React.createElement(el, {className: classNames, ...other});
   }
 }

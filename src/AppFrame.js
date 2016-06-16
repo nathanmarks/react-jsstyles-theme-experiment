@@ -16,6 +16,7 @@ export const styleSheet = createStyleSheet('AppFrame', (theme) => {
       background: palette.background.default,
       fontFamily: typography.fontFamily,
       color: palette.text.primary,
+      lineHeight: '1.2',
       overflowX: 'hidden',
     },
     root: {
@@ -30,6 +31,7 @@ export const styleSheet = createStyleSheet('AppFrame', (theme) => {
 export default class AppFrame extends Component {
   static propTypes = {
     children: PropTypes.node,
+    routes: PropTypes.array,
   };
 
   static contextTypes = {
@@ -44,6 +46,16 @@ export default class AppFrame extends Component {
   handleDrawerClose = () => this.setState({drawerOpen: false});
   handleDrawerToggle = () => this.setState({drawerOpen: !this.state.drawerOpen});
 
+  getTitle() {
+    const {routes} = this.props;
+    for (let i = routes.length - 1; i >= 0; i--) {
+      if (routes[i].title) {
+        return routes[i].title;
+      }
+    }
+    return null;
+  }
+
   render() {
     const classes = this.context.styleManager.render(styleSheet);
 
@@ -52,7 +64,7 @@ export default class AppFrame extends Component {
         <AppBar>
           <Toolbar>
             <IconButton onClick={this.handleDrawerToggle}>menu</IconButton>
-            <ToolbarTitle>Style Experiment</ToolbarTitle>
+            <ToolbarTitle>{this.getTitle()}</ToolbarTitle>
           </Toolbar>
         </AppBar>
         <AppDrawer

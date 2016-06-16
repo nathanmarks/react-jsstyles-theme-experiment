@@ -4,11 +4,10 @@ import ClassNames from 'classnames';
 import DeleteIcon from '../svg-icons/navigation/cancel';
 
 export const styleSheet = createStyleSheet('Chip', (theme) => {
-  const {palette, shadows, transitions, typography} = theme;
-
+  const {palette, shadows, transitions} = theme;
   return {
     base: {
-      ...typography.chip,
+      fontSize: 13,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

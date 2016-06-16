@@ -2,26 +2,18 @@ import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
 
-export const styleSheet = createStyleSheet('ListItem', () => {
+export const styleSheet = createStyleSheet('Layout', () => {
   return {
     root: {
-      display: 'flex',
-      alignItems: 'center',
-      position: 'relative',
-      padding: '8px 16px',
+      maxWidth: 600,
     },
   };
 });
 
-export default class ListItem extends Component {
+export default class Layout extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    el: PropTypes.string,
-  };
-
-  static defaultProps = {
-    el: 'div',
   };
 
   static contextTypes = {
@@ -29,9 +21,11 @@ export default class ListItem extends Component {
   };
 
   render() {
-    const {className, el, ...other} = this.props;
+    const {className, ...other} = this.props;
     const classes = this.context.styleManager.render(styleSheet);
     const classNames = ClassNames(classes.root, className);
-    return React.createElement(el, {className: classNames, ...other});
+    return (
+      <div className={classNames} {...other}>{this.props.children}</div>
+    );
   }
 }

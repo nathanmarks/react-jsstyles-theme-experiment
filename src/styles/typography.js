@@ -58,11 +58,7 @@ export default function createTypography(palette, constants = defaultConstants) 
       fontSize: 12,
       fontWeight: constants.fontWeightNormal,
       fontFamily: constants.fontFamily,
-    },
-    chip: {
-      fontSize: 13,
-      fontWeight: constants.fontWeightNormal,
-      fontFamily: constants.fontFamily,
+      color: palette.text.secondary,
     },
     button: {
       fontSize: 14,

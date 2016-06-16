@@ -15,16 +15,20 @@ export const styleSheet = createStyleSheet('Paper', (theme) => {
   return {
     root: {
       backgroundColor: palette.background.paper,
+      '& rounded': {
+        borderRadius: '2px',
+      },
     },
     ...shadows,
   };
 });
 
 export default function Paper(props, context) {
-  const {className, zDepth, ...other} = props;
+  const {className, rounded, zDepth, ...other} = props;
   const classes = context.styleManager.render(styleSheet);
 
   const classNames = ClassNames(classes.root, {
+    [classes.rounded]: rounded,
     [classes[`dp-${zDepth >= 0 ? zDepth : 0}`]]: true,
   }, className);
 
@@ -35,7 +39,13 @@ export default function Paper(props, context) {
 
 Paper.propTypes = {
   className: PropTypes.string,
+  rounded: PropTypes.bool,
   zDepth: PropTypes.number,
+};
+
+Paper.defaultProps = {
+  rounded: true,
+  zDepth: 2,
 };
 
 Paper.contextTypes = {

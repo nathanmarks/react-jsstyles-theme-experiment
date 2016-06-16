@@ -5,6 +5,9 @@ export const styleSheet = createStyleSheet('AppContent', (theme) => {
   return {
     content: theme.mixins.gutters({
       paddingTop: 80,
+      flex: '1 1 100%',
+      maxWidth: 900,
+      margin: '0 auto',
     }),
   };
 });
@@ -20,7 +23,6 @@ export default class AppContent extends Component {
 
   render() {
     const classes = this.context.styleManager.render(styleSheet);
-    console.log(classes);
     return (
       <div className={classes.content} {...this.props} />
     );

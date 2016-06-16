@@ -9,20 +9,32 @@ export const styleSheet = createStyleSheet('Divider', (theme) => {
     root: {
       height: 1,
       marginTop: -1,
+      border: 'none',
       backgroundColor: palette.text.divider,
+    },
+    absolute: {
+      margin: 0,
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: '100%',
     },
   };
 });
 
 export default function Divider(props, context) {
-  const {className, ...other} = props;
+  const {absolute, className, ...other} = props;
   const classes = context.styleManager.render(styleSheet);
+  const classNames = ClassNames(classes.root, {
+    [classes.absolute]: absolute,
+  }, className);
   return (
-    <hr className={ClassNames(classes.root, className)} {...other} />
+    <hr className={classNames} {...other} />
   );
 }
 
 Divider.propTypes = {
+  absolute: PropTypes.bool,
   className: PropTypes.string,
 };
 

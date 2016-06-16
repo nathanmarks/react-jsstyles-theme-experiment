@@ -1,18 +1,18 @@
 import {hashHistory, Router as ReactRouter, Route, IndexRedirect} from 'react-router';
 import React, {Component} from 'react';
 import AppFrame from './AppFrame';
-import Home from './pages/Home';
+import Inbox from './pages/Inbox';
 
 export default class Router extends Component {
   render() {
     return (
       <ReactRouter history={hashHistory} {...this.props}>
         <Route title="MD Style Experiment" path="/" component={AppFrame}>
-          <IndexRedirect to="home" />
+          <IndexRedirect to="inbox" />
           <Route
-            path="home"
-            component={Home}
-            title="Home"
+            path="inbox"
+            component={Inbox}
+            title="Inbox"
           />
         </Route>
       </ReactRouter>

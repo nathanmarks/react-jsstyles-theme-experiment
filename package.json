@@ -8,7 +8,7 @@
     "build": "babel ./src --ignore *.spec.js --out-dir ./lib",
     "build:browser": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress --colors",
     "clean": "rimraf lib",
-    "pub:pages": "gco gh-pages && git rebase master && npm run build:browser && gaa && gc -m \"Update gh pages\" && gp -f && gcm",
+    "pub:pages": "git checkout gh-pages && git rebase master && npm run build:browser && git add -A . && git commit -m \"Update gh pages\" && git push -f && git checkout master",
     "test": "cross-env NODE_ENV=test babel-node test/index.js",
     "test:coverage": "cross-env NODE_ENV=test babel-node ./node_modules/istanbul/lib/cli.js cover test/index.js",
     "test:watch": "cross-env NODE_ENV=test babel-node test/watch.js"

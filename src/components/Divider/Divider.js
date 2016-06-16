@@ -8,7 +8,7 @@ export const styleSheet = createStyleSheet('Divider', (theme) => {
   return {
     root: {
       height: 1,
-      marginTop: -1,
+      margin: '0 -1px 0 0',
       border: 'none',
       backgroundColor: palette.text.divider,
     },

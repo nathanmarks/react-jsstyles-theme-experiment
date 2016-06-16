@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
 
-export const styleSheet = createStyleSheet('ListItemText', () => {
+export const styleSheet = createStyleSheet('ListItemIcon', () => {
   return {
     root: {
       flex: '0 0 40px',

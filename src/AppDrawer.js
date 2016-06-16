@@ -49,8 +49,26 @@ export default class AppDrawer extends Component {
             <ListItem className={classes.navItem} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">inbox</ListItemIcon> Inbox
             </ListItem>
-            <ListItem className={classes.navItem} el={Link} to="/starred">
+            <ListItem className={classes.navItem} el={Link} to="/inbox">
               <ListItemIcon className="material-icons">star</ListItemIcon> Starred
+            </ListItem>
+            <ListItem className={classes.navItem} el={Link} to="/inbox">
+              <ListItemIcon className="material-icons">send</ListItemIcon> Sent mail
+            </ListItem>
+            <ListItem className={classes.navItem} el={Link} to="/inbox">
+              <ListItemIcon className="material-icons">drafts</ListItemIcon> Drafts
+            </ListItem>
+          </List>
+          <Divider />
+          <List>
+            <ListItem className={classes.navItem} el={Link} to="/inbox">
+              <ListItemIcon className="material-icons">email</ListItemIcon> All mail
+            </ListItem>
+            <ListItem className={classes.navItem} el={Link} to="/inbox">
+              <ListItemIcon className="material-icons">delete</ListItemIcon> Trash
+            </ListItem>
+            <ListItem className={classes.navItem} el={Link} to="/inbox">
+              <ListItemIcon className="material-icons">report</ListItemIcon> Spam
             </ListItem>
           </List>
         </div>

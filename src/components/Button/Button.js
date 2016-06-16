@@ -52,6 +52,17 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
         boxShadow: shadows[8],
       },
     },
+    fab: {
+      borderRadius: '50%',
+      padding: 0,
+      minWidth: 0,
+      width: 56,
+      height: 56,
+      boxShadow: shadows[6],
+      '&:active': {
+        boxShadow: shadows[12],
+      },
+    },
     primary: createButtonColorRule(
       palette.primary[500],
       palette.getContrastText(palette.primary[500]),
@@ -70,6 +81,7 @@ export default class Button extends Component {
     accent: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
+    fab: PropTypes.bool,
     onBlur: PropTypes.func,
     onMouseDown: PropTypes.func,
     onMouseLeave: PropTypes.func,
@@ -103,6 +115,7 @@ export default class Button extends Component {
       accent,
       children,
       className,
+      fab,
       onBlur, // eslint-disable-line no-unused-vars
       onMouseDown, // eslint-disable-line no-unused-vars
       onMouseLeave, // eslint-disable-line no-unused-vars
@@ -119,7 +132,8 @@ export default class Button extends Component {
 
     const classNames = ClassNames({
       [classes.base]: true,
-      [classes.raised]: raised,
+      [classes.raised]: raised || fab,
+      [classes.fab]: fab,
       [classes.primary]: primary,
       [classes.accent]: accent,
     }, className);

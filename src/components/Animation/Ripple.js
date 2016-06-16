@@ -39,7 +39,7 @@ export const styleSheet = createStyleSheet('Ripple', (theme) => ({
   animating: {
     transition: theme.transitions.multi(
       ['transform', 'opacity'],
-      '500ms',
+      '550ms',
     ),
   },
   visible: {

@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import {List, ListItem, ListItemText} from '../components/List';
 import Avatar from '../components/Avatar';
+import Button from '../components/Button';
 import Paper from '../components/Paper';
 import Divider from '../components/Divider';
 import DemoContent from '../components/DemoContent';
@@ -11,6 +12,11 @@ export const styleSheet = createStyleSheet('Inbox', () => {
   return {
     example: {
       width: '100%',
+      fabsolute: {
+        position: 'fixed',
+        bottom: 20,
+        right: 20,
+      },
     },
   };
 });
@@ -45,9 +51,9 @@ export default class Inbox extends Component {
     ];
 
     return (
-      <div>
+      <div className={classes.example}>
         <PageTitle>Inbox</PageTitle>
-        <Paper className={classes.example} zDepth={2}>
+        <Paper zDepth={2}>
           <List>
             {items.map((item, index) => (
               <ListItem key={index}>
@@ -61,6 +67,9 @@ export default class Inbox extends Component {
             ))}
           </List>
         </Paper>
+        <Button className={classes.fabsolute} fab={true} accent={true}>
+          <span className="material-icons">add</span>
+        </Button>
         <DemoContent />
       </div>
     );

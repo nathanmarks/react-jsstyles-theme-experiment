@@ -16,11 +16,14 @@ export default class Slide extends Component {
      */
     className: PropTypes.string,
     direction: PropTypes.oneOf(['left', 'right', 'up', 'down']),
+    duration: PropTypes.number,
+    fade: PropTypes.bool,
   };
 
   static defaultProps = {
-    direction: 'right',
     active: false,
+    direction: 'right',
+    duration: 300,
   };
 
   static contextTypes = {
@@ -36,15 +39,24 @@ export default class Slide extends Component {
   }
 
   handleEnter = (element) => {
+    if (this.props.fade) {
+      element.style.opacity = 0;
+    }
     element.style.transform = this.getTranslateValue();
-    element.style.transition = this.context.theme.transitions.create();
+    element.style.transition = this.context.theme.transitions.create('all', `${this.props.duration}ms`);
   };
 
   handleEntering = (element) => {
+    if (this.props.fade) {
+      element.style.opacity = 1;
+    }
     element.style.transform = 'translate3d(0, 0, 0)';
   };
 
   handleExiting = (element) => {
+    if (this.props.fade) {
+      element.style.opacity = 0;
+    }
     element.style.transform = this.getTranslateValue();
   };
 

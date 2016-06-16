@@ -5,6 +5,10 @@ import Avatar from '../components/Avatar';
 import Button from '../components/Button';
 import Paper from '../components/Paper';
 import Divider from '../components/Divider';
+import Dialog from '../components/Dialog';
+import DialogTitle from '../components/Dialog/DialogTitle';
+import DialogContent from '../components/Dialog/DialogContent';
+import DialogActions from '../components/Dialog/DialogActions';
 import DemoContent from '../components/DemoContent';
 import PageTitle from './PageTitle';
 
@@ -24,6 +28,18 @@ export const styleSheet = createStyleSheet('Inbox', () => {
 export default class Inbox extends Component {
   static contextTypes = {
     styleManager: PropTypes.object.isRequired,
+  };
+
+  state = {
+    dialogOpen: false,
+  };
+
+  handleDialogOpen = () => {
+    this.setState({dialogOpen: true});
+  };
+
+  handleDialogClose = () => {
+    this.setState({dialogOpen: false});
   };
 
   render() {
@@ -67,10 +83,29 @@ export default class Inbox extends Component {
             ))}
           </List>
         </Paper>
-        <Button className={classes.fabsolute} fab={true} accent={true}>
+        <DemoContent />
+        <Button
+          onClick={this.handleDialogOpen}
+          className={classes.fabsolute}
+          fab={true}
+          accent={true}
+        >
           <span className="material-icons">add</span>
         </Button>
-        <DemoContent />
+        <Dialog
+          open={this.state.dialogOpen}
+          onRequestClose={this.handleDialogClose}
+        >
+          <DialogTitle>Use Google's location service?</DialogTitle>
+          <DialogContent>
+            Let Google help apps determine location. This means sending anonymous
+            location data to Google, even when no apps are running.
+          </DialogContent>
+          <DialogActions>
+            <Button primary={true} onClick={this.handleDialogClose}>No</Button>
+            <Button primary={true} onClick={this.handleDialogClose}>Yes</Button>
+          </DialogActions>
+        </Dialog>
       </div>
     );
   }

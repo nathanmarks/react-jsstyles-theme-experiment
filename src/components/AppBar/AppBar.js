@@ -15,6 +15,7 @@ export const styleSheet = createStyleSheet('AppBar', (theme) => {
       left: 0,
       boxShadow: shadows[4],
       backgroundColor: palette.primary[500],
+      zIndex: theme.zIndex.appBar,
       color: palette.getContrastText(palette.primary[500]),
       '& primary': {
         backgroundColor: palette.primary[500],

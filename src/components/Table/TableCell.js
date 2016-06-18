@@ -46,8 +46,6 @@ export default class TableCell extends Component {
     const {table, styleManager} = this.context;
     const classes = styleManager.render(styleSheet);
 
-    console.log(classes);
-
     const el = table && table.head ? 'th' : 'td';
 
     const classNames = ClassNames(classes.root, {

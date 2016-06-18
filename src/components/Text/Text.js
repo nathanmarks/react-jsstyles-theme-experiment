@@ -17,6 +17,11 @@ export const styleSheet = createStyleSheet('Text', (theme) => {
     body1: typography.body1,
     caption: typography.caption,
     button: typography.button,
+    noWrap: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    },
   };
 });
 
@@ -25,6 +30,7 @@ export default class Text extends Component {
     children: PropTypes.node,
     className: PropTypes.string,
     el: PropTypes.string,
+    noWrap: PropTypes.bool,
     type: PropTypes.string,
   };
 
@@ -38,9 +44,12 @@ export default class Text extends Component {
   };
 
   render() {
-    const {className, el, type, ...other} = this.props;
+    const {className, el, noWrap, type, ...other} = this.props;
     const classes = this.context.styleManager.render(styleSheet);
-    const classNames = ClassNames(classes.text, classes[type], className);
+    const classNames = ClassNames(classes.text, {
+      [classes[type]]: true,
+      [classes.noWrap]: noWrap,
+    }, className);
     return React.createElement(el, {className: classNames, ...other});
   }
 }

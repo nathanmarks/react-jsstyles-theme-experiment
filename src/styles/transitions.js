@@ -4,7 +4,7 @@ const easing = {
   easeInOut: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
   easeOut: 'cubic-bezier(0.0, 0.0, 0.2, 1)',
   easeIn: 'cubic-bezier(0.4, 0.0, 1, 1)',
-  sharp: 'cubic-bezier(0.4, 0.0, 0.6, 1)'
+  sharp: 'cubic-bezier(0.4, 0.0, 0.6, 1)',
 };
 
 export default {
@@ -16,7 +16,7 @@ export default {
       let transitions = '';
       for (let i = 0; i < property.length; i++) {
         if (transitions) transitions += ',';
-        transitions += this.create(duration, property[i], delay, easeFunction);
+        transitions += this.create(property[i], duration, delay, easeFunction);
       }
 
       return transitions;
@@ -32,5 +32,5 @@ export default {
     easeFunction = easeFunction || easing.easeInOut;
 
     return `${property} ${duration} ${easeFunction} ${delay}`;
-  }
+  },
 };

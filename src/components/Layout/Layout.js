@@ -5,7 +5,11 @@ import ClassNames from 'classnames';
 export const styleSheet = createStyleSheet('Layout', () => {
   return {
     root: {
-      maxWidth: 600,
+      display: 'flex',
+    },
+    grow: {
+      flexBasis: '100%',
+      flexGrow: 1,
     },
   };
 });
@@ -14,6 +18,7 @@ export default class Layout extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    grow: PropTypes.bool,
   };
 
   static contextTypes = {
@@ -21,11 +26,20 @@ export default class Layout extends Component {
   };
 
   render() {
-    const {className, ...other} = this.props;
+    const {
+      children,
+      className,
+      grow,
+      ...other,
+    } = this.props;
+
     const classes = this.context.styleManager.render(styleSheet);
-    const classNames = ClassNames(classes.root, className);
+    const classNames = ClassNames(classes.root, {
+      [classes.grow]: grow,
+    }, className);
+
     return (
-      <div className={classNames} {...other}>{this.props.children}</div>
+      <div className={classNames} {...other}>{children}</div>
     );
   }
 }

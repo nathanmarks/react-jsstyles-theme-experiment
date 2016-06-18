@@ -7,6 +7,9 @@ export const styleSheet = createStyleSheet('ToolbarTitle', (theme) => {
     root: {
       ...theme.typography.title,
       marginLeft: 24,
+      '&:first-child': {
+        marginLeft: 0,
+      },
     },
   };
 });

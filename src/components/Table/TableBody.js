@@ -2,37 +2,41 @@ import React, {Component, PropTypes} from 'react';
 import {createStyleSheet} from 'stylishly/lib/styleSheet';
 import ClassNames from 'classnames';
 
-export const styleSheet = createStyleSheet('ListItem', () => {
+export const styleSheet = createStyleSheet('TableBody', (theme) => {
   return {
     root: {
-      display: 'flex',
-      alignItems: 'center',
-      position: 'relative',
-      padding: '8px 16px',
-      textDecoration: 'none',
+      fontSize: 13,
+      color: theme.palette.text.primary,
     },
   };
 });
 
-export default class ListItem extends Component {
+export default class TableBody extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    el: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  };
-
-  static defaultProps = {
-    el: 'div',
   };
 
   static contextTypes = {
+    table: PropTypes.object,
     styleManager: PropTypes.object.isRequired,
   };
 
+  static childContextTypes = {table: PropTypes.object};
+
+  getChildContext() {
+    return {table: {body: true}};
+  }
+
   render() {
-    const {className, el, ...other} = this.props;
+    const {className, children, ...other} = this.props;
     const classes = this.context.styleManager.render(styleSheet);
     const classNames = ClassNames(classes.root, className);
-    return React.createElement(el, {className: classNames, ...other});
+
+    return (
+      <tbody className={classNames} {...other}>
+        {children}
+      </tbody>
+    );
   }
 }

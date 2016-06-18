@@ -2,6 +2,7 @@ import {hashHistory, Router as ReactRouter, Route, IndexRedirect} from 'react-ro
 import React, {Component} from 'react';
 import AppFrame from './AppFrame';
 import Inbox from './pages/Inbox';
+import Results from './pages/Results';
 
 export default class Router extends Component {
   render() {
@@ -13,6 +14,11 @@ export default class Router extends Component {
             path="inbox"
             component={Inbox}
             title="Inbox"
+          />
+          <Route
+            path="results"
+            component={Results}
+            title="Results"
           />
         </Route>
       </ReactRouter>

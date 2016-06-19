@@ -21,12 +21,14 @@
     "react-overlays": "^0.6.3",
     "react-router": "^2.4.1",
     "recompose": "^0.17.0",
-    "stylishly": "^0.2.2",
-    "stylishly-chained": "^0.2.0",
-    "stylishly-descendants": "^0.2.3",
-    "stylishly-pseudo-classes": "^0.2.0",
-    "stylishly-units": "^0.2.0",
-    "stylishly-vendor-prefixer": "^0.2.2"
+    "stylishly": "^0.3.0",
+    "stylishly-chained": "^0.3.0",
+    "stylishly-nested": "^0.3.0",
+    "stylishly-descendants": "^0.3.0",
+    "stylishly-pseudo-classes": "^0.3.0",
+    "stylishly-units": "^0.3.0",
+    "stylishly-vendor-prefixer": "^0.3.0",
+    "stylishly-media-queries": "^0.3.0"
   },
   "devDependencies": {
     "app-module-path": "^1.0.6",

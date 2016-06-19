@@ -7,6 +7,8 @@ import pseudoClasses from 'stylishly-pseudo-classes';
 import descendants from 'stylishly-descendants';
 import chained from 'stylishly-chained';
 import units from 'stylishly-units';
+import nested from 'stylishly-nested';
+import mediaQueries from 'stylishly-media-queries';
 
 export default class ThemeProvider extends Component {
   static propTypes = {
@@ -33,9 +35,11 @@ export default class ThemeProvider extends Component {
     this.styleManager = this.props.styleManager || createStyleManager({
       theme: this.theme,
       pluginRegistry: createPluginRegistry(
-        chained(),
+        nested(),
+        mediaQueries(),
         descendants(),
         pseudoClasses(),
+        chained(),
         units(),
         vendorPrefixer()
       ),
